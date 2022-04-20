@@ -22,9 +22,9 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
     
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Register");
+            primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
