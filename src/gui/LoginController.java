@@ -4,10 +4,6 @@
  */
 package gui;
 
-import entities.User;
-import entities.userSession;
-import static gui.RegisterController.cipher;
-import static gui.RegisterController.encrypt;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -70,14 +66,19 @@ public class LoginController implements Initializable {
                 
                 if(us.login(email.getText(), password.getText())){
                 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Welcome");
-                alert.setHeaderText("Welcome "+userSession.nom+" !");
-                if(userSession.isLoggedIn){
-                     alert.setContentText(userSession.email);
+               Stage primaryStage = new Stage();
+        
+                try {
+                    ((Stage) registerButton.getScene().getWindow()).close();
+                    Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                    Scene scene = new Scene(root);
+                    primaryStage.setTitle("PROTECH");
+                    primaryStage.setScene(scene);
+                    primaryStage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
                 }
-               
-                alert.show();
+     
                 }else
                 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

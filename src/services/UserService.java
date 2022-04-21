@@ -52,7 +52,7 @@ public class UserService implements IService {
     public boolean login(String email,String password){
        
         try { 
-           String req = "select nom,prenom,email,telephone,password from utilisateurs where email= '"
+           String req = "select id,nom,prenom,email,telephone,password from utilisateurs where email= '"
                    +email
                    + "' and password= '"
                    +password
@@ -65,7 +65,8 @@ public class UserService implements IService {
             
             while(rs.next()){
                 System.out.println("Success");
-                       
+                
+                userSession.id= rs.getInt("id");
                 userSession.nom = rs.getString("nom");
                 userSession.prenom = rs.getString("prenom");
                 userSession.email = rs.getString("email");
@@ -84,7 +85,26 @@ public class UserService implements IService {
         
     }
 
-    public void modifier(User t) {
+    public void modifier(User u) {
+        try {
+            String req = "update utilisateurs set nom='"+u.getNom()+"' ,prenom ='" +u.getPrenom() + "' ,telephone ='"
+                    +u.getTelephone()+"' ,email='"+ u.getEmail()+"' ,password='"+u.getPassword()+"' where id ="+userSession.id;
+            System.out.println(req);
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Account updated"); 
+            
+                
+                userSession.nom =u.getNom();
+                userSession.prenom = u.getPrenom();
+                userSession.email = u.getEmail();
+                userSession.telephone = u.getTelephone();
+                userSession.password =u.getPassword();
+                
+                
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
