@@ -4,6 +4,7 @@
  */
 package services;
 
+import entities.Personne;
 import entities.User;
 import entities.userSession;
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import javax.crypto.Cipher;
@@ -32,11 +34,7 @@ public class UserService implements IService {
 
     public void ajouter(User u) {
          try {
-//              String req = "insert into utilisateurs(nom,prenom,email,telephone,password)"
-//                    + "values( '" + u.getNom() + "', '" + u.getPrenom() + "',"
-//                    + "" + u.getEmail() + ")";
-//             System.out.println(req);
-             
+
            String req = "insert into utilisateurs(nom,prenom,email,telephone,password,role)"
                     + "values( '" +u.getNom() + "','" + u.getPrenom() + "',"+ "'" + u.getEmail() + "',"
                     + "'" +u.getTelephone() + "'," + "'" + u.getPassword()+ "'," 
@@ -45,6 +43,7 @@ public class UserService implements IService {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Account created");
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -114,7 +113,44 @@ public class UserService implements IService {
 
     @Override
     public List recuperer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<User> users = new ArrayList<>();
+        try {
+            String req = "select * from utilisateurs";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getInt(1));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setEmail(rs.getString("email"));
+                u.setTelephone(rs.getString("telephone"));
+                
+                switch (rs.getString("role")) {
+                    case "[]":
+                        u.setRole("USER");
+                        break;
+                    case "["+"'ROLE_ADMIN'"+"]":
+                        u.setRole("ADMIN");
+                        break;
+                    case "["+"'ROLE_LIV'"+"]":
+                        u.setRole("LIVREUR");
+                        break;
+                    case "["+"'ROLE_COMM'"+"]":
+                        u.setRole("COMMERCANT");
+                        break;
+                    default:
+                        break;
+                }
+                
+
+                users.add(u);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return users;
     }
 
     @Override

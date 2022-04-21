@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -50,6 +51,8 @@ public class RegisterController implements Initializable {
     private PasswordField confirmpassword;
     @FXML
     private Hyperlink loginButton;
+    @FXML
+    private Button registerButton;
 
     /**
      * Initializes the controller class.
@@ -117,9 +120,19 @@ public class RegisterController implements Initializable {
                 UserService us = new UserService();
                 String encryptedText = encrypt(password.getText(), secretKey);
                 
-                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),password.getText());
+                User u = new User(nom.getText(),prenom.getText(),"[]",email.getText(),telephone.getText(),password.getText());
                 
                 us.ajouter(u);
+                
+//                Stage primaryStage = new Stage();
+//                 ((Stage) registerButton.getScene().getWindow()).close();
+//                    Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+//                    Scene scene = new Scene(root);
+//                    primaryStage.setTitle("PROTECH");
+//                    primaryStage.setScene(scene);
+//                    primaryStage.show();
+                    
+                    
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Success");
                 alert.setContentText("Account Created");

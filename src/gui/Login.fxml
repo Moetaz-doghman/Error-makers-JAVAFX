@@ -26,20 +26,20 @@
    <center>
       <AnchorPane prefHeight="644.0" prefWidth="428.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="email" layoutX="177.0" layoutY="259.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="password" layoutX="177.0" layoutY="326.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
-            <Label layoutX="73.0" layoutY="265.0" prefHeight="17.0" prefWidth="70.0" text="Email" />
-            <Label layoutX="73.0" layoutY="331.0" prefHeight="17.0" prefWidth="58.0" text="Password" />
-            <Button layoutX="192.0" layoutY="403.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE" />
+            <TextField fx:id="email" layoutX="188.0" layoutY="316.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="password" layoutX="188.0" layoutY="383.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <Label layoutX="84.0" layoutY="322.0" prefHeight="17.0" prefWidth="70.0" text="Email" />
+            <Label layoutX="84.0" layoutY="388.0" prefHeight="17.0" prefWidth="58.0" text="Password" />
+            <Button layoutX="203.0" layoutY="460.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE" />
             <Hyperlink fx:id="registerButton" layoutX="61.0" layoutY="521.0" onAction="#register" text="New account?" />
-            <Label layoutX="143.0" layoutY="57.0" prefHeight="48.0" prefWidth="173.0" text="Login" textAlignment="CENTER" textFill="#0598ff">
+            <Label layoutX="154.0" layoutY="114.0" prefHeight="48.0" prefWidth="173.0" text="Login" textAlignment="CENTER" textFill="#0598ff">
                <font>
                   <Font name="System Bold" size="65.0" />
                </font>
             </Label>
-            <FontAwesomeIconView glyphName="KEY" layoutX="147.0" layoutY="346.0" size="20" />
-            <FontAwesomeIconView glyphName="USER" layoutX="150.0" layoutY="280.0" size="20" />
-            <FontAwesomeIconView glyphName="USERS" layoutX="203.0" layoutY="207.0" size="50"/>
+            <FontAwesomeIconView glyphName="KEY" layoutX="158.0" layoutY="403.0" size="20" />
+            <FontAwesomeIconView glyphName="USER" layoutX="161.0" layoutY="337.0" size="20" />
+            <FontAwesomeIconView glyphName="USERS" layoutX="214.0" layoutY="264.0" size="50" />
          </children>
       </AnchorPane>
    </center>

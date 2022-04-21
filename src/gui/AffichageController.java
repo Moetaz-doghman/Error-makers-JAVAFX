@@ -5,6 +5,7 @@
 package gui;
 
 import entities.Personne;
+import entities.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -20,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import services.PersonneService;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -29,37 +31,38 @@ import services.PersonneService;
 public class AffichageController implements Initializable {
 
     @FXML
-    private TableView<Personne> tableview;
+    private TableView<User> tableview;
     @FXML
-    private TableColumn<Personne, String> nom;
+    private TableColumn<User, String> nom;
     @FXML
-    private TableColumn<Personne, String> prenom;
+    private TableColumn<User, String> prenom;
     @FXML
-    private TableColumn<Personne, Integer> age;
+    private TableColumn<User, Integer> id;
+    @FXML
+    private TableColumn<User, String> email;
+    @FXML
+    private TableColumn<User, String> telephone;
+    @FXML
+    private TableColumn<User, String> role;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        PersonneService ps = new PersonneService();
-        List<Personne> personnes = ps.recuperer();
-        ObservableList list = FXCollections.observableArrayList(personnes);
+        UserService ps = new UserService();
+        List<User> users = ps.recuperer();
+        ObservableList list = FXCollections.observableArrayList(users);
         tableview.setItems(list);
+        
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        telephone.setCellValueFactory(new PropertyValueFactory<>("telephone"));
+        role.setCellValueFactory(new PropertyValueFactory<>("role"));
     }    
 
-    @FXML
-    private void Details(ActionEvent event) {
-        Personne p = tableview.getSelectionModel().getSelectedItem();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Details.fxml"));
-        try {
-            Parent root = loader.load();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+    
     
 }
