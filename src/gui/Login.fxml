@@ -37,13 +37,9 @@
                   <Font name="System Bold" size="65.0" />
                </font>
             </Label>
-            <FontAwesomeIconView glyphName="USERS" layoutX="192.0" layoutY="207.0" size="50" wrappingWidth="43.928571701049805">
-               <font>
-                  <Font size="1.0" />
-               </font>
-            </FontAwesomeIconView>
             <FontAwesomeIconView glyphName="KEY" layoutX="147.0" layoutY="346.0" size="20" />
             <FontAwesomeIconView glyphName="USER" layoutX="150.0" layoutY="280.0" size="20" />
+            <FontAwesomeIconView glyphName="USERS" layoutX="203.0" layoutY="207.0" size="50"/>
          </children>
       </AnchorPane>
    </center>

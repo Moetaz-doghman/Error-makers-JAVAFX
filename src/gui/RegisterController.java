@@ -117,7 +117,7 @@ public class RegisterController implements Initializable {
                 UserService us = new UserService();
                 String encryptedText = encrypt(password.getText(), secretKey);
                 
-                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),encryptedText);
+                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),password.getText());
                 
                 us.ajouter(u);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -173,14 +173,6 @@ public class RegisterController implements Initializable {
         return encryptedText;
     }
 
-    public static String decrypt(String encryptedText, SecretKey secretKey)
-            throws Exception {
-        Base64.Decoder decoder = Base64.getDecoder();
-        byte[] encryptedTextByte = decoder.decode(encryptedText);
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decryptedByte = cipher.doFinal(encryptedTextByte);
-        String decryptedText = new String(decryptedByte);
-        return decryptedText;
-    }
+   
     
 }

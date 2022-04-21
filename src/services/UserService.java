@@ -5,6 +5,7 @@
 package services;
 
 import entities.User;
+import entities.userSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,25 +50,38 @@ public class UserService implements IService {
         }
     }
     public boolean login(String email,String password){
+       
         try { 
-           String req = "select * from utilisateurs where email='"+email+"'"+ " and password='"+email+"'";
+           String req = "select nom,prenom,email,telephone,password from utilisateurs where email= '"
+                   +email
+                   + "' and password= '"
+                   +password
+                   +"'";
+           
             System.out.println(req);
-            PreparedStatement pst=cnx.prepareStatement(req);
             
-            ResultSet rs = pst.executeQuery(req);
-            if(rs.next()){
-                System.out.println("Password and Email does not matches");
-                return false;
-            }else{
+            PreparedStatement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
                 System.out.println("Success");
-                return true;
+                       
+                userSession.nom = rs.getString("nom");
+                userSession.prenom = rs.getString("prenom");
+                userSession.email = rs.getString("email");
+                userSession.telephone = rs.getString("telephone");
+                userSession.password = rs.getString("password");
+                userSession.isLoggedIn=true;
                 
+                return true;
             }
- 
+
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
+           System.out.println(ex.getMessage());
+           
         }
+        return false;
+        
     }
 
     public void modifier(User t) {
@@ -98,17 +112,8 @@ public class UserService implements IService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-     public String encrypt(String plainText, SecretKey secretKey)
-            throws Exception {
-        byte[] plainTextByte = plainText.getBytes();
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encryptedByte = cipher.doFinal(plainTextByte);
-        Base64.Encoder encoder = Base64.getEncoder();
-        String encryptedText = encoder.encodeToString(encryptedByte);
-        return encryptedText;
-    }
      
-      public String decrypt(String encryptedText, SecretKey secretKey)
+      public static String decrypt(String encryptedText, SecretKey secretKey)
             throws Exception {
         Base64.Decoder decoder = Base64.getDecoder();
         byte[] encryptedTextByte = decoder.decode(encryptedText);

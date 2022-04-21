@@ -4,6 +4,8 @@
  */
 package gui;
 
+import entities.User;
+import entities.userSession;
 import static gui.RegisterController.cipher;
 import static gui.RegisterController.encrypt;
 import java.io.IOException;
@@ -53,23 +55,38 @@ public class LoginController implements Initializable {
     @FXML
     private void Login(ActionEvent event) throws Exception {
         
-        KeyGenerator keyGenerator;
+        
              try {
+                KeyGenerator keyGenerator;
                 keyGenerator = KeyGenerator.getInstance("AES");
                 keyGenerator.init(128); // block size is 128bits
                 SecretKey secretKey = keyGenerator.generateKey();
                  
                 cipher = Cipher.getInstance("AES");
-                UserService us = new UserService();  
+                
+                UserService us = new UserService(); 
+                
                 String encryptedPassword = encrypt(password.getText(), secretKey);
-                if(us.login(email.getText(), encryptedPassword)){
-                    
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Success");
-                alert.setContentText("Login Success");
+                
+                if(us.login(email.getText(), password.getText())){
+                
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Welcome");
+                alert.setHeaderText("Welcome "+userSession.nom+" !");
+                if(userSession.isLoggedIn){
+                     alert.setContentText(userSession.email);
+                }
+               
+                alert.show();
+                }else
+                {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Login Failed");
                 alert.show();
                     
                 }
+ 
                 } catch (NoSuchAlgorithmException ex) {
                  System.out.println(ex.getMessage());
              }
@@ -104,15 +121,8 @@ public class LoginController implements Initializable {
         String encryptedText = encoder.encodeToString(encryptedByte);
         return encryptedText;
     }
+    
 
-    public static String decrypt(String encryptedText, SecretKey secretKey)
-            throws Exception {
-        Base64.Decoder decoder = Base64.getDecoder();
-        byte[] encryptedTextByte = decoder.decode(encryptedText);
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decryptedByte = cipher.doFinal(encryptedTextByte);
-        String decryptedText = new String(decryptedByte);
-        return decryptedText;
-    }
+   
 
 }
