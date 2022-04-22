@@ -11,6 +11,7 @@ package entities;
 public class User {
     private int id ;
     private String nom,prenom,role,email,telephone,password;
+    private boolean isActive=true;
 
     public User(int id, String nom, String prenom, String role, String email, String telephone, String password) {
         this.id = id;
@@ -91,6 +92,15 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+    
 
     @Override
     public String toString() {

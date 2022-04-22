@@ -11,6 +11,6 @@ package entities;
 public class userSession {
     public static int id;
     public static String nom,prenom,email,telephone,password;
-    public static boolean isLoggedIn= false;
+    public static boolean isLoggedIn= false,isActive;
     
 }

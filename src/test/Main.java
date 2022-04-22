@@ -5,21 +5,24 @@
  */
 package test;
 
-import entities.Personne;
-import services.PersonneService;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import services.UserService;
 
 /**
  *
  * @author Skander
  */
 public class Main {
+    
 
     public static void main(String[] args) {
-        Personne p = new Personne(1, 19, "Ben Arous", "Mourouj");
-        PersonneService ps = new PersonneService();
-        System.out.println(ps.recuperer());
         
-         
+       
 
     }
 }

@@ -7,8 +7,6 @@ package gui;
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,9 +20,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
 import services.UserService;
 
 /**
@@ -34,7 +29,6 @@ import services.UserService;
  */
 public class RegisterController implements Initializable {
     
-    static Cipher cipher; 
 
     
     @FXML
@@ -110,30 +104,23 @@ public class RegisterController implements Initializable {
          
         else
         {
-        KeyGenerator keyGenerator;
-             try {
-                keyGenerator = KeyGenerator.getInstance("AES");
-                keyGenerator.init(128); // block size is 128bits
-                SecretKey secretKey = keyGenerator.generateKey();
-                 
-                cipher = Cipher.getInstance("AES");
+     
                 UserService us = new UserService();
-                String encryptedText = encrypt(password.getText(), secretKey);
-                
-                User u = new User(nom.getText(),prenom.getText(),"[]",email.getText(),telephone.getText(),password.getText());
+     
+                User u = new User(nom.getText(),prenom.getText(),"[\"ROLE_USER\"]",email.getText(),telephone.getText(),password.getText());
                 
                 us.ajouter(u);
                 
-//                Stage primaryStage = new Stage();
-//                 ((Stage) registerButton.getScene().getWindow()).close();
-//                    Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-//                    Scene scene = new Scene(root);
-//                    primaryStage.setTitle("PROTECH");
-//                    primaryStage.setScene(scene);
-//                    primaryStage.show();
+                Stage primaryStage = new Stage();
+                ((Stage) registerButton.getScene().getWindow()).close();
+                    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    Scene scene = new Scene(root);
+                    primaryStage.setTitle("PROTECH");
+                    primaryStage.setScene(scene);
+                    primaryStage.show();
                     
                     
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setContentText("Account Created");
                 alert.show();
@@ -146,12 +133,9 @@ public class RegisterController implements Initializable {
                 password.clear();
                 confirmpassword.clear();
                 
-//                String decryptedText = decrypt(encryptedText, secretKey);
-//                System.out.println("Decrypted Text After Decryption: " + decryptedText);
+
                  
-             } catch (NoSuchAlgorithmException ex) {
-                 System.out.println(ex.getMessage());
-             }
+             
         
          }
     }
@@ -173,18 +157,7 @@ public class RegisterController implements Initializable {
         }
         
     }
-    
-    
-    
-    public static String encrypt(String plainText, SecretKey secretKey)
-            throws Exception {
-        byte[] plainTextByte = plainText.getBytes();
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encryptedByte = cipher.doFinal(plainTextByte);
-        Base64.Encoder encoder = Base64.getEncoder();
-        String encryptedText = encoder.encodeToString(encryptedByte);
-        return encryptedText;
-    }
+   
 
    
     

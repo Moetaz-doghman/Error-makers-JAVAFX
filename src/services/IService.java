@@ -11,10 +11,10 @@ import java.util.List;
  *
  * @author Skander
  */
-public interface IService<T> {
-    void ajouter(T t);
-    void modifier(T t);
+public interface IService<U> {
+    void ajouter(U t);
+    void modifier(U t);
     void supprimer(int id);
-    List<T> recuperer();
-    T recuperer(int id);
+    List<U> recuperer();
+    U recuperer(int id);
 }

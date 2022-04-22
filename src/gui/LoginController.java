@@ -4,10 +4,9 @@
  */
 package gui;
 
+import entities.userSession;
 import java.io.IOException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,9 +19,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
 import services.UserService;
 
 /**
@@ -31,7 +27,6 @@ import services.UserService;
  * @author skanderzouaoui
  */
 public class LoginController implements Initializable {
-    static Cipher cipher;
 
     @FXML
     private TextField email;
@@ -50,25 +45,23 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Login(ActionEvent event) throws Exception {
-        
-        
-             try {
-                KeyGenerator keyGenerator;
-                keyGenerator = KeyGenerator.getInstance("AES");
-                keyGenerator.init(128); // block size is 128bits
-                SecretKey secretKey = keyGenerator.generateKey();
-                 
-                cipher = Cipher.getInstance("AES");
-                
+         
                 UserService us = new UserService(); 
                 
-                String encryptedPassword = encrypt(password.getText(), secretKey);
-                
-                if(us.login(email.getText(), password.getText())){
-                
-               Stage primaryStage = new Stage();
-        
-                try {
+                Stage primaryStage = new Stage();
+                 
+               if(us.login(email.getText(), password.getText())){
+                   if(userSession.isActive == false){
+                     
+                    //Alert
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("Sorry your account is blocked");
+                    alert.show();
+                    password.clear();
+   
+                   }else{
+                       try {
                     ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
                     Scene scene = new Scene(root);
@@ -78,19 +71,18 @@ public class LoginController implements Initializable {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
-     
+                       
+                   }
+
                 }else
                 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Login Failed");
+                alert.setContentText("Login Failed, Email or Password is invalid");
                 alert.show();
                     
                 }
  
-                } catch (NoSuchAlgorithmException ex) {
-                 System.out.println(ex.getMessage());
-             }
         
 
     }
@@ -111,19 +103,5 @@ public class LoginController implements Initializable {
         }
     }
         
-    
-    
-    public static String encrypt(String plainText, SecretKey secretKey)
-            throws Exception {
-        byte[] plainTextByte = plainText.getBytes();
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encryptedByte = cipher.doFinal(plainTextByte);
-        Base64.Encoder encoder = Base64.getEncoder();
-        String encryptedText = encoder.encodeToString(encryptedByte);
-        return encryptedText;
-    }
-    
-
-   
 
 }

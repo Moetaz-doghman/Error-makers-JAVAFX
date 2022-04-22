@@ -56,14 +56,48 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void Update(ActionEvent event) {
+         if ((prenom.getText().length()==0)||(nom.getText().length()==0) 
+                 || (email.getText().length()==0)|| (telephone.getText().length()==0) 
+                 ||(password.getText().length()==0)){
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("Please fill all the fields");
+        alert.show();
+        }
+        else if((!email.getText().contains("@")) && (!email.getText().contains("."))){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("Please enter a valid Email");
+        alert.show();
+                }
+        else if((telephone.getText().length()!=8)  ||  ( telephone.getText().startsWith("1")) 
+        ||  ( telephone.getText().startsWith("3")) ||  ( telephone.getText().startsWith("6"))
+        ||  ( telephone.getText().startsWith("8"))
+
+        ){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("Please enter a valid Phone");
+        alert.show();
+                }
+        else if( (password.getText().length()<6 )){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("password must be at least 6 characters long");
+        alert.show();
+        }
+         
+        else
+        {
                 User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),password.getText());
                 UserService us = new UserService();
                 us.modifier(u);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setContentText("Account Updated");
                 alert.show();
-           
+        }
     }
 
     @FXML

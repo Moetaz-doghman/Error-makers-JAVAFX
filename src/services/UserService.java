@@ -4,7 +4,6 @@
  */
 package services;
 
-import entities.Personne;
 import entities.User;
 import entities.userSession;
 import java.sql.Connection;
@@ -13,33 +12,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
 import util.MyDB;
 
 /**
  *
  * @author skanderzouaoui
  */
-public class UserService implements IService {
+public class UserService {
     Connection cnx;
-    static Cipher cipher; 
 
     public UserService() {
         cnx = MyDB.getInstance().getConnection();
     }
 
-
     public void ajouter(User u) {
          try {
 
-           String req = "insert into utilisateurs(nom,prenom,email,telephone,password,role)"
+           String req = "insert into utilisateurs(nom,prenom,email,telephone,password,role,isActive)"
                     + "values( '" +u.getNom() + "','" + u.getPrenom() + "',"+ "'" + u.getEmail() + "',"
                     + "'" +u.getTelephone() + "'," + "'" + u.getPassword()+ "'," 
-                    + "'" + u.getRole()+ "')";
-            //System.out.println(req);
+                    + "'" + u.getRole()+ "',"+1+")";
+            System.out.println(req);
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Account created");
@@ -51,11 +45,11 @@ public class UserService implements IService {
     public boolean login(String email,String password){
        
         try { 
-           String req = "select id,nom,prenom,email,telephone,password from utilisateurs where email= '"
+           String req = "select id,nom,prenom,email,telephone,password,isActive from utilisateurs where email= '"
                    +email
                    + "' and password= '"
-                   +password
-                   +"'";
+                   +password+"'";
+                   //+"' and isActive="+1;
            
             System.out.println(req);
             
@@ -71,6 +65,8 @@ public class UserService implements IService {
                 userSession.email = rs.getString("email");
                 userSession.telephone = rs.getString("telephone");
                 userSession.password = rs.getString("password");
+                userSession.isActive = rs.getBoolean("isActive");
+                
                 userSession.isLoggedIn=true;
                 
                 return true;
@@ -83,7 +79,6 @@ public class UserService implements IService {
         return false;
         
     }
-
     public void modifier(User u) {
         try {
             String req = "update utilisateurs set nom='"+u.getNom()+"' ,prenom ='" +u.getPrenom() + "' ,telephone ='"
@@ -106,12 +101,11 @@ public class UserService implements IService {
         }
     }
 
-    @Override
+    
     public void supprimer(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
     public List recuperer() {
         List<User> users = new ArrayList<>();
         try {
@@ -128,16 +122,16 @@ public class UserService implements IService {
                 u.setTelephone(rs.getString("telephone"));
                 
                 switch (rs.getString("role")) {
-                    case "[]":
+                    case "[\"ROLE_USER\"]":
                         u.setRole("USER");
                         break;
-                    case "["+"'ROLE_ADMIN'"+"]":
+                    case "[\"ROLE_ADMIN\"]":
                         u.setRole("ADMIN");
                         break;
-                    case "["+"'ROLE_LIV'"+"]":
+                    case "[\"ROLE_LIV\"]":
                         u.setRole("LIVREUR");
                         break;
-                    case "["+"'ROLE_COMM'"+"]":
+                    case "[\"ROLE_COMM\"]":
                         u.setRole("COMMERCANT");
                         break;
                     default:
@@ -153,32 +147,47 @@ public class UserService implements IService {
         return users;
     }
 
-    @Override
-    public Object recuperer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    public User recuperer(int id) {
+        User u = new User();
+        try {
+            String req = "select * from utilisateurs where id="+id;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
 
-    @Override
-    public void ajouter(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+            while (rs.next()) {
+                
+                u.setId(rs.getInt(1));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setEmail(rs.getString("email"));
+                u.setTelephone(rs.getString("telephone"));
+                
+                switch (rs.getString("role")) {
+                    case "[\"ROLE_USER\"]":
+                        u.setRole("USER");
+                        break;
+                    case "[\"ROLE_ADMIN\"]":
+                        u.setRole("ADMIN");
+                        break;
+                    case "[\"ROLE_LIV\"]":
+                        u.setRole("LIVREUR");
+                        break;
+                    case "[\"ROLE_COMM\"]":
+                        u.setRole("COMMERCANT");
+                        break;
+                    default:
+                        break;
+                }
+                       
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return u;
+                
 
-    @Override
-    public void modifier(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
-    
-     
-      public static String decrypt(String encryptedText, SecretKey secretKey)
-            throws Exception {
-        Base64.Decoder decoder = Base64.getDecoder();
-        byte[] encryptedTextByte = decoder.decode(encryptedText);
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decryptedByte = cipher.doFinal(encryptedTextByte);
-        String decryptedText = new String(decryptedByte);
-        return decryptedText;
-    }
-    
-    
-    
+   
 }
