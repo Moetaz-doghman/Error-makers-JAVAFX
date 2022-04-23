@@ -64,7 +64,7 @@ public class UserService {
                 userSession.prenom = rs.getString("prenom");
                 userSession.email = rs.getString("email");
                 userSession.telephone = rs.getString("telephone");
-                userSession.password = rs.getString("password");
+                userSession.password = password;
                 userSession.isActive = rs.getBoolean("isActive");
                 
                 userSession.isLoggedIn=true;

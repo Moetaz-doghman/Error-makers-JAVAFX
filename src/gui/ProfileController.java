@@ -8,6 +8,7 @@ import entities.User;
 import entities.userSession;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,18 +48,21 @@ public class ProfileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Base64.Decoder decoder = Base64.getDecoder();
+        byte[]  pass = decoder.decode(userSession.password);
+        
         nom.setText(userSession.nom);
         prenom.setText(userSession.prenom);
         email.setText(userSession.email);
         telephone.setText(userSession.telephone);
-        password.setText(userSession.password);
+        password.setText(new String(pass));
     }    
 
     @FXML
     private void Update(ActionEvent event) {
          if ((prenom.getText().length()==0)||(nom.getText().length()==0) 
-                 || (email.getText().length()==0)|| (telephone.getText().length()==0) 
-                 ||(password.getText().length()==0)){
+                || (email.getText().length()==0)|| (telephone.getText().length()==0) 
+                ||(password.getText().length()==0)){
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -90,7 +94,11 @@ public class ProfileController implements Initializable {
          
         else
         {
-                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),password.getText());
+                
+                Base64.Encoder encoder = Base64.getEncoder();
+                String pass = encoder.encodeToString(password.getText().getBytes());
+                
+                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),pass);
                 UserService us = new UserService();
                 us.modifier(u);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

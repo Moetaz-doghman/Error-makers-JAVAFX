@@ -7,6 +7,8 @@ package gui;
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
+import java.util.Base64.Encoder;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -106,9 +108,10 @@ public class RegisterController implements Initializable {
         {
      
                 UserService us = new UserService();
+                Encoder encoder = Base64.getEncoder();
+                String pass = encoder.encodeToString(password.getText().getBytes());
      
-                User u = new User(nom.getText(),prenom.getText(),"[\"ROLE_USER\"]",email.getText(),telephone.getText(),password.getText());
-                
+                User u = new User(nom.getText(),prenom.getText(),"[\"ROLE_USER\"]",email.getText(),telephone.getText(),pass);  
                 us.ajouter(u);
                 
                 Stage primaryStage = new Stage();

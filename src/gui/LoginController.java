@@ -7,6 +7,7 @@ package gui;
 import entities.userSession;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,11 +47,15 @@ public class LoginController implements Initializable {
     @FXML
     private void Login(ActionEvent event) throws Exception {
          
-                UserService us = new UserService(); 
+                UserService us = new UserService();
+                
+                Base64.Encoder encoder = Base64.getEncoder();
+                String pass = encoder.encodeToString(password.getText().getBytes());
+                
                 
                 Stage primaryStage = new Stage();
                  
-               if(us.login(email.getText(), password.getText())){
+               if(us.login(email.getText(), pass)){
                    if(userSession.isActive == false){
                      
                     //Alert

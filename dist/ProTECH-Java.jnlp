@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProTECH-Java.jar" size="30163" download="eager" />
+    <jar href="ProTECH-Java.jar" size="28392" download="eager" />
     <jar href="lib/fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
   </resources>
