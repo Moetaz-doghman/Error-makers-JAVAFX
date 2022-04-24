@@ -72,13 +72,13 @@ public class RegisterController implements Initializable {
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setContentText("Please fill all the fields");
+        alert.setHeaderText("Please fill all the fields");
         alert.show();
         }
         else if((!email.getText().contains("@")) && (!email.getText().contains("."))){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setContentText("Please enter a valid Email");
+        alert.setHeaderText("Please enter a valid Email");
         alert.show();
                 }
         else if((telephone.getText().length()!=8)  ||  ( telephone.getText().startsWith("1")) 
@@ -88,19 +88,19 @@ public class RegisterController implements Initializable {
         ){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setContentText("Please enter a valid Phone");
+        alert.setHeaderText("Please enter a valid Phone");
         alert.show();
                 }
         else if(!confirmpassword.getText().equals(password.getText())){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setContentText("Passwords do NOT match");
+        alert.setHeaderText("Passwords do NOT match");
         alert.show();
         }
         else if( (password.getText().length()<6 )){
             Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setContentText("password must be at least 6 characters long");
+        alert.setHeaderText("password must be at least 6 characters long");
         alert.show();
         }
          
@@ -125,7 +125,7 @@ public class RegisterController implements Initializable {
                     
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
-                alert.setContentText("Account Created");
+                alert.setHeaderText("Account Created");
                 alert.show();
                 
                 

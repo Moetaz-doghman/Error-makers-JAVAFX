@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.MyDB;
 
 /**
@@ -45,7 +47,7 @@ public class UserService {
     public boolean login(String email,String password){
        
         try { 
-           String req = "select id,nom,prenom,email,telephone,password,isActive from utilisateurs where email= '"
+           String req = "select id,nom,prenom,email,telephone,role,password,isActive from utilisateurs where email= '"
                    +email
                    + "' and password= '"
                    +password+"'";
@@ -64,6 +66,7 @@ public class UserService {
                 userSession.prenom = rs.getString("prenom");
                 userSession.email = rs.getString("email");
                 userSession.telephone = rs.getString("telephone");
+                userSession.role=rs.getString("role");
                 userSession.password = password;
                 userSession.isActive = rs.getBoolean("isActive");
                 
@@ -102,8 +105,27 @@ public class UserService {
     }
 
     
-    public void supprimer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Bloquer(int id) {
+        try {
+            String req = "update utilisateurs set isActive= "+0+" where id ="+id;
+            System.out.println(req);
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+     public void Debloquer(int id) {
+        try {
+            String req = "update utilisateurs set isActive= "+1+" where id ="+id;
+            System.out.println(req);
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 
     public List recuperer() {
@@ -120,6 +142,11 @@ public class UserService {
                 u.setPrenom(rs.getString("prenom"));
                 u.setEmail(rs.getString("email"));
                 u.setTelephone(rs.getString("telephone"));
+                if(rs.getBoolean("isActive")){
+                    u.setIsActive("Active");                
+                }else{
+                    u.setIsActive("Blocked"); 
+                }
                 
                 switch (rs.getString("role")) {
                     case "[\"ROLE_USER\"]":
@@ -137,8 +164,6 @@ public class UserService {
                     default:
                         break;
                 }
-                
-
                 users.add(u);
             }
         } catch (SQLException ex) {

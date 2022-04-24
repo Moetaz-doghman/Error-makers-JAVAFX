@@ -10,8 +10,8 @@ package entities;
  */
 public class User {
     private int id ;
-    private String nom,prenom,role,email,telephone,password;
-    private boolean isActive=true;
+    private String nom,prenom,role,email,telephone,password,isActive;
+    
 
     public User(int id, String nom, String prenom, String role, String email, String telephone, String password) {
         this.id = id;
@@ -93,13 +93,15 @@ public class User {
         this.password = password;
     }
 
-    public boolean isIsActive() {
+    public String getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean isActive) {
+    public void setIsActive(String isActive) {
         this.isActive = isActive;
     }
+
+    
     
 
     @Override

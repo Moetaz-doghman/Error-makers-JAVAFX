@@ -61,11 +61,25 @@ public class LoginController implements Initializable {
                     //Alert
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
-                    alert.setContentText("Sorry your account is blocked");
+                    alert.setHeaderText("Sorry your account is blocked");
+                    
                     alert.show();
                     password.clear();
    
-                   }else{
+                   }else if(userSession.role.equals("[\"ROLE_ADMIN\"]")){
+                        try {
+                    ((Stage) registerButton.getScene().getWindow()).close();
+                    Parent root = FXMLLoader.load(getClass().getResource("ListUsers.fxml"));
+                    Scene scene = new Scene(root);
+                    primaryStage.setTitle("PROTECH");
+                    primaryStage.setScene(scene);
+                    primaryStage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                       
+                   }
+                   else{
                        try {
                     ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
@@ -83,7 +97,7 @@ public class LoginController implements Initializable {
                 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("Login Failed, Email or Password is invalid");
+                alert.setHeaderText("Login Failed, Email or Password is invalid");
                 alert.show();
                     
                 }

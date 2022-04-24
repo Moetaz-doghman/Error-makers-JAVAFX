@@ -10,7 +10,7 @@ package entities;
  */
 public class userSession {
     public static int id;
-    public static String nom,prenom,email,telephone,password;
+    public static String nom,prenom,email,telephone,password,role;
     public static boolean isLoggedIn= false,isActive;
     
 }
