@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/Style.css</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/LigneController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/IProduit.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/FXMLLoader.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/CommandeCrud.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/entity/Lignecommande.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/entity/Product.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/entity/Categorie.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/NewFXMain.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/home.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/homeController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/IJoueur.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/NewFXMain1.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/AppController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/entity/Commande.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/JoueurCrud.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/ICommande.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/ILigne.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/LigneCommande.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/EController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/JoueurController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/entity/Cart.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/LigneCrud.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/CommandeController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/FrontJoueurController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/CategorieController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/cart-ui.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/ProduitCrud.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/utils/Myconnexion.java</file>
+        </group>
+    </open-files>
+</project-private>
