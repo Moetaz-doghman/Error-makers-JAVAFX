@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
                    }else if(userSession.role.equals("[\"ROLE_ADMIN\"]")){
                         try {
                     ((Stage) registerButton.getScene().getWindow()).close();
-                    Parent root = FXMLLoader.load(getClass().getResource("ListUsers.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("UsersList.fxml"));
                     Scene scene = new Scene(root);
                     primaryStage.setTitle("PROTECH");
                     primaryStage.setScene(scene);

@@ -173,10 +173,11 @@ public class UserService {
     }
 
     
-    public User recuperer(int id) {
+    public List rechercher(String input) {
+        List<User> users = new ArrayList<>();
         User u = new User();
         try {
-            String req = "select * from utilisateurs where id="+id;
+            String req = "select * from utilisateurs where email='"+input+"' OR nom= '"+input+"' OR prenom= '"+input+"'";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
 
@@ -204,12 +205,13 @@ public class UserService {
                     default:
                         break;
                 }
+                 users.add(u);
                        
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return u;
+        return users;
                 
 
         

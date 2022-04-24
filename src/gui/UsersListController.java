@@ -30,7 +30,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -41,7 +40,7 @@ import services.UserService;
  *
  * @author skanderzouaoui
  */
-public class ListUsersController implements Initializable {
+public class UsersListController implements Initializable {
 
      @FXML
     private TableView<User> tableview;
@@ -60,6 +59,8 @@ public class ListUsersController implements Initializable {
     private Button logoutButton;
     @FXML
     private TableColumn<User, ?> etatCompte;
+    @FXML
+    private Button listUserButton;
 
     /**
      * Initializes the controller class.
@@ -90,9 +91,7 @@ public class ListUsersController implements Initializable {
         
     }
 
-    @FXML
-    private void rechercher(KeyEvent event) {
-    }
+    
 
     @FXML
     private void Logout(ActionEvent event) {
@@ -203,6 +202,24 @@ public class ListUsersController implements Initializable {
         tableview.getColumns().add(actionCol);
 
     }
+
+    @FXML
+    private void ListUser(ActionEvent event) {
+                Stage primaryStage = new Stage();
+
+        try {
+            ((Stage) listUserButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("ListUsers.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+
     
     
     
