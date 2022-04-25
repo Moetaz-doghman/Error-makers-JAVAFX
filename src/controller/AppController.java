@@ -237,7 +237,7 @@ public class AppController implements Initializable {
         {
         Label label3 = new Label("Your cart is empty");
        // label3.setPadding(new Insets(5,5,5,5));
-        productGridPane.getChildren().add(label3);
+        box.getChildren().add(label3);
         }
         else 
         {   
@@ -248,112 +248,106 @@ public class AppController implements Initializable {
           
           for(Product p : liste)
             {
-             HBox content = new HBox(); 
-             
-             //VBox content = new VBox();
-//             Label productName = new Label(p.getProduct_name());
-//            content.getChildren().add(productName);
-//       FileInputStream input = new FileInputStream("Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/ressource/"+o.getImg());
-//        Image image = new Image(input);
-//        ImageView imageView = new ImageView(image);
-//        imageView.setFitWidth(50);
-//        imageView.setFitHeight(50);
+                 try {
+                     HBox content = new HBox();
 
-//             File file=new File("Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/ressource/"+p.getImg());
-//            Image image = new Image(file.toURI().toString());
-//                // Image image = new Image( file);
-//            ImageView ImageView = new ImageView(image);
-        
-       // Label productName = new Label(cartEntry.getC().getProdut());
-        Label productName = new Label(p.getProduct_name());
-        productName.setPrefWidth(150);
-        productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
-        
-        Label quantityValue = new Label(Integer.toString(p.getQuantity()));
-        quantityValue.setStyle("-fx-padding:5px");
-        
-       Button additionquantity = new Button("+");
-        additionquantity.setStyle("-fx-padding:8px");
-      //  plusButton.setUserData(p.getProduct_name());
-     
-     Button substractquantity = new Button("-");     
-        substractquantity.setStyle("-fx-padding:8px");
-        
-        Button remove= new Button("Remove");
+                    HBox image2 = cartyEntryView(p);
+                    image2.setPrefWidth(80);
 
-        
-        Label price = new Label(Double.toString(p.getPrice()*p.getQuantity()));
-        price.setStyle("-fx-padding:8px");
-        
-         content.getChildren().addAll(productName,additionquantity,quantityValue,substractquantity,price,remove);
-        box.getChildren().add(content);
-          additionquantity.setOnAction(event -> {
+                    Label productName = new Label(p.getProduct_name());
+                    productName.setPrefWidth(300);
+                    productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
+
+                    Label quantityValue = new Label(Integer.toString(p.getQuantity()));
+                    quantityValue.setStyle("-fx-padding:5px");
+
+                    Button additionquantity = new Button("+");
+                    additionquantity.setStyle("-fx-padding:8px");
+                    //  plusButton.setUserData(p.getProduct_name());
+
+                    Button substractquantity = new Button("-");
+                    substractquantity.setStyle("-fx-padding:8px");
+
+                    Button remove= new Button("Remove");
                     
-                    if(p.getQuantity()<=p.getStock()-1){
-                     //   substractquantity.setE(true);
-                    double test = Double.parseDouble(totalPriceLabel.getText());
-                    
-                    int quantity = p.getQuantity()+1;
-                    p.setQuantity(quantity);
-                    quantityValue.setText(Integer.toString(p.getQuantity()));
-                    price.setText(Double.toString(p.getQuantity()*p.getPrice()));
-                    totalPriceLabel.setText(Double.toString(test+p.getPrice()));
-                    }
-                    else{
-                       // additionquantity.setEnabled(false);
-                    }
-                    
-                });
-        
-         remove.setOnAction(event -> {
-            Cart.instance.RemoveProduct(p);
-            Parent root;
-            try {
-                root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/cart-ui.fxml"));
-                navCart.getScene().setRoot(root);
-            } catch (IOException ex) {
-                Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, ex);
-            }                   
-            });
-         
-          substractquantity.setOnAction(event -> {
-                    if(p.getQuantity()>=2){
-                      //  additionquantity.setEnabled(true);
-                        double test = Double.parseDouble(totalPriceLabel.getText());
-                    
-                    int quantity = p.getQuantity()-1;
-                    p.setQuantity(quantity);
-                    quantityValue.setText(Integer.toString(p.getQuantity()));
-                    price.setText(Double.toString(p.getQuantity()*p.getPrice()));
-                    totalPriceLabel.setText(Double.toString(test-p.getPrice()));
-                    }
-                    else{
-                     //   substractquantity.setEnabled(false);
-                    }
-                });
-
-        
-      
-
-       
-            
 
 
-               
-          
-            
-            }
-          
-          Separator separator = new Separator();
-          separator.setOrientation(Orientation.HORIZONTAL);
-          box.getChildren().add(separator);
-        
-        
-        HBox totalView = totalView(Cart.getInstance().total());
-        box.getChildren().add(totalView);
-        
-          box.setSpacing(80);
-          item.setSpacing(80);
+                    Label price = new Label(Double.toString(p.getPrice()*p.getQuantity()));
+                    price.setPrefWidth(100);
+                    price.setStyle("-fx-padding:8px");
+
+                    content.getChildren().addAll(image2,productName,additionquantity,quantityValue,substractquantity,price,remove);
+                    box.getChildren().add(content);
+                    additionquantity.setOnAction(event -> {
+                     
+                        if(p.getQuantity()<=p.getStock()-1){
+                            //   substractquantity.setE(true);
+                            double test = Double.parseDouble(totalPriceLabel.getText());
+
+                            int quantity = p.getQuantity()+1;
+                            p.setQuantity(quantity);
+                            quantityValue.setText(Integer.toString(p.getQuantity()));
+                            price.setText(Double.toString(p.getQuantity()*p.getPrice()));
+                            totalPriceLabel.setText(Double.toString(test+p.getPrice()));
+                        }
+                        else{
+                            // additionquantity.setEnabled(false);
+                        }
+
+                    });
+
+                    remove.setOnAction(event -> {
+                        Cart.instance.RemoveProduct(p);
+                        Parent root;
+                        try {
+                            root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/cart-ui.fxml"));
+                            navCart.getScene().setRoot(root);
+                        } catch (IOException ex) {
+                            Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    });
+
+                    substractquantity.setOnAction(event -> {
+                        if(p.getQuantity()>=2){
+                            //  additionquantity.setEnabled(true);
+                            double test = Double.parseDouble(totalPriceLabel.getText());
+
+                            int quantity = p.getQuantity()-1;
+                            p.setQuantity(quantity);
+                            quantityValue.setText(Integer.toString(p.getQuantity()));
+                            price.setText(Double.toString(p.getQuantity()*p.getPrice()));
+                            totalPriceLabel.setText(Double.toString(test-p.getPrice()));
+                        }
+                        else{
+                            //   substractquantity.setEnabled(false);
+                        }
+                    });
+                                     } catch (FileNotFoundException ex) {
+                                         Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, ex);
+                                     }
+
+
+
+
+
+
+
+
+
+
+
+                                }
+
+                              Separator separator = new Separator();
+                              separator.setOrientation(Orientation.HORIZONTAL);
+                              box.getChildren().add(separator);
+
+
+                            HBox totalView = totalView(Cart.getInstance().total());
+                            box.getChildren().add(totalView);
+
+                              box.setSpacing(80);
+                              item.setSpacing(80);
        
        }
     }
@@ -380,31 +374,13 @@ public class AppController implements Initializable {
         layout.setAlignment(Pos.CENTER_LEFT);
         
        // FileInputStream input = new FileInputStream("Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/ressource/"+cartEntry.getCartList().getImg());
-        FileInputStream input = new FileInputStream("Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/ressource/"+o.getImg());
+        FileInputStream input = new FileInputStream("C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/ressource/"+o.getImg());
         Image image = new Image(input);
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
-        
-       // Label productName = new Label(cartEntry.getC().getProdut());
-        Label productName = new Label(o.getProduct_name());
-        productName.setPrefWidth(100);
-        productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
-        
-        Label quantity = new Label(String.valueOf(o.getQuantity()));
-        quantity.setStyle("-fx-padding:5px");
-        
-        Button plusButton = new Button("+");
-        plusButton.setStyle("-fx-padding:5px");
-
-        
-        Button minusButton = new Button("-");
-        minusButton.setStyle("-fx-padding:5px");
-        
-        Label price = new Label(String.valueOf(o.getPrice()));
-        price.setStyle("-fx-padding:5px");
-
-        layout.getChildren().addAll(imageView,productName,quantity,minusButton,plusButton,price);  
+  
+        layout.getChildren().addAll(imageView);  
 
         return layout;
         
@@ -422,7 +398,7 @@ public class AppController implements Initializable {
     @FXML
     private void showHomeView(MouseEvent event) throws IOException {
        // contentPane.setCenter(new HomeView().getView());
-          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));
+          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Paiement.fxml"));
          navHome.getScene().setRoot(root);
 
     }
