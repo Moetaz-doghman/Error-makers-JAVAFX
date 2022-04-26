@@ -44,6 +44,7 @@
                   <Font name="System Bold" size="39.0" />
                </font>
             </Label>
+            <Hyperlink fx:id="proaccountButton" layoutX="63.0" layoutY="554.0" onAction="#proAccount" text="Register to a professional account ?" />
          </children>
       </AnchorPane>
    </center>

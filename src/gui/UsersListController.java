@@ -42,7 +42,7 @@ import services.UserService;
  */
 public class UsersListController implements Initializable {
 
-     @FXML
+    @FXML
     private TableView<User> tableview;
     @FXML
     private TableColumn<User, String> nom;
@@ -61,6 +61,8 @@ public class UsersListController implements Initializable {
     private TableColumn<User, ?> etatCompte;
     @FXML
     private Button listUserButton;
+    @FXML
+    private Button ListDemandeButton;
 
     /**
      * Initializes the controller class.
@@ -90,9 +92,106 @@ public class UsersListController implements Initializable {
          
         
     }
+     private void addButtonToTable() throws SQLException {
+        TableColumn actionCol = new TableColumn("Block");
+        actionCol.setCellValueFactory(new PropertyValueFactory<>("Block"));
 
+        Callback<TableColumn<User, Void>, TableCell<User, Void>> cellFactory;
+        cellFactory = new Callback<TableColumn<User, Void>, TableCell<User, Void>>() {
+            @Override
+            public TableCell<User, Void> call(final TableColumn<User, Void> param) {
+                final TableCell<User, Void> cell = new TableCell<User, Void>() {
+                    
+                    private final Button lock = new Button("");
+                    private final HBox pane = new HBox(lock);
+
+                    //ajouter l'image pour button supprimer 
+                    {
+                        Image btn_delete = new Image(getClass().getResourceAsStream("block.png"));
+                        ImageView imgv = new ImageView(btn_delete);
+                        imgv.setFitHeight(25);
+                        imgv.setFitWidth(25);
+                        lock.setGraphic(imgv);            
+                        lock.setMaxSize(10, 10);
+                        // ajouter message au survol sur button                       
+                        final Tooltip tooltip = new Tooltip();
+                                tooltip.setText("Lock ");
+                                lock.setTooltip(tooltip);
+                        // ajouter fonction supprimer au button avec message de confirmation 
+                            lock.setOnAction((ActionEvent event) -> {                            
+                            User u = getTableView().getItems().get(getIndex());
+                            UserService us = new UserService();
+                            
+                            if(u.getIsActive().equals("Active")){                               
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setTitle("LOCK");
+                            alert.setHeaderText("Are you sure you want to lock this user ?");
+                            Optional<ButtonType> option = alert.showAndWait();
+                            if (option.get() == ButtonType.OK) {                                 
+                                    us.Bloquer(u.getId());
+                                    afficher();
+                                }}                             
+                                else{
+
+                                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                                    alert.setTitle("UNLOCK");
+                                    alert.setHeaderText("Are you sure you want to unlock this user ?");
+                                    Optional<ButtonType> option = alert.showAndWait();
+                                    if (option.get() == ButtonType.OK) {
+                                            us.Debloquer(u.getId());
+                                            afficher();
+                                    }}                
+                        });
+                        
+                    }
+                    // pour afficher button
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setGraphic(empty ? null : pane);
+                    }
+                };
+                return cell;
+            }
+        };
+
+        actionCol.setCellFactory(cellFactory);
+        tableview.getColumns().add(actionCol);
+
+    }
+
+    @FXML
+    private void ListUser(ActionEvent event) {
+                Stage primaryStage = new Stage();
+
+        try {
+            ((Stage) listUserButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("UsersList.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void ListDemande(ActionEvent event) {
+                 Stage primaryStage = new Stage();
+
+        try {
+            ((Stage) ListDemandeButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("DemandesList.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
-
     @FXML
     private void Logout(ActionEvent event) {
         Stage primaryStage = new Stage();
@@ -115,108 +214,6 @@ public class UsersListController implements Initializable {
         userSession.telephone=null;
         userSession.password=null;
         userSession.isLoggedIn=false;
-    }
-    
-      private void addButtonToTable() throws SQLException {
-        TableColumn actionCol = new TableColumn("Action");
-        actionCol.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
-
-        Callback<TableColumn<User, Void>, TableCell<User, Void>> cellFactory;
-        cellFactory = new Callback<TableColumn<User, Void>, TableCell<User, Void>>() {
-            @Override
-            public TableCell<User, Void> call(final TableColumn<User, Void> param) {
-                final TableCell<User, Void> cell = new TableCell<User, Void>() {
-                    
-                    private final Button lock = new Button("");
-                    private final HBox pane = new HBox(lock);
-                    
-                    
-                    //ajouter l'image pour button supprimer 
-
-                    {
-                        Image btn_delete = new Image(getClass().getResourceAsStream("block.jpg"));
-                        ImageView imgv = new ImageView(btn_delete);
-                        imgv.setFitHeight(25);
-                        imgv.setFitWidth(25);
-                        lock.setGraphic(imgv);            
-                        lock.setMaxSize(10, 10);
-                        
-
-                        // ajouter message au survol sur button
-                        
-                        final Tooltip tooltip = new Tooltip();
-                                tooltip.setText("Lock ");
-                                lock.setTooltip(tooltip);
-                        
-
-                        // ajouter fonction supprimer au button avec message de confirmation 
-                        lock.setOnAction((ActionEvent event) -> {
-                            
-                            User u = getTableView().getItems().get(getIndex());
-                            UserService us = new UserService();
-                            
-                            if(u.getIsActive().equals("Active")){
-                                
-                                
-                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                            alert.setTitle("LOCK");
-                            alert.setHeaderText("Are you sure you want to lock this user ?");
-                            Optional<ButtonType> option = alert.showAndWait();
-                            if (option.get() == ButtonType.OK) {
-                                  
-                                    us.Bloquer(u.getId());
-                                    afficher();
-                                }}
-                                
-                                else{
-                                    
-                                
-                                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                                    alert.setTitle("UNLOCK");
-                                    alert.setHeaderText("Are you sure you want to unlock this user ?");
-                                    Optional<ButtonType> option = alert.showAndWait();
-                                    if (option.get() == ButtonType.OK) {
-                                            us.Debloquer(u.getId());
-                                            afficher();
-                                    }}
-                                
-                            
-                        });
-                        
-                    }
-                    
-                     
-                    
-                    // pour afficher button supprimer
-                    @Override
-                    public void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-                        setGraphic(empty ? null : pane);
-                    }
-                };
-                return cell;
-            }
-        };
-
-        actionCol.setCellFactory(cellFactory);
-        tableview.getColumns().add(actionCol);
-
-    }
-
-    @FXML
-    private void ListUser(ActionEvent event) {
-                Stage primaryStage = new Stage();
-
-        try {
-            ((Stage) listUserButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("ListUsers.fxml"));
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("PROTECH");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
     }
     
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProRegisterController">
+   <left>
+      <AnchorPane accessibleRole="IMAGE_VIEW" prefHeight="705.0" prefWidth="428.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="173.0" fitWidth="249.0" layoutX="97.0" layoutY="241.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/logoprotech.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="644.0" prefWidth="428.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nom" layoutX="179.0" layoutY="135.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="prenom" layoutX="179.0" layoutY="184.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="email" layoutX="179.0" layoutY="230.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="telephone" layoutX="179.0" layoutY="277.0" promptText="Phone" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <PasswordField fx:id="password" layoutX="178.0" layoutY="384.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <PasswordField fx:id="confirmpassword" layoutX="178.0" layoutY="428.0" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <Label layoutX="64.0" layoutY="141.0" prefHeight="17.0" prefWidth="75.0" text="First Name" />
+            <Label layoutX="64.0" layoutY="190.0" prefHeight="17.0" prefWidth="71.0" text="Last Name" />
+            <Label layoutX="64.0" layoutY="236.0" prefHeight="17.0" prefWidth="70.0" text="Email" />
+            <Label layoutX="64.0" layoutY="283.0" prefHeight="17.0" prefWidth="75.0" text="Phone" />
+            <Label layoutX="64.0" layoutY="390.0" prefHeight="17.0" prefWidth="91.0" text="Password" />
+            <Label layoutX="58.0" layoutY="434.0" prefHeight="17.0" prefWidth="103.0" text="Confirm Password" />
+            <Button fx:id="registerButton" layoutX="164.0" layoutY="480.0" mnemonicParsing="false" onAction="#Register" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Register" textFill="WHITE" />
+            <Hyperlink fx:id="loginButton" layoutX="61.0" layoutY="521.0" onAction="#login" text="Already have an account?" />
+            <Label layoutX="139.0" layoutY="47.0" text="Register" textAlignment="CENTER" textFill="#0598ff">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="role" layoutX="178.0" layoutY="340.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px;" />
+            <Label layoutX="66.0" layoutY="344.0" text="ROLE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
