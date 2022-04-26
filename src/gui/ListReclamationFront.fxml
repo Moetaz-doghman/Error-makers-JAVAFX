@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="btnRet" prefHeight="850.0" prefWidth="1210.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListReclamationFrontController">
+   <children>
+      <VBox prefHeight="850.0" prefWidth="381.0" stylesheets="@Stylesheets.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0" stylesheets="@Stylesheets.css">
+               <children>
+                  <ImageView fitHeight="124.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="656.0" prefWidth="335.0" style="-fx-background-color: #70B8D9;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Profile-Male-PNG.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Separator prefHeight="0.0" prefWidth="118.0" />
+                        <Separator prefHeight="0.0" prefWidth="118.0" />
+                     </children>
+                  </HBox>
+                  <Label text="Ajouter Votre reclamation">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="179.0" prefWidth="280.0" stylesheets="@Stylesheets.css">
+                           <children>
+                              <TextField fx:id="nom" onAction="#testNom" onKeyPressed="#testNom" prefHeight="34.0" prefWidth="195.0" promptText="veuillez entrer votre nom" styleClass="text-field" stylesheets="@Stylesheets.css">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="sujet" onAction="#testSujet" onKeyPressed="#testPrenom" prefHeight="42.0" prefWidth="195.0" promptText="veuillez entrer le sujet " styleClass="text-field" stylesheets="@Stylesheets.css">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="message" onAction="#testMessage" prefHeight="58.0" prefWidth="201.0" promptText="veuillez entrez votre reclamation" styleClass="text-field">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="email" onAction="#testemail" onKeyPressed="#testemail" prefHeight="34.0" prefWidth="195.0" promptText="veuillez entrer votre Email" styleClass="text-field">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="188.0" prefWidth="16.0">
+                           <children>
+                              <ImageView fx:id="nomCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="sujetCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="messageCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="emailCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="typer" prefHeight="25.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#AjouterReclamation" prefHeight="42.0" prefWidth="126.0" styleClass="btns" stylesheets="@Stylesheets.css" text="Ajouter" textFill="#908d8d">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="chosen-fruit-card" />
+                  <String fx:value="shadow" />
+                  <String fx:value="shopping-online-card" />
+               </styleClass>
+               <stylesheets>
+                  <URL value="@../values/style.css" />
+                  <URL value="@Stylesheets.css" />
+               </stylesheets>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+      <HBox layoutX="378.0" layoutY="284.0" prefHeight="522.0" prefWidth="826.0">
+         <children>
+            <ScrollPane prefHeight="561.0" prefWidth="824.0" style="-fx-background-color: transparent;">
+               <content>
+                  <VBox fx:id="reclamationLayout" prefHeight="563.0" prefWidth="808.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="light-gray-ground" stylesheets="@Stylesheets.css">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="100.0" text="Nom">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Sujet">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="100.0" text="Type">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Email">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="300.0" text="Message">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="808.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="100.0" text="Mariem">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="200.0" text="PC not fixed ">
+                                 <font>
+                                    <Font name="Corbel" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="100.0" text="Hardware">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="200.0" text="meddeb.mariem@gmail.com">
+                                 <font>
+                                    <Font name="Corbel" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefWidth="300.0" text="please check my reclamation !! ">
+                                 <font>
+                                    <Font name="Corbel" size="17.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <Label layoutX="381.0" layoutY="215.0" prefHeight="54.0" prefWidth="425.0" style="-fx-background-color: #ffffff;" text="La liste de vos reclamations">
+         <font>
+            <Font name="Corbel Bold" size="35.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="381.0" prefHeight="64.0" prefWidth="832.0" spacing="10.0" stylesheets="@Stylesheets.css">
+         <children>
+            <Label alignment="CENTER" text="Langue" textFill="#878787" underline="true">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Français" textFill="#878787" />
+            <Pane prefHeight="54.0" prefWidth="643.0" />
+            <FontAwesomeIcon glyphName="GEAR" size="2.5em" />
+         </children>
+      </HBox>
+      <Button layoutX="378.0" layoutY="156.0" mnemonicParsing="false" onAction="#retour" prefHeight="31.0" prefWidth="96.0" stylesheets="@Stylesheets.css" text="Retour" underline="true" />
+   </children>
+</AnchorPane>
