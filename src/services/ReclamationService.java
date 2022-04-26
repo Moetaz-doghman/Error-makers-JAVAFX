@@ -112,4 +112,33 @@ public class ReclamationService implements IService<Reclamation>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+    
+    //recherche par type
+    public List<Reclamation> RechercherReclamation(String type) {
+         List<Reclamation> list = new ArrayList<>();
+        try{
+            String req = "SELECT * FROM reclamation where type LIKE '"+type+"%'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                Reclamation r = new Reclamation();
+                r.setId(rs.getInt("id"));
+                r.setName(rs.getString("name"));
+                r.setSubject(rs.getString("subject"));
+                r.setMessage(rs.getString("message"));
+                r.setType(rs.getString("type"));
+                r.setEmail(rs.getString("email"));
+
+
+                
+                list.add(r);
+            }
+    }
+        catch(SQLException c){
+            
+        }
+        return list ; 
+    }
 }

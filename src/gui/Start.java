@@ -29,7 +29,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) { try {
         //Stage fenetre ou executer l app
         
-                Parent root = FXMLLoader.load(getClass().getResource("AcceuilRec.fxml"));  //permet de charger un fichier fxml (interface)
+                Parent root = FXMLLoader.load(getClass().getResource("ListReclamation.fxml"));  //permet de charger un fichier fxml (interface)
                 Scene scene = new Scene(root); //scene : interface affichée à l'utilisateur  //root: les acteurs= composants graphiques
 
                 primaryStage.setTitle("Hello World!");

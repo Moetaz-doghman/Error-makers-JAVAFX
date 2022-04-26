@@ -11,6 +11,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -60,29 +61,69 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="179.0" prefWidth="280.0" stylesheets="@Stylesheets.css">
                            <children>
-                              <TextField fx:id="nom" onAction="#testNom" onKeyPressed="#testNom" prefHeight="34.0" prefWidth="195.0" promptText="veuillez entrer votre nom" styleClass="text-field" stylesheets="@Stylesheets.css">
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="nom" onAction="#testNom" onKeyPressed="#testNom" prefHeight="33.0" prefWidth="254.0" promptText="veuillez entrer votre nom" styleClass="search-box" stylesheets="@Stylesheets.css">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </TextField>
-                              <TextField fx:id="sujet" onAction="#testSujet" onKeyPressed="#testPrenom" prefHeight="42.0" prefWidth="195.0" promptText="veuillez entrer le sujet " styleClass="text-field" stylesheets="@Stylesheets.css">
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="search-box" stylesheets="@Stylesheets.css">
+                                 <children>
+                                    <TextField fx:id="sujet" onAction="#testSujet" onKeyPressed="#testPrenom" prefHeight="42.0" prefWidth="195.0" promptText="veuillez entrer le sujet " styleClass="text-field" stylesheets="@Stylesheets.css">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="message" onAction="#testMessage" prefHeight="58.0" prefWidth="201.0" promptText="veuillez entrez votre reclamation" styleClass="text-field">
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="message" onAction="#testMessage" prefHeight="33.0" prefWidth="248.0" promptText="veuillez entrez reclamation" styleClass="search-box">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="email" onAction="#testemail" onKeyPressed="#testemail" prefHeight="34.0" prefWidth="195.0" promptText="veuillez entrer votre Email" styleClass="text-field">
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="search-box">
+                                 <children>
+                                    <TextField fx:id="email" onAction="#testemail" onKeyPressed="#testemail" prefHeight="33.0" prefWidth="238.0" promptText="veuillez entrer votre Email" styleClass="text-field">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
-                              </TextField>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ComboBox fx:id="typer" prefHeight="31.0" prefWidth="247.0" promptText="choisissez un type" styleClass="search-box">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                    </ComboBox>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
                            </children>
                            <padding>
                               <Insets left="10.0" />
@@ -93,10 +134,22 @@
                         </VBox>
                         <VBox prefHeight="188.0" prefWidth="16.0">
                            <children>
-                              <ImageView fx:id="nomCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="sujetCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="messageCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="emailCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="nomCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin></ImageView>
+                              <ImageView fx:id="sujetCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin></ImageView>
+                              <ImageView fx:id="messageCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin></ImageView>
+                              <ImageView fx:id="emailCheckMark" fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin></ImageView>
                            </children>
                            <padding>
                               <Insets left="10.0" />
@@ -104,12 +157,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ComboBox fx:id="typer" prefHeight="25.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <Button mnemonicParsing="false" onAction="#AjouterReclamation" prefHeight="42.0" prefWidth="126.0" styleClass="btns" stylesheets="@Stylesheets.css" text="Ajouter" textFill="#908d8d">
+                  <Button mnemonicParsing="false" onAction="#AjouterReclamation" prefHeight="31.0" prefWidth="109.0" stylesheets="@Stylesheets.css" text="Ajouter" textFill="#908d8d">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -119,6 +167,10 @@
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="btns" />
+                        <String fx:value="add-btn" />
+                     </styleClass>
                   </Button>
                </children>
                <styleClass>
@@ -136,11 +188,22 @@
             </VBox>
          </children>
       </VBox>
+      <HBox alignment="CENTER" layoutX="362.0" layoutY="52.0" prefHeight="45.0" prefWidth="851.0">
+         <children>
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+            <Separator prefHeight="0.0" prefWidth="118.0" />
+         </children>
+      </HBox>
       <HBox layoutX="378.0" layoutY="284.0" prefHeight="522.0" prefWidth="826.0">
          <children>
-            <ScrollPane prefHeight="561.0" prefWidth="824.0" style="-fx-background-color: transparent;">
+            <ScrollPane prefHeight="561.0" prefWidth="824.0" style="-fx-background-color: transparent;" styleClass="free-delivery-card" stylesheets="@Stylesheets.css">
                <content>
-                  <VBox fx:id="reclamationLayout" prefHeight="563.0" prefWidth="808.0" style="-fx-background-color: #ffffff;">
+                  <VBox fx:id="reclamationLayout" prefHeight="563.0" prefWidth="808.0" styleClass="free-delivery-card" stylesheets="@Stylesheets.css">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="light-gray-ground" stylesheets="@Stylesheets.css">
                            <children>
@@ -236,9 +299,9 @@
             </ScrollPane>
          </children>
       </HBox>
-      <Label layoutX="381.0" layoutY="215.0" prefHeight="54.0" prefWidth="425.0" style="-fx-background-color: #ffffff;" text="La liste de vos reclamations">
+      <Label layoutX="528.0" layoutY="203.0" prefHeight="54.0" prefWidth="520.0" style="-fx-background-color: #ffffff;" text="La liste de vos reclamations">
          <font>
-            <Font name="Corbel Bold" size="35.0" />
+            <Font name="Corbel Bold" size="41.0" />
          </font>
       </Label>
       <HBox alignment="CENTER_LEFT" layoutX="381.0" prefHeight="64.0" prefWidth="832.0" spacing="10.0" stylesheets="@Stylesheets.css">
@@ -249,10 +312,26 @@
                </font>
             </Label>
             <Label text="Français" textFill="#878787" />
-            <Pane prefHeight="54.0" prefWidth="643.0" />
+            <Pane prefHeight="54.0" prefWidth="643.0">
+               <children>
+                  <Button layoutX="522.0" layoutY="17.0" mnemonicParsing="false" onAction="#retour" prefHeight="31.0" prefWidth="96.0" stylesheets="@Stylesheets.css" text="Retour" underline="true" />
+               </children></Pane>
             <FontAwesomeIcon glyphName="GEAR" size="2.5em" />
          </children>
       </HBox>
-      <Button layoutX="378.0" layoutY="156.0" mnemonicParsing="false" onAction="#retour" prefHeight="31.0" prefWidth="96.0" stylesheets="@Stylesheets.css" text="Retour" underline="true" />
+      <HBox layoutX="378.0" layoutY="104.0" prefHeight="38.0" prefWidth="220.0" styleClass="add-btn" stylesheets="@Stylesheets.css">
+         <children>
+            <TextField fx:id="getSearch" onAction="#search" prefHeight="42.0" prefWidth="180.0" promptText="Search" style="-fx-background-color: GREY;" styleClass="search-box" stylesheets="@Stylesheets.css">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </TextField>
+            <FontAwesomeIcon fill="#948181" glyphName="SEARCH" size="2em">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

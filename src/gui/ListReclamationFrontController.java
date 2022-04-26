@@ -25,9 +25,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -331,5 +333,12 @@ public class ListReclamationFrontController implements Initializable {
             Logger.getLogger(AjoutReclController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
+
+    @FXML
+    private void search(ActionEvent event) {
+    }    
+    
     
 }

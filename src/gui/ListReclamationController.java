@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import services.ReclamationService;
@@ -48,7 +49,11 @@ private Stage stage ;
     private TableColumn<Reclamation, String> email;
     @FXML
     private TableColumn<Reclamation, String> message;
-
+    @FXML
+    private TextField getSearch;
+ReclamationService Sp = new ReclamationService();
+         List<Reclamation> lt = Sp.recuperer();
+         
     /**
      * Initializes the controller class.
      */
@@ -149,6 +154,34 @@ private Stage stage ;
         }
         
     }
+
+    @FXML
+    private void search(ActionEvent event) {
+        ReclamationService tt = new ReclamationService();
+        lt = tt.RechercherReclamation(getSearch.getText());
+          System.out.println("Recherche");
+        System.out.println(getSearch.getText());
+        tableRec.setEditable(true);
+        
+        
+        
+        
+       ObservableList<Reclamation> datalist = FXCollections.observableArrayList(lt);
+        
+          nom.setCellValueFactory(new PropertyValueFactory<>("name"));
+        sujet.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        message.setCellValueFactory(new PropertyValueFactory<>("message"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+       
+        
+
+        tableRec.setItems(datalist);
+        
+         
+       
+    };
+    
   
 }    
     
