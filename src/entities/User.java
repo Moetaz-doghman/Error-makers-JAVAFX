@@ -10,7 +10,7 @@ package entities;
  */
 public class User {
     private int id ;
-    private String nom,prenom,role,email,telephone,password,isActive;
+    private String nom,prenom,role,email,telephone,password,isActive,img;
     
 
     public User(int id, String nom, String prenom, String role, String email, String telephone, String password) {
@@ -107,6 +107,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", role=" + role + ", email=" + email + ", telephone=" + telephone + ", password=" + password + '}';
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
    

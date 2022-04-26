@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
    <left>
       <AnchorPane accessibleRole="IMAGE_VIEW" prefHeight="705.0" prefWidth="286.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -25,24 +24,27 @@
    <center>
       <AnchorPane prefHeight="644.0" prefWidth="428.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="nom" layoutX="247.0" layoutY="290.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="prenom" layoutX="247.0" layoutY="339.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="email" layoutX="247.0" layoutY="385.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="telephone" layoutX="247.0" layoutY="432.0" promptText="Phone" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
-            <PasswordField fx:id="password" layoutX="247.0" layoutY="476.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
-            <Label layoutX="132.0" layoutY="296.0" prefHeight="17.0" prefWidth="75.0" text="First Name :" />
-            <Label layoutX="132.0" layoutY="345.0" prefHeight="17.0" prefWidth="71.0" text="Last Name :" />
-            <Label layoutX="132.0" layoutY="391.0" prefHeight="17.0" prefWidth="70.0" text="Email :" />
-            <Label layoutX="129.0" layoutY="438.0" prefHeight="17.0" prefWidth="75.0" text="Phone :" />
-            <Label layoutX="133.0" layoutY="482.0" prefHeight="17.0" prefWidth="91.0" text="Password" />
-            <Button layoutX="228.0" layoutY="549.0" mnemonicParsing="false" onAction="#Update" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Update" textFill="WHITE" />
-            <Label layoutX="226.0" layoutY="69.0" text="Profile" textAlignment="CENTER" textFill="#0598ff">
+            <TextField fx:id="nom" layoutX="246.0" layoutY="338.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="prenom" layoutX="246.0" layoutY="387.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="email" layoutX="246.0" layoutY="433.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="telephone" layoutX="246.0" layoutY="480.0" promptText="Phone" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <PasswordField fx:id="password" layoutX="246.0" layoutY="524.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px0px 0px 2px 0px;" />
+            <Label layoutX="131.0" layoutY="344.0" prefHeight="17.0" prefWidth="75.0" text="First Name :" />
+            <Label layoutX="131.0" layoutY="393.0" prefHeight="17.0" prefWidth="71.0" text="Last Name :" />
+            <Label layoutX="131.0" layoutY="439.0" prefHeight="17.0" prefWidth="70.0" text="Email :" />
+            <Label layoutX="128.0" layoutY="486.0" prefHeight="17.0" prefWidth="75.0" text="Phone :" />
+            <Label layoutX="132.0" layoutY="530.0" prefHeight="17.0" prefWidth="91.0" text="Password" />
+            <Button layoutX="227.0" layoutY="597.0" mnemonicParsing="false" onAction="#Update" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Update" textFill="WHITE" />
+            <Label layoutX="235.0" layoutY="40.0" text="Profile" textAlignment="CENTER" textFill="#0598ff">
                <font>
                   <Font name="System Bold" size="39.0" />
                </font>
             </Label>
-            <FontAwesomeIconView glyphName="USER" layoutX="240.0" layoutY="239.0" size="100" text="" wrappingWidth="74.71428680419922" />
             <Button fx:id="logoutButton" layoutX="458.0" layoutY="648.0" mnemonicParsing="false" onAction="#Logout" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #f80606;" text="Logout" textFill="WHITE" />
+            <ImageView fx:id="img" fitHeight="150.0" fitWidth="197.0" layoutX="223.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="message" disable="true" layoutX="187.0" layoutY="288.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="addimgButton" layoutX="442.0" layoutY="219.0" mnemonicParsing="false" onAction="#addImg" style="-fx-background-color: #0598ff;" text="Upload Image" textFill="WHITE" />
+            <Label layoutX="132.0" layoutY="223.0" text="Image :" />
          </children>
       </AnchorPane>
    </center>

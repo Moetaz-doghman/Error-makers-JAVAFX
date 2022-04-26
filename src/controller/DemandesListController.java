@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package gui;
+package controller;
 
 import entities.Demandes;
 import entities.userSession;
@@ -106,7 +106,7 @@ public class DemandesListController implements Initializable {
 
                     //ajouter l'image pour button  
                     {
-                        Image btn_accept = new Image(getClass().getResourceAsStream("accept.png"));
+                        Image btn_accept = new Image(getClass().getResourceAsStream("/images/accept.png"));
                         ImageView imgv1 = new ImageView(btn_accept);
                         imgv1.setFitHeight(25);
                         imgv1.setFitWidth(25);
@@ -166,7 +166,7 @@ public class DemandesListController implements Initializable {
                     //ajouter l'image pour button  
                     {
                         
-                        Image btn_reject = new Image(getClass().getResourceAsStream("cancel.png"));
+                        Image btn_reject = new Image(getClass().getResourceAsStream("/images/cancel.png"));
                         ImageView imgv2 = new ImageView(btn_reject);
                         imgv2.setFitHeight(25);
                         imgv2.setFitWidth(25);
@@ -213,7 +213,7 @@ public class DemandesListController implements Initializable {
 
         try {
             ((Stage) listUserButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("UsersList.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/UsersList.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
@@ -229,7 +229,7 @@ public class DemandesListController implements Initializable {
 
         try {
             ((Stage) listDemandeButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("DemandesList.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/DemandesList.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
@@ -245,7 +245,7 @@ public class DemandesListController implements Initializable {
         
         try {
             ((Stage) logoutButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);

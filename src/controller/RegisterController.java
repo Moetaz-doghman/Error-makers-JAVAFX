@@ -2,15 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package gui;
+package controller;
 
-import entities.Demandes;
+import entities.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Base64;
+import java.util.Base64.Encoder;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,20 +18,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import services.DemandeService;
+import services.UserService;
 
 /**
  * FXML Controller class
  *
  * @author skanderzouaoui
  */
-public class ProRegisterController implements Initializable {
+public class RegisterController implements Initializable {
+    
 
+    
     @FXML
     private TextField nom;
     @FXML
@@ -46,27 +46,28 @@ public class ProRegisterController implements Initializable {
     @FXML
     private PasswordField confirmpassword;
     @FXML
-    private Button registerButton;
-    @FXML
     private Hyperlink loginButton;
     @FXML
-    private ComboBox<String> role;
+    private Button registerButton;
+    @FXML
+    private Hyperlink proaccountButton;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list = FXCollections.observableArrayList(
-        "Commercant",
-        "Livreur"     
-    );
-        role.setItems(list);
+        // TODO
     }    
-
+    
+    private void exit(ActionEvent event) {
+        System.exit(0);
+    }
+    
+    
     @FXML
-    private void Register(ActionEvent event) throws IOException {
-                
+    private void Register(ActionEvent event) throws Exception {
+        
          if ((prenom.getText().length()==0)||(nom.getText().length()==0) 
                  || (email.getText().length()==0)|| (telephone.getText().length()==0) 
                  ||(password.getText().length()==0)){
@@ -98,12 +99,6 @@ public class ProRegisterController implements Initializable {
         alert.setHeaderText("Passwords do NOT match");
         alert.show();
         }
-        else if(role.getValue()==null) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Please set your Role");
-        alert.show();
-        }
         else if( (password.getText().length()<6 )){
             Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -114,45 +109,50 @@ public class ProRegisterController implements Initializable {
         else
         {
      
-                DemandeService ds = new DemandeService();
-                Base64.Encoder encoder = Base64.getEncoder();
+                UserService us = new UserService();
+                Encoder encoder = Base64.getEncoder();
                 String pass = encoder.encodeToString(password.getText().getBytes());
-                
-                if(role.getValue().equals("Commercant")){
-                    Demandes d = new Demandes(nom.getText(),prenom.getText(),"[\"ROLE_COMM\"]",email.getText(),telephone.getText(),pass);  
-                    ds.ajouter(d);               
-                    
-                }else if(role.getValue().equals("Livreur")){
-                     Demandes d = new Demandes(nom.getText(),prenom.getText(),"[\"ROLE_LIV\"]",email.getText(),telephone.getText(),pass);  
-                    ds.ajouter(d);
-      
-                }else{
-                    System.out.println("erreurrrsrrsrcsrcrsr");
-                }
+     
+                User u = new User(nom.getText(),prenom.getText(),"[\"ROLE_USER\"]",email.getText(),telephone.getText(),pass);  
+                us.ajouter(u);
                 
                 Stage primaryStage = new Stage();
-                    ((Stage) registerButton.getScene().getWindow()).close();
+                ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
                     Scene scene = new Scene(root);
                     primaryStage.setTitle("PROTECH");
                     primaryStage.setScene(scene);
                     primaryStage.show();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText("Account Created");
-                    alert.show();
-               
+                    
+                    
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Account Created");
+                alert.show();
+                
+                
+                nom.clear();
+                prenom.clear();
+                email.clear();
+                telephone.clear();
+                password.clear();
+                confirmpassword.clear();
+                
+
+                 
+             
         
          }
     }
 
     @FXML
     private void login(ActionEvent event) {
+        
          Stage primaryStage = new Stage();
         
         try {
             ((Stage) loginButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
@@ -160,6 +160,27 @@ public class ProRegisterController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        
     }
+
+    @FXML
+    private void proAccount(ActionEvent event) {
+          Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) proaccountButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/ProRegister.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+   
+
+   
     
 }

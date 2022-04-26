@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package gui;
+package controller;
 
 import entities.User;
 import entities.userSession;
@@ -107,7 +107,7 @@ public class UsersListController implements Initializable {
 
                     //ajouter l'image pour button supprimer 
                     {
-                        Image btn_delete = new Image(getClass().getResourceAsStream("block.png"));
+                        Image btn_delete = new Image(getClass().getResourceAsStream("/images/block.png"));
                         ImageView imgv = new ImageView(btn_delete);
                         imgv.setFitHeight(25);
                         imgv.setFitWidth(25);
@@ -166,7 +166,7 @@ public class UsersListController implements Initializable {
 
         try {
             ((Stage) listUserButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("UsersList.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/UsersList.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
@@ -182,7 +182,7 @@ public class UsersListController implements Initializable {
 
         try {
             ((Stage) ListDemandeButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("DemandesList.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/DemandesList.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
@@ -198,7 +198,7 @@ public class UsersListController implements Initializable {
         
         try {
             ((Stage) logoutButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);

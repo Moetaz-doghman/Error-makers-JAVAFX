@@ -45,7 +45,7 @@ public class UserService {
     public boolean login(String email,String password){
        
         try { 
-           String req = "select id,nom,prenom,email,telephone,role,password,isActive from utilisateurs where email= '"
+           String req = "select * from utilisateurs where email= '"
                    +email
                    + "' and password= '"
                    +password+"'";
@@ -65,8 +65,10 @@ public class UserService {
                 userSession.email = rs.getString("email");
                 userSession.telephone = rs.getString("telephone");
                 userSession.role=rs.getString("role");
+                userSession.img=rs.getString("image");
                 userSession.password = password;
                 userSession.isActive = rs.getBoolean("isActive");
+                
                 
                 userSession.isLoggedIn=true;
                 
@@ -83,7 +85,7 @@ public class UserService {
     public void modifier(User u) {
         try {
             String req = "update utilisateurs set nom='"+u.getNom()+"' ,prenom ='" +u.getPrenom() + "' ,telephone ='"
-                    +u.getTelephone()+"' ,email='"+ u.getEmail()+"' ,password='"+u.getPassword()+"' where id ="+userSession.id;
+                    +u.getTelephone()+"' ,email='"+ u.getEmail()+"' ,password='"+u.getPassword()+"' ,image='"+u.getImg()+"' where id ="+userSession.id;
             System.out.println(req);
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
@@ -95,6 +97,7 @@ public class UserService {
                 userSession.email = u.getEmail();
                 userSession.telephone = u.getTelephone();
                 userSession.password =u.getPassword();
+                userSession.img =u.getImg();
                 
                 
         } catch (SQLException ex) {

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package gui;
+package controller;
 
 import entities.userSession;
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
                    }else if(userSession.role.equals("[\"ROLE_ADMIN\"]")){
                         try {
                     ((Stage) registerButton.getScene().getWindow()).close();
-                    Parent root = FXMLLoader.load(getClass().getResource("UsersList.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/gui/UsersList.fxml"));
                     Scene scene = new Scene(root);
                     primaryStage.setTitle("PROTECH");
                     primaryStage.setScene(scene);
@@ -82,7 +82,7 @@ public class LoginController implements Initializable {
                    else{
                        try {
                     ((Stage) registerButton.getScene().getWindow()).close();
-                    Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/gui/Profile.fxml"));
                     Scene scene = new Scene(root);
                     primaryStage.setTitle("PROTECH");
                     primaryStage.setScene(scene);
@@ -112,7 +112,7 @@ public class LoginController implements Initializable {
         
         try {
             ((Stage) registerButton.getScene().getWindow()).close();
-            Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Register.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("PROTECH");
             primaryStage.setScene(scene);
