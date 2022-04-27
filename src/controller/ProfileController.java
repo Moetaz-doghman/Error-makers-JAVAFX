@@ -88,9 +88,14 @@ public class ProfileController implements Initializable {
         telephone.setText(userSession.telephone);
         password.setText(new String(pass));
         
-        
-        Image image =new Image(getClass().getResourceAsStream("/images/user1.png"));
+        if(userSession.img!=null){
+        Image image =new Image(userSession.img);
         img.setImage(image);
+        }else{
+            Image image =new Image("images/user1.png");
+            img.setImage(image);
+            
+        }
     }    
 
     @FXML
@@ -225,7 +230,7 @@ public class ProfileController implements Initializable {
                  //il faut changer le path
                 Path temp = Files.copy(fc.toPath(), Paths.get("Documents\\Error-makers-JAVAFX\\src\\images\\" + imgG), StandardCopyOption.REPLACE_EXISTING);
                 Image i = new Image(fc.getAbsoluteFile().toURI().toString());
-                System.out.println("********************"+fc.getAbsoluteFile().toURI().toString());
+                // System.out.println("********************"+fc.getAbsoluteFile().toURI().toString());
                 img.setImage(i);
             } catch (IOException ex) {
                     System.out.println(ex.getMessage());
