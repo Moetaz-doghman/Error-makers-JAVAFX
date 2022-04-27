@@ -7,9 +7,7 @@ package controller;
 import entities.User;
 import entities.userSession;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,7 +32,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.UserService;
-import org.apache.commons.net.ftp.FTPClient;
 
 
 
@@ -48,7 +45,7 @@ public class ProfileController implements Initializable {
     
     List<String> type;
     String imgG = "";
-    String path = "";
+    String path = null;
 
     @FXML
     private TextField nom;
@@ -185,56 +182,22 @@ public class ProfileController implements Initializable {
         f.getExtensionFilters().add(new FileChooser.ExtensionFilter("jpeg,png files", type));
         File fc = f.showOpenDialog(null);
         if (f != null) {
-            try {
-                String server = "ftpupload.net";
-                int port = 21;
-                String user = "unaux_31603441";
-                String pass = "xj7aawjvl4";
-                
-                FTPClient ftpClient = new FTPClient();
-                try {
+//            try {
+                    imgG = fc.getName().toString();
+                    path = fc.getAbsoluteFile().toURI().toString();
                     
-                    ftpClient.connect(server, port);
-                    ftpClient.login(user, pass);
-                    ftpClient.enterLocalPassiveMode();
-                    String $mess = ftpClient.getReplyString();
-                    System.out.println($mess);
-                    ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
-                    
-                    File firstLocalFile = new File(fc.getAbsoluteFile().toString());
-                    
-                    String firstRemoteFile = "/htdocs/" + fc.getName().toString();
-                    InputStream inputStream = new FileInputStream(firstLocalFile);
-                    
-                    System.out.println("Start uploading image");
-                    boolean done = ftpClient.storeFile(firstRemoteFile, inputStream);
-                    inputStream.close();
-                    if (done) {
-                        message.setText("Your image was uploaded successfully.");
-                    } else {
-                        message.setText("Error");
-                    }
-                    
-                } catch (IOException ex) {
-                    System.out.println("Error: " + ex.getMessage());
-                    ex.printStackTrace();
-                } finally {
-                    if (ftpClient.isConnected()) {
-                        ftpClient.logout();
-                        ftpClient.disconnect();
-                    }
-                }
-                imgG = fc.getName().toString();
-                path = fc.getAbsoluteFile().toURI().toString();
-                
-                 //il faut changer le path
-                Path temp = Files.copy(fc.toPath(), Paths.get("Documents\\Error-makers-JAVAFX\\src\\images\\" + imgG), StandardCopyOption.REPLACE_EXISTING);
-                Image i = new Image(fc.getAbsoluteFile().toURI().toString());
-                // System.out.println("********************"+fc.getAbsoluteFile().toURI().toString());
-                img.setImage(i);
-            } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-            }
+//                    Path targetPath = (Path)Paths.get("/Users", "skanderzouaoui",
+//                                      "Applications", "XAMPP", "htdocs" , "uploads");
+//                    System.out.println(targetPath);
+
+//                    Path temp = Files.copy(fc.toPath(), Paths.get(imgG), StandardCopyOption.REPLACE_EXISTING);
+                    Image i = new Image(fc.getAbsoluteFile().toURI().toString());
+                    img.setImage(i);
+                    message.setText("Your image was uploaded successfully.");
+//                } catch (IOException ex) {
+//                     message.setText("Error");
+//                    System.out.println(ex.getMessage());
+//                }
         }
         fc.exists();
     }
