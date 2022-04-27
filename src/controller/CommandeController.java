@@ -10,16 +10,25 @@ import Notifcation.AlertsBuilder;
 import Notifcation.NotificationType;
 import Notifcation.NotificationsBuilder;
 import animations.Animations;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import entity.Categorie;
 import entity.Commande;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -59,6 +68,20 @@ import javafx.util.Duration;
 import service.CommandeCrud;
 import utils.Constants;
 import utils.JFXDialogTool;
+import java.awt.Desktop;
+import static java.awt.SystemColor.desktop;
+import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import utils.Myconnexion;
 
 /**
  * FXML Controller class
@@ -116,7 +139,6 @@ public class CommandeController implements Initializable {
     private Circle imgOnline;
     @FXML
     private TextField txtSearch;
-    @FXML
     private ComboBox<String> CombofiltreSearch;
     @FXML
     private Label txtStatTotal;
@@ -157,6 +179,10 @@ public class CommandeController implements Initializable {
     private TableColumn<Commande, String> col_DateCommande;
     @FXML
     private TableColumn<Commande, String> col_EtatCommande;
+    @FXML
+    private TableColumn<Commande, String> col_PhoneCommande;
+    @FXML
+    private ImageView btnexcel;
 
     /**
      * Initializes the controller class.
@@ -168,7 +194,6 @@ public class CommandeController implements Initializable {
 
         FiltreCommande = FXCollections.observableArrayList();
         comboEtat.getItems().addAll("Non Livrée", "Livree");
-        CombofiltreSearch.getItems().addAll("Action", "Adventure", "Strategy", "Sports", "Simulation", "ViewAll");
         LoadStat();
         Animations.fadeInUp(rootCommande);
     }    
@@ -232,14 +257,97 @@ public class CommandeController implements Initializable {
 
     @FXML
     private void SearchAnything(KeyEvent event) {
+          String WordTyped = txtSearch.getText().trim();
+        if (WordTyped.isEmpty()) {
+            TableViewCommande.setItems(ListCommande);
+            LoadTableCommande();
+        } else {
+           FiltreCommande.clear();
+            for (Commande p : ListCommande) {
+                if ((p.getNom_client().toLowerCase().contains(WordTyped.toLowerCase())) || (p.getPrenom_client().toLowerCase().contains(WordTyped.toLowerCase())) 
+                        || (p.getPrenom_client().toLowerCase().contains(WordTyped.toLowerCase()))
+                        || (p.getAdresse().toLowerCase().contains(WordTyped.toLowerCase()))
+                         || (p.getMontant().toLowerCase().contains(WordTyped.toLowerCase()))
+                        || (p.getTelephone().toLowerCase().contains(WordTyped.toLowerCase()))
+                        || (p.getDateCommande().toString().contains(WordTyped.toLowerCase())) 
+                        ) {
+                    FiltreCommande.add(p);
+                }
+            }
+           TableViewCommande.setItems(FiltreCommande);
+        }
+        
+      
+        
+      
     }
 
-    @FXML
-    private void SearchParFiltre(MouseEvent event) {
-    }
 
     @FXML
     private void GeneratePDF(MouseEvent event) {
+        
+        long millis = System.currentTimeMillis();
+        java.sql.Date DateRapport = new java.sql.Date(millis);
+
+        String DateLyoum = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(DateRapport);//yyyyMMddHHmmss
+        System.out.println("DateLyoummmmmmmmmmmmmmmmmmmmm   " + DateLyoum);
+
+        com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+
+        try {
+
+            PdfWriter.getInstance(document, new FileOutputStream(String.valueOf(DateLyoum + ".pdf")));//yyyy-MM-dd
+            document.open();
+            Paragraph ph1 = new Paragraph("Rapport Pour :" + DateRapport);
+            Paragraph ph2 = new Paragraph(".");
+            PdfPTable table = new PdfPTable(6);
+
+            //On créer l'objet cellule.
+            PdfPCell cell;
+
+            //contenu du tableau.
+            table.addCell("Id");
+            table.addCell("Nom Client");
+            table.addCell("Prenom Client");
+            table.addCell("Adress");
+            table.addCell("Phone");
+            table.addCell("Montant");
+
+
+            //     table.addCell("Image : ");
+
+            crudCommande.AfficherCommande(commande).forEach(e
+                    -> {
+                table.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(String.valueOf(e.getIdcommande()));
+                table.addCell(e.getNom_client());
+                table.addCell(e.getPrenom_client());
+                table.addCell(e.getAdresse());
+                table.addCell(e.getTelephone());
+                table.addCell(String.valueOf(e.getMontant()));
+            }
+            );
+            document.add(ph1);
+            document.add(ph2);
+            document.add(table);
+            //  document.addAuthor("Bike");
+            // AlertDialog.showNotification("Creation PDF ", "Votre fichier PDF a ete cree avec success", AlertDialog.image_checked);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        document.close();
+
+        ///Open FilePdf
+        File file = new File(DateLyoum + ".pdf");
+        if (file.exists()) //checks file exists or not  
+        {
+            Desktop desktop = Desktop.getDesktop();      
+            try {
+                desktop.open(file); //opens the specified file   
+            } catch (IOException ex) {
+                Logger.getLogger(CommandeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
 
@@ -267,6 +375,7 @@ public class CommandeController implements Initializable {
         col_MontantCommande.setCellValueFactory(new PropertyValueFactory<>("montant"));
         col_DateCommande.setCellValueFactory(new PropertyValueFactory<>("dateCommande"));
         col_EtatCommande.setCellValueFactory(new PropertyValueFactory<>("etat_commande"));
+        col_PhoneCommande.setCellValueFactory(new PropertyValueFactory<>("telephone"));
 
 
 
@@ -421,49 +530,73 @@ public class CommandeController implements Initializable {
     @FXML
     private void ModifierCommande(MouseEvent event) {
           int idcommande = 0;
-        if (TableViewCommande.getSelectionModel().getSelectedItem() != null) {
-            idcommande = Integer.valueOf((TableViewCommande.getSelectionModel().getSelectedItem().getIdcommande()));
-        }
-      //  String nom = txtNom.getText();
-        int  etat = 1; 
-               if ( comboEtat.getSelectionModel().getSelectedItem() == "Livree")
-               {
-                   etat = 0 ; 
-               }
-
-        
-        if ((etat != 0 && etat != 1)) {
+          
+          if (comboEtat.getSelectionModel().getSelectedItem() == null) {
+            comboEtat.requestFocus();
             Animations.shake(comboEtat);
             return;
         }
-
-      //  closeDialogAddCategorie();
-        Commande cat = new Commande(idcommande,etat);
-        commande.setEtat_commande(idcommande);
-        commande.setEtat_commande(etat);
-        // System.out.println("icon delete is pressed !" +etat);
-        System.out.println(idcommande);
-        System.out.println(etat);
-
-        Boolean result = crudCommande.ModifierCommande(commande);
-        closeDialogAddCategorie();
-
-        if (result) {
-            txtNom.clear();
-            closeDialogAddCategorie();
+          else {
+          
+          if (TableViewCommande.getSelectionModel().getSelectedItem() != null) {
+            idcommande = Integer.valueOf((TableViewCommande.getSelectionModel().getSelectedItem().getIdcommande()));
+          String test = comboEtat.getValue();
+          if (test == "Livree")
+          {
+              int etat = 1 ;
+              commande.setEtat_commande(etat);
+              commande.setIdcommande(idcommande);
+            Boolean result = crudCommande.ModifierCommande(commande);
+            if (result) {
+                closeDialogAddCommande(event);
             AlertsBuilder.create(AlertType.SUCCES, stckCommande, rootCommande, TableViewCommande, Constants.MESSAGE_UPDATED);
+          
         } else {
             NotificationsBuilder.create(NotificationType.ERROR, Constants.MESSAGE_ERROR_CONNECTION_MYSQL);
         }
-        txtNom.clear();
         LoadTableCommande();
 
+          }
+          else 
+          {
+              int etat = 0 ; 
+               commande.setEtat_commande(etat);
+              commande.setIdcommande(idcommande);
+            Boolean result = crudCommande.ModifierCommande(commande);
+             if (result) {
+                closeDialogAddCommande(event);
+            AlertsBuilder.create(AlertType.SUCCES, stckCommande, rootCommande, TableViewCommande, Constants.MESSAGE_UPDATED);
+          
+        } else {
+            NotificationsBuilder.create(NotificationType.ERROR, Constants.MESSAGE_ERROR_CONNECTION_MYSQL);
+        }
+        LoadTableCommande();
+          }
+            
+        }
+        
+        
+    
+    
     }
+    }
+    
+    
     
     
 
     @FXML
     private void closeDialogAddCommande(MouseEvent event) {
+        
+//          if (dialogAjouterCommande != null) {
+//            dialogAjouterCommande.close();
+//
+//            btnModifierCommande.setVisible(true);
+//            btnCancelAddCommande.setVisible(true);
+//        }
+//        txtNom.clear();
+//        comboEtat.getSelectionModel().clearSelection();
+//        LoadTableCommande();
     }
 
   
@@ -477,6 +610,122 @@ public class CommandeController implements Initializable {
     private void gerercommande(ActionEvent event)  throws IOException {
          Parent root = FXMLLoader.load(getClass().getResource("../GUI/Categorie.fxml"));
         btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void exportExcel(MouseEvent event) throws FileNotFoundException, IOException, SQLException {
+        
+// 
+//            XSSFWorkbook wb = new XSSFWorkbook();
+//            XSSFSheet sheet = wb.createSheet("Détails evenement");
+//            XSSFRow header = sheet.createRow(0);
+//            header.createCell(0).setCellValue("Nom");
+////            header.createCell(1).setCellValue("Date");
+////            header.createCell(2).setCellValue("Lieu");
+////            header.createCell(3).setCellValue("Description");
+////             header.createCell(4).setCellValue("Nb_place");
+//      
+//              
+//            
+//         
+//           crudCommande.AfficherCommande(commande).forEach(e
+//                    -> {
+//               for (int i=0 ; i<5 ;i++){
+//                XSSFRow row = sheet.createRow(i);
+//                row.createCell(i).setCellValue(e.getNom_client());
+//               }
+//                
+//                
+//            }
+//            );
+//            
+//            
+//            
+//            FileOutputStream file = new FileOutputStream("Détails evenement.xlsx");
+//            wb.write(file);
+//            file.close();
+//            
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Information Dialog");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Exportation effectuée!!!");
+//            alert.showAndWait();
+//          
+//            ///Open File
+//        File myfile = new File("tt.xlsx");
+//        if (myfile.exists()) //checks file exists or not  
+//        {
+//            Desktop desktop = Desktop.getDesktop();      
+//            try {
+//                desktop.open(myfile); //opens the specified file   
+//            } catch (IOException ex) {
+//                Logger.getLogger(CommandeController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+    
+      Connection cnx = Myconnexion.getInstance().getCnx();
+        String query = "Select * from commande";
+         PreparedStatement pst = cnx.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            XSSFWorkbook wb = new XSSFWorkbook();
+            XSSFSheet sheet = wb.createSheet("Détails commande");
+            XSSFRow header = sheet.createRow(0);
+            header.createCell(0).setCellValue("ID");
+            header.createCell(1).setCellValue("Nom Client");
+            header.createCell(2).setCellValue("Prenom Client");
+            header.createCell(3).setCellValue("Adresse");
+             header.createCell(4).setCellValue("Telephone");
+        
+              
+            
+            int index = 1;
+            while(rs.next()){
+                XSSFRow row = sheet.createRow(index);
+                row.createCell(0).setCellValue(rs.getInt("id"));
+                row.createCell(1).setCellValue(rs.getString("nom_client"));
+                row.createCell(2).setCellValue(rs.getString("prenom_client"));
+                row.createCell(3).setCellValue(rs.getString("adresse"));
+                row.createCell(4).setCellValue(rs.getString("phone"));
+                System.out.println(rs.getString("nom_client"));
+                
+               
+                index++;
+            }
+            
+//             crudCommande.AfficherCommande(commande).forEach(e
+//                    -> {
+//               for (int i=0 ; i<5 ;i++){
+//                XSSFRow row = sheet.createRow(i);
+//                row.createCell(0).setCellValue(e.getIdcommande());
+//                row.createCell(1).setCellValue(e.getNom_client());
+//                row.createCell(2).setCellValue(e.getPrenom_client());
+//                row.createCell(3).setCellValue(e.getAdresse());
+//                row.createCell(4).setCellValue(e.getAdresse());
+//                  System.out.println(e.getNom_client());
+//               }
+//                
+//                
+//            }
+//            );
+            
+            FileOutputStream file = new FileOutputStream("Détails commande.xlsx");
+            wb.write(file);
+            file.close();
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Exportation effectuée!!!");
+            alert.showAndWait();
+            pst.close();
+            rs.close();
+            
+            File myFile = new File("C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/Détails commande.xlsx");
+             Desktop.getDesktop().open(myFile);
+             
+       
+    
+    
     }
 
 

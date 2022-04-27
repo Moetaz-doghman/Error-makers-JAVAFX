@@ -23,27 +23,31 @@ import java.util.List;
  */
 public class LigneCrud implements ILigne<Lignecommande> {
 
-    public String MaxUsedProduct() {
-        String produit_id="";
-        try {
-            String requete = "SELECT MAX(produit_id) FROM ligne_commande   ";
-            Statement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete); // import java.sql.Statement
-            ResultSet rs = pst.executeQuery(requete);
-            while (rs.next()) {
-                produit_id=rs.getString(1);
-                System.out.println("produit_id"+produit_id);
-                break;
-            }
+  
 
+    @Override
+    public boolean AjouterligneCommande(Lignecommande c) {
+          try {
+            //String requete = "insert into ligne_commande(produit_id,commande_id,quantite)"+"values('"c.getIdproduit()+"','"+c.getIdcommande()+"','"+c.getQuantite()+"')";
+        String requete = "insert into ligne_commande(produit_id,commande_id,quantite)"+"values('"+c.getIdproduit()+"','"+c.getIdcommande()+"','"+c.getQuantite()+"')";
+
+            PreparedStatement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete);
+            pst.executeUpdate(requete);            
+
+          
+            System.out.println(requete);
+            
+            System.out.println("Ligne commande ajouté!");
+            return true;
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLSTATE: " + ex.getSQLState());
             System.out.println("VnedorError: " + ex.getErrorCode());
         }
-        return produit_id;
+        return false;
     }
-    
-    @Override
+
+       @Override
     public int countTotalCommande() {
         String req = "SELECT COUNT(*) as cu FROM ligne_commande  ";
         ResultSet rs = null;
@@ -109,5 +113,30 @@ public class LigneCrud implements ILigne<Lignecommande> {
             System.out.println("VnedorError: " + ex.getErrorCode());
         }
         return list;    }
+    
+     public String Maxusedproduct() {
+        String produit="";
+        try {
+            String requete = "SELECT MAX(produit_id) FROM ligne_commande   ";
+            Statement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete); // import java.sql.Statement
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                produit=rs.getString(1);
+               // System.out.println("adresse"+adresse);
+                break;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLSTATE: " + ex.getSQLState());
+            System.out.println("VnedorError: " + ex.getErrorCode());
+        }
+        return produit;
+    }
+
+ 
+    
+
+      
 
 }

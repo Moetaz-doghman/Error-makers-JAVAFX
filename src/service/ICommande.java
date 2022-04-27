@@ -18,4 +18,6 @@ public interface ICommande <C>  {
     public boolean SupprimerCommande(int id);
     public List<C> AfficherCommande(C c);
     public int countTotalCommande();
+    public int LASTINSERTID();
+
 }

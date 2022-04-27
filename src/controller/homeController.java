@@ -19,8 +19,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -58,10 +60,6 @@ public class homeController implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private BorderPane contentPane;
-    @FXML
-    private VBox componentBox;
-    @FXML
     private Pane handPaneMac;
     @FXML
     private VBox box;
@@ -77,6 +75,12 @@ public class homeController implements Initializable {
     List<Product> liste = new ArrayList<>();
     private Product o;
  Button[] btn = new Button[100];
+    @FXML
+    private Region navTest;
+    @FXML
+    private BorderPane contentPane;
+    @FXML
+    private VBox componentBox;
 
 
     /**
@@ -131,8 +135,8 @@ public class homeController implements Initializable {
 
     @FXML
     private void showHomeView(MouseEvent event) throws IOException {
-//          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/cart-ui.fxml"));
-//         navHome.getScene().setRoot(root);
+          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));
+         navHome.getScene().setRoot(root);
     }
 
     @FXML
@@ -175,5 +179,11 @@ public class homeController implements Initializable {
             
                  
          } 
+    }
+
+    @FXML
+    private void showTestview(MouseEvent event) throws IOException {
+          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/addCommande.fxml"));
+         navCart.getScene().setRoot(root);
     }
 }

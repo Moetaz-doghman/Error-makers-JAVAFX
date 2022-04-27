@@ -9,6 +9,7 @@ import utils.Myconnexion;
 import service.ICommande;
 import entity.Categorie;
 import entity.Commande;
+import entity.Lignecommande;
 import java.sql.PreparedStatement;//If you want to execute a Statement object many times, it usually reduces execution time to use a PreparedStatement object instead.
 import java.sql.ResultSet;//A ResultSet object maintains a cursor pointing to its current row of data
 import java.sql.SQLException;
@@ -30,7 +31,7 @@ public class CommandeCrud implements ICommande<Commande> {
             ResultSet rs = pst.executeQuery(requete);
             while (rs.next()) {
                 adresse=rs.getString(1);
-                System.out.println("adresse"+adresse);
+               // System.out.println("adresse"+adresse);
                 break;
             }
 
@@ -45,7 +46,7 @@ public class CommandeCrud implements ICommande<Commande> {
     @Override
     public boolean AjouterCommande(Commande t) {
         try {
-            String requete = "insert into commande(nom_client,date_commande,adresse,montant)"+"values('"+t.getNom_client()+"','"+t.getDateCommande()+"','"+t.getAdresse()+"','"+t.getMontant()+"')";
+            String requete = "insert into commande(nom_client,prenom_client,phone,date_commande,adresse,montant,etat_commande,mode_paiemenet)"+"values('"+t.getNom_client()+"','"+t.getPrenom_client()+"','"+t.getTelephone()+"','"+t.getDateCommande()+"','"+t.getAdresse()+"','"+t.getMontant()+"','"+t.getEtat_commande()+"','"+t.getMode_paiement()+"')";
             
             PreparedStatement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete);
             pst.executeUpdate(requete);            
@@ -70,11 +71,14 @@ public class CommandeCrud implements ICommande<Commande> {
     public boolean ModifierCommande(Commande t) {
         
         try {
-            String requete = "UPDATE commande SET etat_commande=? WHERE id=?";
+                   
+
+            String requete="update commande set etat_commande='"+t.getEtat_commande()+"' where id ="+t.getIdcommande();       
+        
             PreparedStatement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete);
-            pst.setInt(1, t.getEtat_commande());
-            pst.setInt(2, t.getIdcommande());
+          
             pst.executeUpdate();
+            
             System.out.println("Categorie été modifiée");
             System.out.print(requete);
 
@@ -160,5 +164,34 @@ public class CommandeCrud implements ICommande<Commande> {
         }
         return cu;
     }
+
+  
+
+    @Override
+    public int LASTINSERTID() {
+       int id = 0 ;
+        try {
+            String requete = "SELECT MAX(id) FROM commande   ";
+            Statement pst = Myconnexion.getInstance().getCnx().prepareStatement(requete); // import java.sql.Statement
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                id=rs.getInt(1);
+               // System.out.println("adresse"+adresse);
+                break;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLSTATE: " + ex.getSQLState());
+            System.out.println("VnedorError: " + ex.getErrorCode());
+        }
+        return id;
+    }
+
+  
+    
+    
+
+      
 
 }

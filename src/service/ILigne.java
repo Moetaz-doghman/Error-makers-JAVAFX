@@ -16,4 +16,6 @@ public interface ILigne <C>  {
     public boolean SupprimerLigne(int id);
     public List<C> AfficherLigne(C c);
     public int countTotalCommande();
+    public boolean AjouterligneCommande(C c);
+
 }

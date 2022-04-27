@@ -24,6 +24,24 @@ public class Commande {
         this.montant = montant;
        this.dateCommande = dateCommande;
     }
+           
+
+ 
+
+    public Commande(String nom, String prenom, String phone, Date DateLyoum, String adresse, String montant, int etat_commande, int mode_paiement) {
+       this.nom_client = nom;
+        this.prenom_client = prenom;
+        this.telephone = phone;
+        this.adresse = adresse;
+        this.montant = montant;
+        this.etat_commande = etat_commande;
+        this.mode_paiement = mode_paiement;
+        this.dateCommande = DateLyoum;
+    }
+
+ 
+    
+ 
 
     public Date getDateCommande() {
         return dateCommande;

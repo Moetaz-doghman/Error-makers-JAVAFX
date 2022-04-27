@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="710.0" prefWidth="1052.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homeController">
+<AnchorPane prefHeight="710.0" prefWidth="1052.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CommandeFrontController">
     <children>
         <AnchorPane fx:id="root" minHeight="373.0" minWidth="439.0" prefHeight="373.0" prefWidth="672.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
             <children>
@@ -65,15 +64,15 @@
                     </center>
                 </BorderPane>
                 <Pane fx:id="handPaneMac" prefHeight="14.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
-            <BorderPane layoutX="139.0" layoutY="127.0" prefHeight="380.0" prefWidth="728.0" style="-fx-border-color: #000; -fx-border-radius: 10; -fx-border-image-width: 1;">
+            <BorderPane layoutX="103.0" layoutY="127.0" prefHeight="380.0" prefWidth="478.0" style="-fx-border-color: #000; -fx-border-radius: 10; -fx-border-image-width: 1;">
                <bottom>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="147.0" text="Button" BorderPane.alignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="31.0" prefWidth="188.0" text="Passer au paiement" BorderPane.alignment="CENTER" />
                </bottom>
             </BorderPane>
-            <TextField fx:id="nomfld" layoutX="514.0" layoutY="220.0" />
-            <TextField fx:id="adressefld" layoutX="515.0" layoutY="307.0" />
-            <TextField fx:id="montantfld" layoutX="515.0" layoutY="356.0" />
-            <DatePicker fx:id="datefld" layoutX="514.0" layoutY="265.0" prefHeight="27.0" prefWidth="147.0" />
+            <TextField fx:id="nomfld" layoutX="252.0" layoutY="205.0" text="Entrer votre nom" />
+            <TextField fx:id="prenomfld" layoutX="253.0" layoutY="256.0" text="Entrer votre prenom" />
+            <TextField fx:id="adressefld" layoutX="253.0" layoutY="314.0" text="Entrer votre adresse" />
+            <TextField fx:id="phonefld" layoutX="255.0" layoutY="368.0" text="Entrer votre numero" />
             </children>
         </AnchorPane>
     </children>

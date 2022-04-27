@@ -264,7 +264,7 @@ public class LigneController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 int Total = crudLigne.countTotalCommande();
                 txtStatTotal.setText(String.valueOf(Total));
-                String MaxGenre = crudLigne.MaxUsedProduct();
+                String MaxGenre = crudLigne.Maxusedproduct();
                 txtStatMax.setText(String.valueOf(MaxGenre));
 
             }
