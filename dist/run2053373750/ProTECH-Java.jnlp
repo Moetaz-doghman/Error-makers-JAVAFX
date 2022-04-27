@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProTECH-Java.jar" size="82340" download="eager" />
+    <jar href="ProTECH-Java.jar" size="78564" download="eager" />
     <jar href="lib/activation-1.1.1.jar" size="69409" download="eager" />
     <jar href="lib/commons-net-1.1.0.jar" size="142450" download="eager" />
     <jar href="lib/fontawesomefx-8.9.jar" size="571068" download="eager" />

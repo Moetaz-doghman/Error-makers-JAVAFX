@@ -35,6 +35,8 @@ public class LoginController implements Initializable {
     private PasswordField password;
     @FXML
     private Hyperlink registerButton;
+    @FXML
+    private Hyperlink passwordForgottenButton;
 
     /**
      * Initializes the controller class.
@@ -79,7 +81,7 @@ public class LoginController implements Initializable {
                 }
                        
                    }
-                   else{
+                   else {
                        try {
                     ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("/gui/Profile.fxml"));
@@ -121,6 +123,24 @@ public class LoginController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+
+    @FXML
+    private void ForgottenPassword(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        
+         try {
+                    ((Stage) registerButton.getScene().getWindow()).close();
+                    Parent root = FXMLLoader.load(getClass().getResource("/gui/ForgotPassword.fxml"));
+                    Scene scene = new Scene(root);
+                    primaryStage.setTitle("PROTECH");
+                    primaryStage.setScene(scene);
+                    primaryStage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                       
+        }
+    
         
 
 }

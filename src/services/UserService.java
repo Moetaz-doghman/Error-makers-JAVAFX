@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.MyDB;
 
 /**
@@ -215,6 +217,17 @@ public class UserService {
         return users;
                 
 
+        
+    }
+    public void updatePassword(String email,String password){
+        
+        try {
+            String req = "update utilisateurs set password= '"+password+"' where email = '"+email+"'";
+            System.out.println(req);
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());        }
         
     }
    

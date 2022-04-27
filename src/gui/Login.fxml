@@ -31,7 +31,7 @@
             <Label layoutX="84.0" layoutY="322.0" prefHeight="17.0" prefWidth="70.0" text="Email" />
             <Label layoutX="84.0" layoutY="388.0" prefHeight="17.0" prefWidth="58.0" text="Password" />
             <Button layoutX="203.0" layoutY="460.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE" />
-            <Hyperlink fx:id="registerButton" layoutX="61.0" layoutY="521.0" onAction="#register" text="New account?" />
+            <Hyperlink fx:id="registerButton" layoutX="304.0" layoutY="510.0" onAction="#register" text="New account?" />
             <Label layoutX="154.0" layoutY="114.0" prefHeight="48.0" prefWidth="173.0" text="Login" textAlignment="CENTER" textFill="#0598ff">
                <font>
                   <Font name="System Bold" size="65.0" />
@@ -40,6 +40,7 @@
             <FontAwesomeIconView glyphName="KEY" layoutX="158.0" layoutY="403.0" size="20" />
             <FontAwesomeIconView glyphName="USER" layoutX="161.0" layoutY="337.0" size="20" />
             <FontAwesomeIconView glyphName="USERS" layoutX="214.0" layoutY="264.0" size="50" />
+            <Hyperlink fx:id="passwordForgottenButton" layoutX="55.0" layoutY="510.0" onAction="#ForgottenPassword" text="Forgotten Password ?" />
          </children>
       </AnchorPane>
    </center>
