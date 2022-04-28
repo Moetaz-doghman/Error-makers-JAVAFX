@@ -410,7 +410,7 @@ public class AppController implements Initializable {
     @FXML
     private void showHomeView(MouseEvent event) throws IOException {
        // contentPane.setCenter(new HomeView().getView());
-          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Paiement.fxml"));
+          Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));
          navHome.getScene().setRoot(root);
 
     }

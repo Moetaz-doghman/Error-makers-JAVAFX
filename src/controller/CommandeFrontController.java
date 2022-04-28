@@ -44,6 +44,7 @@ import java.net.HttpURLConnection;
 import java.net.*;
 import java.util.Base64;
 import java.io.*;
+import java.util.regex.Pattern;
 import javafx.scene.Parent;
 
 
@@ -121,9 +122,24 @@ public class CommandeFrontController implements Initializable {
         String montant=String.valueOf(d);  
         System.out.println(montant);
         
-        
-         
         StringBuilder errors =new StringBuilder(); 
+
+       
+        if(( !Pattern.matches("[a-zA-Z]*", nomfld.getText()))||(nomfld.getText().trim().isEmpty())){
+            errors.append("Please enter a valid last name\n");
+        } 
+       
+        if(( !Pattern.matches("[a-zA-Z]*", prenomfld.getText()))||(prenomfld.getText().trim().isEmpty())){
+            errors.append("Please enter a valid last\n");
+            
+        }
+        if(( !Pattern.matches("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]",phonefld.getText())) || ( phonefld.getText().trim().isEmpty())){
+          errors.append("phone doit etre de type Int et doit contenir 8 chiffres !\n");
+        }
+        if((adressefld.getText().trim().isEmpty())){
+            errors.append("Please enter adress\n");
+            
+        }
         if(errors.length()>0){
             Alert alert =new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Errors");
