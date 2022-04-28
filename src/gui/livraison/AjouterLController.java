@@ -70,14 +70,6 @@ import tray.notification.TrayNotification;
 public class AjouterLController implements Initializable {
 
     @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnstock;
-    @FXML
-    private Button btnOrder;
-    @FXML
-    private Button logout;
-    @FXML
     private ComboBox<Utilisateur> livreur;
     @FXML
     private ComboBox<Commande> commande;
@@ -94,7 +86,9 @@ public class AjouterLController implements Initializable {
     @FXML
     private Button ajout;
     @FXML
-    private Button listaa;
+    private Button v;
+    @FXML
+    private Button o;
 
     /**
      * Initializes the controller class.
@@ -234,9 +228,9 @@ public class AjouterLController implements Initializable {
         JOptionPane.showMessageDialog(null, "Ajout effectué");
         
         
-        //SEND SMS
-        SMSApi sms = new SMSApi();
-        sms.sendSMS("+21651921240", "Admin.");
+//        //SEND SMS
+//        SMSApi sms = new SMSApi();
+//        sms.sendSMS("+21651921240", "Admin.");
         
         
          //Notification
@@ -274,6 +268,35 @@ public class AjouterLController implements Initializable {
         stage.close();
 
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/ListLivraison.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void PageListV(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/ListVehicule.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+       private void PageListA(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/AjouterV.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+       private void PageListLv(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/ListVehicule.fxml")));
         stage.setScene(scene);
         stage.show();
     }

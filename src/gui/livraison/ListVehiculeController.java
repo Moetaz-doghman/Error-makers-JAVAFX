@@ -7,6 +7,7 @@ package Gui.livraison;
 
 import Config.JfreeChartApi;
 import entities.Vehicule;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.sql.SQLException;
@@ -20,10 +21,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -41,6 +44,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import services.VehiculeServices;
 
@@ -66,21 +70,17 @@ public class ListVehiculeController implements Initializable {
     @FXML
     private TableColumn<Vehicule, String> cl_etatvehicule;
     @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnstock;
-    @FXML
-    private Button btnOrder;
-    @FXML
-    private Button logout;
-    @FXML
     private RadioButton tri1;
     @FXML
     private RadioButton tri2;
     @FXML
     private Button print;
+    @FXML
+    private Button l1;
+    @FXML
+    private Button v;
+    @FXML
+    private Button o;
 
     /**
      * Initializes the controller class.
@@ -333,6 +333,36 @@ Printer printer = Printer.getDefaultPrinter();
         HashMap<String, Double> data = rvs.StatistiqueParType();
         JfreeChartApi chart = new JfreeChartApi(data);
         chart.afficherStatistique();
+    }
+    @FXML
+       private void PageListL(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/AjouterL.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void PageListV(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/ListLivraison.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+       private void PageListA(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/AjouterV.fxml")));
+        stage.setScene(scene);
+        stage.show();
     }
  
     }

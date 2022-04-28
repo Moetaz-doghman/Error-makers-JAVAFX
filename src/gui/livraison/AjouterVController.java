@@ -45,7 +45,8 @@ import tray.notification.TrayNotification;
  * @author oaca
  */
 public class AjouterVController implements Initializable {
-        Vehicule v = null;
+    @FXML
+        Button v = null;
 
     @FXML
     private TextField Matricule;
@@ -63,11 +64,9 @@ public class AjouterVController implements Initializable {
     @FXML
     private DatePicker date_entretien;
     @FXML
-    private Button liste;
+    private Button l;
     @FXML
-    private Button lis;
-    @FXML
-    private Button listaa;
+    private Button o;
 
    
 

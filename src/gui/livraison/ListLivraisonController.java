@@ -7,6 +7,7 @@ package Gui.livraison;
 
 import entities.Livraison;
 import entities.Vehicule;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Date;
@@ -19,10 +20,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,6 +40,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import services.LivraisonServices;
 import services.VehiculeServices;
@@ -63,6 +72,16 @@ public class ListLivraisonController implements Initializable {
     private TableColumn<Livraison, Date> cl_finlivraison;
     @FXML
     private TableColumn<Livraison, String> cl_prix;
+    @FXML
+    private Button l1;
+    @FXML
+    private Button v;
+    @FXML
+    private Button o;
+    @FXML
+    private Button print;
+    @FXML
+    private RadioButton tri3;
   
 
     /**
@@ -234,7 +253,74 @@ public class ListLivraisonController implements Initializable {
     afficher();}*/
 
    
+   
+    @FXML
+    private void PageListL(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
 
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/AjouterL.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void PageListV(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/ListVehicule.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+       private void PageListA(javafx.event.ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/livraison/AjouterV.fxml")));
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void print(ActionEvent event) {
+Printer printer = Printer.getDefaultPrinter();
+     Node node = new Circle(400, 800, 800);
+ PrinterJob job = PrinterJob.createPrinterJob(printer);
+ if (job != null) {
+    boolean success = job.printPage(view);
+    if (success) {
+        job.endJob();
+    }
+ }
+
+    }
+
+    @FXML
+    private void triPrix() throws SQLException {
+
+        LivraisonServices sf = new LivraisonServices();
+        List listcs = sf.triParPrix();
+
+        ObservableList listFormations = FXCollections.observableArrayList(listcs);
+
+        view.setItems(listFormations);
+
+         cl_livreur.setCellValueFactory(new PropertyValueFactory<>("livreur_id"));
+
+        cl_commande.setCellValueFactory(new PropertyValueFactory<>("commande_id"));
+        cl_vehicule.setCellValueFactory(new PropertyValueFactory<>("vehicule_id"));
+        cl_etatlivraison.setCellValueFactory(new PropertyValueFactory<>("etat_livraison"));
+        cl_date.setCellValueFactory(new PropertyValueFactory<>("date_livraison"));
+       
+        cl_prix.setCellValueFactory(new PropertyValueFactory<>("prix_livraison"));
+        cl_finlivraison.setCellValueFactory(new PropertyValueFactory<>("fin_livraison"));
+         }
+
+      
    
 
    

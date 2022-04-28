@@ -3,32 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/entities/Vehicule.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/AjouterV.fxml</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/AjouterVController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/AjouterLController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/services/LivraisonServices.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/AddProduitController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/entities/Utilisateur.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/entities/Commande.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/ListLivraison.fxml</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/Config/MailerApi.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/services/BoutiqueService.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/test/Main.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/Config/Notification.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/util/MyDB.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/ListProduitController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/ListLivraisonController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/ListVehiculeController.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/services/ProduitService.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/images/tel1.png</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/gui/livraison/AjouterL.fxml</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/entities/Livraison.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/images/download.jpg</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/entities/Produit.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/services/IService.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/Config/test.java</file>
-            <file>file:/C:/Users/oaca/Desktop/3A45/3A45/src/services/VehiculeServices.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/gui/livraison/ListLivraisonController.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/test/Main.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/gui/livraison/AjouterLController.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/services/VehiculeServices.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/gui/livraison/ListVehiculeController.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/services/LivraisonServices.java</file>
+            <file>file:/C:/Users/oaca/Error-makers-JAVAFX/src/gui/livraison/AjouterVController.java</file>
         </group>
     </open-files>
 </project-private>

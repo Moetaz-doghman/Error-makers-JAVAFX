@@ -189,6 +189,19 @@ public class LivraisonServices {
         return arr;
 
     }
+        public ArrayList<Livraison> triParPrix() throws SQLException {
+        ArrayList<Livraison> TabM = new ArrayList<>();
+        String req = "SELECT * FROM livraison order by  prix_livraison Desc";
+      PreparedStatement p;
+        p = cnx.prepareStatement(req);
+        ResultSet rs = p.executeQuery();
+        while (rs.next()) {
+
+            TabM.add(new Livraison(rs.getInt("id"), rs.getInt("livreur_id"), rs.getInt("commande_id"), rs.getInt("vehicule_id"), rs.getString("etat_Livraison"),rs.getDate("date_livraison") , rs.getString("prix_livraison"), rs.getDate("fin_livraison")) );
+        }
+        return TabM;
+    }
+    
         
     }
 
