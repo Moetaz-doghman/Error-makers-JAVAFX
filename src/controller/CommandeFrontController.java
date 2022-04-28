@@ -5,6 +5,7 @@
  */
 package controller;
 
+import animations.Animations;
 import entity.Cart;
 import entity.Commande;
 import entity.Lignecommande;
@@ -127,17 +128,24 @@ public class CommandeFrontController implements Initializable {
        
         if(( !Pattern.matches("[a-zA-Z]*", nomfld.getText()))||(nomfld.getText().trim().isEmpty())){
             errors.append("Please enter a valid last name\n");
+        Animations.shake(nomfld);
+
         } 
        
         if(( !Pattern.matches("[a-zA-Z]*", prenomfld.getText()))||(prenomfld.getText().trim().isEmpty())){
             errors.append("Please enter a valid last\n");
+        Animations.shake(prenomfld);
+
             
         }
         if(( !Pattern.matches("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]",phonefld.getText())) || ( phonefld.getText().trim().isEmpty())){
           errors.append("phone doit etre de type Int et doit contenir 8 chiffres !\n");
+        Animations.shake(phonefld);
+
         }
         if((adressefld.getText().trim().isEmpty())){
             errors.append("Please enter adress\n");
+            Animations.shake(adressefld);
             
         }
         if(errors.length()>0){
