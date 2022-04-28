@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.PaiementController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaiementController">
       <children>
-      <Pane layoutY="-1.0" prefHeight="607.0" prefWidth="1001.0" style="-fx-background-color: #395A78;">
+      <Pane layoutY="-1.0" prefHeight="809.0" prefWidth="1293.0" style="-fx-background-color: linear-gradient(to right top, #518bf8, #568aea, #5c89dd, #6188cf, #6686c1, #788ec1, #8897c2, #96a0c2, #b2b6d1, #cdcee0, #e6e6ef, #ffffff);">
          <children>
             <Label layoutX="252.0" layoutY="173.0" prefHeight="35.0" prefWidth="267.0" text="N° de Carte Banquaire">
                <font>
@@ -25,24 +25,24 @@
                </font>
             </Label>
             <TextField fx:id="year" layoutX="519.0" layoutY="216.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
-            <Label layoutX="458.0" layoutY="286.0" prefHeight="27.0" prefWidth="34.0" text="prix">
+            <Label disable="true" layoutX="458.0" layoutY="286.0" prefHeight="27.0" prefWidth="34.0" text="prix" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="prix" layoutX="519.0" layoutY="287.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
+            <TextField fx:id="prix" layoutX="519.0" layoutY="287.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" visible="false" />
             <Label layoutX="435.0" layoutY="249.0" prefHeight="27.0" prefWidth="80.0" text="exp_month">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <TextField fx:id="month" layoutX="519.0" layoutY="250.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
-            <Label layoutX="378.0" layoutY="327.0" prefHeight="27.0" prefWidth="137.0" text="Pictogramme (CVC)">
+            <Label layoutX="378.0" layoutY="292.0" prefHeight="27.0" prefWidth="137.0" text="Pictogramme (CVC)">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="cvc" layoutX="519.0" layoutY="328.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
+            <TextField fx:id="cvc" layoutX="519.0" layoutY="290.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
             <Button fx:id="valider" layoutX="531.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #D1DADC;" text="Valider">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -58,11 +58,6 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="108.0" fitWidth="123.0" layoutX="839.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../ressource/card/post-purchase-dribbble-animated-400x300.gif" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="109.0" fitWidth="108.0" layoutX="161.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ressource/card/m.png" />

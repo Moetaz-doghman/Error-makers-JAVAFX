@@ -73,7 +73,10 @@
                         </ScrollPane>
                     </center>
                 </BorderPane>
-                <Pane fx:id="handPaneMac" prefHeight="14.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                <Pane fx:id="handPaneMac" prefHeight="14.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <children>
+                  <AnchorPane prefHeight="612.0" prefWidth="935.0" />
+               </children></Pane>
             </children>
         </AnchorPane>
       <VBox fx:id="box" layoutX="97.0" layoutY="46.0" prefHeight="611.0" prefWidth="935.0" />

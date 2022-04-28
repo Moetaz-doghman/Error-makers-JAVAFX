@@ -345,9 +345,21 @@ public class AppController implements Initializable {
 
                             HBox totalView = totalView(Cart.getInstance().total());
                             box.getChildren().add(totalView);
+                             Button valider= new Button("Valider la commande");
+                            box.getChildren().add(valider);
+
 
                               box.setSpacing(80);
                               item.setSpacing(80);
+                              
+                        valider.setOnAction(event -> {
+                 try {
+                     Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Addcommande.fxml"));
+                     navHome.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                    });
        
        }
     }

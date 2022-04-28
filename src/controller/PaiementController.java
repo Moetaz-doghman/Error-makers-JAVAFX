@@ -16,6 +16,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -91,6 +93,12 @@ public class PaiementController implements Initializable {
 //        
 //        
 //        Customer a =Customer.retrieve("cus_JOBwZLoRc0VfHh");
+
+        double d= Cart.getInstance().total();//floating literal is double by default
+        int IntValue = (int)d;
+        String s=String.valueOf(IntValue)+0;
+                System.out.println(IntValue);
+                System.out.println(s);
                 
         Stripe.apiKey="sk_test_51KXAogH5r3kab54rJEMq45B4y8znxihxXppqWZR29QZiV1zxi4q9u889j2WfPVICKA5Dmf7RwXbes2Mh6Ec8EOeJ00X1EUnnxk";
       
@@ -107,7 +115,7 @@ public class PaiementController implements Initializable {
 
                     
             Map<String, Object> chargeParams = new HashMap<>();
-            chargeParams.put("amount", Integer.parseInt(prix.getText()));
+            chargeParams.put("amount", Integer.parseInt(s) );
             
             chargeParams.put("currency", "eur");
             chargeParams.put("source", "tok_visa");
@@ -125,7 +133,12 @@ public class PaiementController implements Initializable {
 
         showAlert(Alert.AlertType.CONFIRMATION, "Données Valide", "Success", "Payment avec succes!");
         
-       
+                try {
+                    Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));
+                    // navHome.getScene().setRoot(root);
+                } catch (IOException ex) {
+                    Logger.getLogger(PaiementController.class.getName()).log(Level.SEVERE, null, ex);
+                }
         
                 
             } catch (StripeException ex) {

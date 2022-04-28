@@ -44,6 +44,7 @@ import java.net.HttpURLConnection;
 import java.net.*;
 import java.util.Base64;
 import java.io.*;
+import javafx.scene.Parent;
 
 
 /**
@@ -103,7 +104,7 @@ public class CommandeFrontController implements Initializable {
     }
 
     @FXML
-    private void ajouter(ActionEvent event) {
+    private void ajouter(ActionEvent event) throws IOException {
         
         long millis = System.currentTimeMillis();
         java.sql.Date DateRapport = new java.sql.Date(millis);
@@ -150,13 +151,18 @@ public class CommandeFrontController implements Initializable {
         
         String message ="Votre commande votre commande est bien prise en compte "; 
              //SMSController smsc= new SMSController();
-             sms("moetaz00", "Narjes1234+", phone, message);
-
-            //clean();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Event Ajouté");
-            alert.showAndWait();
+             sms("moetaz00", "Narjes1234+", "216"+phone, message);
+             System.out.println("216"+phone);
+              Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Paiement.fxml"));
+             navHome.getScene().setRoot(root);
+             
+           
+             
+//clean();
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Commande Ajouté");
+//            alert.showAndWait();
             
             
         }
@@ -171,8 +177,8 @@ public class CommandeFrontController implements Initializable {
 
     // change these values to match your own account
     // new compte pour envoyer sms ***********************************************************
-    String myUsername = "";
-    String myPassword = "";
+    String myUsername = "moetaz00";
+    String myPassword = "Narjes1234+";
 
     // the details of the message we want to send
     String myData = "{to: \""+to+"\", encoding: \"UNICODE\", body: \""+message+"\"}";
