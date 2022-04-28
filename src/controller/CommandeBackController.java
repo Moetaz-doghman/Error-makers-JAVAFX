@@ -77,7 +77,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import static javax.management.Query.lt;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -176,13 +178,18 @@ public class CommandeBackController implements Initializable {
 
     Commande commande = new Commande(); 
     CommandeCrud crudCommande = new CommandeCrud();
+    @FXML
+    private Button btnevent;
+    @FXML
+    private Button Reclamation;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       LoadTableCommande();
+      
+        LoadTableCommande();
 
         FiltreCommande = FXCollections.observableArrayList();
         comboEtat.getItems().addAll("Non Livrée", "Livree");
@@ -225,13 +232,13 @@ public class CommandeBackController implements Initializable {
 
     @FXML
     private void gererligne(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/LigneCommande.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/LigneBack.fxml"));
         btnjo.getScene().setRoot(root);
     }
 
     @FXML
     private void gerercommande(ActionEvent event)  throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/Categorie.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/CommandeBack.fxml"));
         btnjo.getScene().setRoot(root);
     }
 
@@ -685,6 +692,43 @@ public class CommandeBackController implements Initializable {
             stage.hide();
         }
     }
+
+    @FXML
+    private void showchart(MouseEvent event) {
+         try {
+                 CommandeCrud se=new CommandeCrud();
+            Commande c = new Commande();
+            List<Commande> le=se.AfficherCommande(c);
+        ObservableList<Commande> data =FXCollections.observableArrayList(le);
+            FXMLLoader chart= new FXMLLoader(getClass().getResource("../GUI/chart.fxml"));
+            Parent root = chart.load();
+            ChartController mc = chart.getController();
+           
+           
+             Scene scene = new Scene(root);
+           Stage modifStage = new Stage();
+            
+            modifStage.setTitle("Chart commande!");
+            modifStage.setScene(scene);
+            modifStage.show();
+            
+             ChartController controller = chart.getController();
+        controller.setReclamationData(data);
+            
+            
+            
+        } catch (IOException ex) {
+        }
+    }
+
+    @FXML
+    private void gererevent(ActionEvent event) {
+    }
+
+    @FXML
+    private void gererreclamation(ActionEvent event) {
+    }
+
       
       
     

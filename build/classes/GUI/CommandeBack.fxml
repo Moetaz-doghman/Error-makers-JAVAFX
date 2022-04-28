@@ -39,7 +39,7 @@
                   <Insets bottom="10.0" top="50.0" />
                </VBox.margin>
             </ImageView>
-            <Button fx:id="listUserButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#ListUser" prefHeight="42.0" prefWidth="259.0" text="Users List" textFill="#1b1b1b">
+            <Button fx:id="listUserButton" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#ListUser" prefHeight="42.0" prefWidth="259.0" text="Users List" textFill="#1b1b1b">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,11 +54,11 @@
                   <Insets left="50.0" />
                </padding>
                <stylesheets>
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/fullpackstyling.css" />
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
-            <Button fx:id="ListDemandeButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#ListDemande" prefHeight="42.0" prefWidth="259.0" text="Requests List">
+            <Button fx:id="ListDemandeButton" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#ListDemande" prefHeight="42.0" prefWidth="259.0" text="Requests List">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,11 +70,11 @@
                   <Insets left="50.0" />
                </padding>
                <stylesheets>
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/fullpackstyling.css" />
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
-            <Button fx:id="logoutButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="42.0" prefWidth="259.0" text="Logout">
+            <Button fx:id="logoutButton" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="42.0" prefWidth="259.0" text="Logout">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -86,11 +86,11 @@
                   </ImageView>
                </graphic>
                <stylesheets>
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/fullpackstyling.css" />
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/style.css" />
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
                </stylesheets>
             </Button>
-            <Button fx:id="btnev1" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gerercommande" prefHeight="42.0" prefWidth="259.0" text="Orders">
+            <Button fx:id="btnev1" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gerercommande" prefHeight="42.0" prefWidth="259.0" text="Orders">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -102,11 +102,11 @@
                   <Insets left="50.0" />
                </padding>
                <stylesheets>
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/fullpackstyling.css" />
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
-            <Button fx:id="btnjo" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererligne" prefHeight="42.0" prefWidth="259.0" text="Order line">
+            <Button fx:id="btnjo" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererligne" prefHeight="42.0" prefWidth="259.0" text="Order line">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -118,8 +118,42 @@
                   <Insets left="50.0" />
                </padding>
                <stylesheets>
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/fullpackstyling.css" />
-                  <URL value="@../../../../Error-makers-JAVAFX-ce043da2007a1adf0f76938f7a3a743c65b530db/src/css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="btnevent" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererevent" prefHeight="42.0" prefWidth="259.0" text="Event">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="Reclamation" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererreclamation" prefHeight="42.0" prefWidth="259.0" text="Reclamation">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/development.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
          </children>
@@ -192,7 +226,7 @@
                               </Tab>
                            </tabs>
                         </TabPane>
-                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="1111.0" layoutY="614.0" onMouseClicked="#iconAddCommandeClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="1102.0" layoutY="614.0" onMouseClicked="#iconAddCommandeClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../ressource/categorize.png" />
                            </image>
@@ -253,12 +287,12 @@
                               </Label>
                            </children>
                         </Pane>
-                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="778.0" layoutY="72.0" onMouseClicked="#GeneratePDF" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="706.0" layoutY="72.0" onMouseClicked="#GeneratePDF" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../ressource/fichierPDF.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="btnexcel" fitHeight="75.0" fitWidth="73.0" layoutX="928.0" layoutY="72.0" onMouseClicked="#exportExcel">
+                        <ImageView fx:id="btnexcel" fitHeight="75.0" fitWidth="73.0" layoutX="867.0" layoutY="72.0" onMouseClicked="#exportExcel">
                            <image>
                               <Image url="@../image/excel.png" />
                            </image>
@@ -266,6 +300,11 @@
                         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1085.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../ressource/filtre.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="1014.0" layoutY="72.0" onMouseClicked="#showchart" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressource/statistics.png" />
                            </image>
                         </ImageView>
                      </children>
