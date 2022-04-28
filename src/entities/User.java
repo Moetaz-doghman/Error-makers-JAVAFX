@@ -21,6 +21,8 @@ public class User {
         this.email = email;
         this.telephone = telephone;
         this.password = password;
+        this.img=null;
+
     }
 
     public User(String nom, String prenom, String role, String email, String telephone, String password) {
@@ -30,9 +32,12 @@ public class User {
         this.email = email;
         this.telephone = telephone;
         this.password = password;
+        this.img=null;
     }
 
     public User() {
+        this.img=null;
+
     }
 
    

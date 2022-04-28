@@ -26,6 +26,7 @@ import services.EmailService;
  * @author skanderzouaoui
  */
 public class InsertCodeController implements Initializable {
+    Stage primaryStage = new Stage();
 
     @FXML
     private TextField code;
@@ -50,7 +51,6 @@ public class InsertCodeController implements Initializable {
                 alert.show();
             
         }else{
-               Stage primaryStage = new Stage();
         
         try {
             ((Stage) loginButton.getScene().getWindow()).close();
@@ -69,6 +69,16 @@ public class InsertCodeController implements Initializable {
 
     @FXML
     private void Login(ActionEvent event) {
+        try {
+            ((Stage) loginButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Base64;
 import java.util.Base64.Encoder;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,9 +19,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import services.EmailService;
 import services.UserService;
 
 /**
@@ -29,6 +32,8 @@ import services.UserService;
  * @author skanderzouaoui
  */
 public class NewPasswordController implements Initializable {
+    
+    Stage primaryStage = new Stage();
 
     @FXML
     private Button confirmButton;
@@ -63,14 +68,36 @@ public class NewPasswordController implements Initializable {
         }
          
         else{
-        
+        EmailService es = new EmailService();
         UserService us = new UserService();
         Encoder encoder =Base64.getEncoder();
+        es.deleteCode(userSession.Emailreset);
+        
         String hash = encoder.encodeToString(password.getText().getBytes());          
         us.updatePassword(userSession.Emailreset, hash);
         
-         Stage primaryStage = new Stage();
         
+        try {
+                          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                          alert.setTitle("Success");
+                          alert.setHeaderText("Password Changed");
+                          Optional<ButtonType> option = alert.showAndWait();
+                            if (option.get() == ButtonType.OK) { 
+            ((Stage) loginButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+                            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
+    }
+
+    @FXML
+    private void Login(ActionEvent event) {
         try {
             ((Stage) loginButton.getScene().getWindow()).close();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
@@ -81,11 +108,6 @@ public class NewPasswordController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        }
-    }
-
-    @FXML
-    private void Login(ActionEvent event) {
     }
     
 }

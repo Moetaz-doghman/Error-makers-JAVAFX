@@ -22,6 +22,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import services.EmailService;
 import services.UserService;
 
 /**
@@ -32,7 +33,7 @@ import services.UserService;
 public class RegisterController implements Initializable {
     
 
-    
+    Stage primaryStage = new Stage();
     @FXML
     private TextField nom;
     @FXML
@@ -64,9 +65,8 @@ public class RegisterController implements Initializable {
         System.exit(0);
     }
     
-    
-    @FXML
-    private void Register(ActionEvent event) throws Exception {
+     public boolean ControleSaisie(){
+        EmailService es = new EmailService();
         
          if ((prenom.getText().length()==0)||(nom.getText().length()==0) 
                  || (email.getText().length()==0)|| (telephone.getText().length()==0) 
@@ -76,12 +76,15 @@ public class RegisterController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("Please fill all the fields");
         alert.show();
+        return false;
         }
         else if((!email.getText().contains("@")) && (!email.getText().contains("."))){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Please enter a valid Email");
         alert.show();
+                return false;
+
                 }
         else if((telephone.getText().length()!=8)  ||  ( telephone.getText().startsWith("1")) 
         ||  ( telephone.getText().startsWith("3")) ||  ( telephone.getText().startsWith("6"))
@@ -92,23 +95,38 @@ public class RegisterController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("Please enter a valid Phone");
         alert.show();
+                return false;
+
                 }
         else if(!confirmpassword.getText().equals(password.getText())){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Passwords do NOT match");
         alert.show();
+                return false;
+
         }
         else if( (password.getText().length()<6 )){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("password must be at least 6 characters long");
         alert.show();
+                return false;
+
+        }else if(es.emailExist(email.getText())){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("This email has already an account");
+        alert.show();
+        return false;
+            
         }
-         
-        else
-        {
-     
+         return true;
+        
+    }
+    @FXML
+    private void Register(ActionEvent event) throws Exception {
+        if(ControleSaisie()){
                 UserService us = new UserService();
                 Encoder encoder = Base64.getEncoder();
                 String pass = encoder.encodeToString(password.getText().getBytes());
@@ -116,7 +134,7 @@ public class RegisterController implements Initializable {
                 User u = new User(nom.getText(),prenom.getText(),"[\"ROLE_USER\"]",email.getText(),telephone.getText(),pass);  
                 us.ajouter(u);
                 
-                Stage primaryStage = new Stage();
+                
                 ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
                     Scene scene = new Scene(root);
@@ -125,25 +143,17 @@ public class RegisterController implements Initializable {
                     primaryStage.show();
                     
                     
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText("Account Created");
-                alert.show();
-                
-                
-                nom.clear();
-                prenom.clear();
-                email.clear();
-                telephone.clear();
-                password.clear();
-                confirmpassword.clear();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setHeaderText("Account Created");
+                    alert.show();
+              
          }
     }
 
     @FXML
     private void login(ActionEvent event) {
         
-         Stage primaryStage = new Stage();
         
         try {
             ((Stage) loginButton.getScene().getWindow()).close();
@@ -160,7 +170,6 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void proAccount(ActionEvent event) {
-          Stage primaryStage = new Stage();
         
         try {
             ((Stage) proaccountButton.getScene().getWindow()).close();

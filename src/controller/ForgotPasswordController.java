@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -57,29 +59,33 @@ public class ForgotPasswordController implements Initializable {
         alert.setHeaderText("Please enter a valid Email");
         alert.show();
                 }
-        else{
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText("Email Sent");
-                alert.show();
-                       
-          try {
-                   ((Stage) loginButton.getScene().getWindow()).close();
-                    Parent root = FXMLLoader.load(getClass().getResource("/gui/InsertCode.fxml"));
-                    Scene scene = new Scene(root);
-                    primaryStage.setTitle("PROTECH");
-                    primaryStage.setScene(scene);
-                    primaryStage.show();
+        else{             
+                try {
                     
-                    
-                        String code = codeRecuperation();
-                        es.InsertCodeEmail(code, email.getText());
-                        es.envoyer(code);
-                        userSession.Emailreset=email.getText();
-                        
-                } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-                }
+                          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                          alert.setTitle("Success");
+                          alert.setHeaderText("Email Sent");
+                          Optional<ButtonType> option = alert.showAndWait();
+                            if (option.get() == ButtonType.OK) { 
+                                
+                          ((Stage) loginButton.getScene().getWindow()).close();
+                          Parent root = FXMLLoader.load(getClass().getResource("/gui/InsertCode.fxml"));
+                          Scene scene = new Scene(root);
+                          primaryStage.setTitle("PROTECH");
+                          primaryStage.setScene(scene);
+                          primaryStage.show();
+
+
+                              String code = codeRecuperation();
+                              es.InsertCodeEmail(code, email.getText());
+                              es.envoyer(code,email.getText());
+                              userSession.Emailreset=email.getText();
+
+                                }
+                         
+                      } catch (IOException ex) {
+                          System.out.println(ex.getMessage());
+                      }
     
             
         }
@@ -93,7 +99,7 @@ public class ForgotPasswordController implements Initializable {
         Collections.shuffle(numbers);
 
         String result = "";
-        for(int i = 0; i < 5 ; i++){
+        for(int i = 0; i < 6 ; i++){
             result += numbers.get(i).toString();
         }
         System.out.println(result);

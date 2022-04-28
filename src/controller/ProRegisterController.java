@@ -25,6 +25,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.DemandeService;
+import services.EmailService;
 
 /**
  * FXML Controller class
@@ -32,6 +33,8 @@ import services.DemandeService;
  * @author skanderzouaoui
  */
 public class ProRegisterController implements Initializable {
+    
+    Stage primaryStage = new Stage();
 
     @FXML
     private TextField nom;
@@ -62,11 +65,10 @@ public class ProRegisterController implements Initializable {
         "Livreur"     
     );
         role.setItems(list);
-    }    
-
-    @FXML
-    private void Register(ActionEvent event) throws IOException {
-                
+    }   
+    public boolean ControleSaisie(){
+        EmailService es = new EmailService();
+        
          if ((prenom.getText().length()==0)||(nom.getText().length()==0) 
                  || (email.getText().length()==0)|| (telephone.getText().length()==0) 
                  ||(password.getText().length()==0)){
@@ -75,12 +77,15 @@ public class ProRegisterController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("Please fill all the fields");
         alert.show();
+        return false;
         }
         else if((!email.getText().contains("@")) && (!email.getText().contains("."))){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Please enter a valid Email");
         alert.show();
+                return false;
+
                 }
         else if((telephone.getText().length()!=8)  ||  ( telephone.getText().startsWith("1")) 
         ||  ( telephone.getText().startsWith("3")) ||  ( telephone.getText().startsWith("6"))
@@ -91,29 +96,48 @@ public class ProRegisterController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("Please enter a valid Phone");
         alert.show();
+                return false;
+
+                }else if(role.getValue()==null){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Please enter Role");
+                    alert.show();
+                    return false;
+                    
                 }
         else if(!confirmpassword.getText().equals(password.getText())){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Passwords do NOT match");
         alert.show();
-        }
-        else if(role.getValue()==null) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Please set your Role");
-        alert.show();
+                return false;
+
         }
         else if( (password.getText().length()<6 )){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("password must be at least 6 characters long");
         alert.show();
+                return false;
+
+        }else if(es.emailExist(email.getText())){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("This email has already an account");
+        alert.show();
+        return false;
+            
         }
-         
-        else
+         return true;
+        
+    }
+
+    @FXML
+    private void Register(ActionEvent event) throws IOException {
+                
+        if(ControleSaisie())
         {
-     
                 DemandeService ds = new DemandeService();
                 Base64.Encoder encoder = Base64.getEncoder();
                 String pass = encoder.encodeToString(password.getText().getBytes());
@@ -126,11 +150,8 @@ public class ProRegisterController implements Initializable {
                      Demandes d = new Demandes(nom.getText(),prenom.getText(),"[\"ROLE_LIV\"]",email.getText(),telephone.getText(),pass);  
                     ds.ajouter(d);
       
-                }else{
-                    System.out.println("erreurrrsrrsrcsrcrsr");
                 }
                 
-                Stage primaryStage = new Stage();
                     ((Stage) registerButton.getScene().getWindow()).close();
                     Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
                     Scene scene = new Scene(root);
@@ -148,7 +169,6 @@ public class ProRegisterController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
-         Stage primaryStage = new Stage();
         
         try {
             ((Stage) loginButton.getScene().getWindow()).close();

@@ -40,7 +40,7 @@ public class EmailService
             private String username = "noreply.prootech@gmail.com";
             private String password = "ProTECH123";
             
-            public void envoyer(String code) {
+            public void envoyer(String code,String email) {
             // Etape 1 : Création de la session
             Properties props = new Properties();
             props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
@@ -60,7 +60,7 @@ public class EmailService
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("noreply.prootech@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                                InternetAddress.parse("mohamedskander.zouaoui@esprit.tn"));
+                                InternetAddress.parse(email));
             message.setSubject("ProTECH");
             
            
