@@ -16,8 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="723.0" prefWidth="1029.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.AcceuilRecController">
+<AnchorPane id="AnchorPane" prefHeight="723.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilRecController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0">
          <children>
@@ -195,7 +194,7 @@
                                  </children>
                               </HBox>
                               <Pane prefHeight="84.0" prefWidth="96.0" />
-                              <HBox fx:id="stat" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="164.0" prefWidth="398.0" spacing="20.0" styleClass="shopping-online-card" stylesheets="@Stylesheets.css">
+                              <HBox fx:id="stat" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" onMouseClicked="#afficherStatistique" prefHeight="164.0" prefWidth="398.0" spacing="20.0" styleClass="shopping-online-card" stylesheets="@Stylesheets.css">
                                  <children>
                                     <Label prefHeight="29.0" prefWidth="253.0" text="Statistiques" textFill="#878787">
                                        <font>

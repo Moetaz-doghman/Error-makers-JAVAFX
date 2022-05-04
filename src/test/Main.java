@@ -36,9 +36,9 @@ public class Main {
 //                rs.supprimer(45);
 
 //afficher
-                Reclamation r = new Reclamation();
-                ReclamationService ps = new ReclamationService();
-                System.out.println(ps.recuperer());
+//                Reclamation r = new Reclamation();
+//                ReclamationService ps = new ReclamationService();
+//                System.out.println(ps.recuperer());
 
 
 
@@ -67,9 +67,9 @@ public class Main {
 //                rs.supprimer(21);
 
 //afficher
-//                Reponse r = new Reponse();
-//                ReponseService ps = new ReponseService();
-//                System.out.println(ps.recuperer());
+                Reponse r = new Reponse();
+                ReponseService ps = new ReponseService();
+                System.out.println(ps.recuperer(59));
     }
     
 }

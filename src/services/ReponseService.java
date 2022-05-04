@@ -76,7 +76,7 @@ public class ReponseService implements IService<Reponse> {
     public List<Reponse> recuperer() {
     List<Reponse> reponses = new ArrayList<>();
     try {
-            String req = "select * from reclamation";
+            String req = "select * from reponse";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             
@@ -85,6 +85,7 @@ public class ReponseService implements IService<Reponse> {
                 p.setId(rs.getInt(1)); //index selon base de donne 
                 p.setSubject(rs.getString("subject"));
                 p.setMessage(rs.getString("message"));
+                p.setCreated_at(rs.getString("created_at"));
                 reponses.add(p);
             }
             
@@ -96,9 +97,52 @@ public class ReponseService implements IService<Reponse> {
 
     @Override
     public Reponse recuperer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        
+        Reponse p = new Reponse();
+        try {
+            String req = "select * from `protech`.`reponse` where `reponse`.`reclamation_id` = '"+id+"';  ";
+            PreparedStatement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            
+     
+                while(rs.next()){
+                p.setId(rs.getInt("id")); //index selon base de donne 
+                p.setSubject(rs.getString("subject"));
+                p.setMessage(rs.getString("message"));
+                p.setCreated_at(rs.getString("created_at"));
+                }  
+        
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return p ;
     }
 
+    
+     public int recupererIdRec(int id) {
+       
+        
+        
+         int idd = 0 ; 
+        try {
+            String req = "select reclamation_id from `protech`.`reponse` where `reponse`.`id` = '"+id+"';  ";
+            PreparedStatement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            
+     
+                while(rs.next()){
+                idd = rs.getInt("reclamation_id"); //index selon base de donne 
+                }  
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return idd ;
+    }
+    
+    
     @Override
     public void ajouter(Reponse t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

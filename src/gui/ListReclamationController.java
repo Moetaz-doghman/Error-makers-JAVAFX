@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,12 +21,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.ReclamationService;
 import services.ReponseService;
@@ -53,6 +58,10 @@ private Stage stage ;
     private TextField getSearch;
 ReclamationService Sp = new ReclamationService();
          List<Reclamation> lt = Sp.recuperer();
+    @FXML
+    private TableColumn<?, ?> etat;
+    @FXML
+    private HBox btnlistrep;
          
     /**
      * Initializes the controller class.
@@ -73,6 +82,7 @@ ReclamationService Sp = new ReclamationService();
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         message.setCellValueFactory(new PropertyValueFactory<>("message"));
+        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         
        
     } 
@@ -181,6 +191,25 @@ ReclamationService Sp = new ReclamationService();
          
        
     };
+
+    @FXML
+    private void listRep(MouseEvent event) {
+         try {
+        Stage stage = (Stage) btnlistrep.getScene().getWindow();
+        stage.close();
+        
+        FXMLLoader fxmlloader = new FXMLLoader (getClass().getResource("ListReponses.fxml"));
+        Parent root;
+        
+            root = (Parent) fxmlloader.load();
+        
+        Stage stage1 = new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AjoutReclController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
   
 }    

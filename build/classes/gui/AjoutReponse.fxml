@@ -135,6 +135,7 @@
             </Label>
             <TextField layoutX="620.0" layoutY="42.0" prefHeight="42.0" prefWidth="237.0" promptText="search" style="-fx-border-radius: 2em;" styleClass="search-box" stylesheets="@../../../../../Downloads/PiJavaaicha/PiJava/src/src/home/style_1.css" />
             <FontAwesomeIcon fill="#948181" glyphName="SEARCH" layoutX="819.0" layoutY="70.0" size="1.5em" />
+            <Button fx:id="btnRet" layoutX="97.0" layoutY="218.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
          </children>
       </Pane>
    </children>

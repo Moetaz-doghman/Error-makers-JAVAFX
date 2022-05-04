@@ -3,17 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ListReclamationFrontController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Dashboard.fxml</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Stylesheets.css</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/AjoutReponseController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/AcceuilRecController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ListReponsesController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ListReclamationController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/DashboardController.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Start.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ModifierController.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/entities/Reclamation.java</file>
-            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/AjoutReponseController.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/test/Main.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ListReponses.fxml</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/services/IService.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/AjoutReclController.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/services/ReponseService.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Start2.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/services/Mailling.java</file>
-            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/ListReclamationController.java</file>
-            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Start.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/services/ReclamationService.java</file>
+            <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/gui/Reclamation_itemController.java</file>
             <file>file:/C:/Users/mariem/Documents/NetBeansProjects/PiDev%20java/src/entities/Reponse.java</file>
         </group>
     </open-files>

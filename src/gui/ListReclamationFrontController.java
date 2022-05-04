@@ -69,6 +69,8 @@ public class ListReclamationFrontController implements Initializable {
     private ImageView emailCheckMark;
     @FXML
     private AnchorPane btnRet;
+    @FXML
+    private TextField getSearch;
 
    
     
@@ -203,7 +205,7 @@ public class ListReclamationFrontController implements Initializable {
         if (!testemail()) {
             erreur = erreur + ("Veuillez verifier que votre adresse email est de la forme : ***@***.** \n");
         }
-        if ( (!testNom()) || (!testSujet()) || !testemail() ) {
+        if ( (!testNom()) || (!testSujet()) || !testemail() || !testMessage() ) {
            
             
             

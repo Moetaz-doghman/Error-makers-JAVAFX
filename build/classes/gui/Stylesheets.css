@@ -38,9 +38,9 @@
     -fx-background-color: #BAEAC3;
     -fx-background-radius: 30;
 }
-.light-gray-ground{
-    -fx-background-color: #F3F3F3;
-}
+    .light-gray-ground{
+        -fx-background-color: #F3F3F3;
+    }
 input, select, textarea{
     color: #000000;
 }

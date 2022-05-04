@@ -64,5 +64,24 @@ public class AcceuilRecController implements Initializable {
         }
     }
 
+    @FXML
+    private void afficherStatistique(MouseEvent event) {
+           try {
+        Stage stage = (Stage) stat.getScene().getWindow();
+        stage.close();
+        
+        FXMLLoader fxmlloader = new FXMLLoader (getClass().getResource("Dashboard.fxml"));
+        Parent root;
+        
+            root = (Parent) fxmlloader.load();
+        
+        Stage stage1 = new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AjoutReclController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 }

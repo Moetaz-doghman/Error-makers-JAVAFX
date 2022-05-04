@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +16,7 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <Label fx:id="sujet" alignment="CENTER" prefWidth="200.0" text="PC not fixed ">
+      <Label fx:id="sujet" alignment="CENTER" prefWidth="148.0" text="PC not fixed ">
          <font>
             <Font name="Corbel" size="17.0" />
          </font>
@@ -31,7 +32,7 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <Label fx:id="email" alignment="CENTER" prefWidth="200.0" text="meddeb.mariem@gmail.com">
+      <Label fx:id="email" alignment="CENTER" prefHeight="21.0" prefWidth="165.0" text="meddeb.mariem@gmail.com">
          <font>
             <Font name="Corbel" size="17.0" />
          </font>
@@ -39,7 +40,7 @@
             <Insets left="20.0" />
          </padding>
       </Label>
-      <Label fx:id="message" alignment="CENTER" prefWidth="300.0" text="please check my reclamation !! ">
+      <Label fx:id="message" alignment="CENTER" prefHeight="21.0" prefWidth="222.0" text="please check my reclamation !! ">
          <font>
             <Font name="Corbel" size="17.0" />
          </font>
@@ -47,5 +48,9 @@
             <Insets left="10.0" />
          </padding>
       </Label>
+      <ImageView fx:id="qrcode" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="5.0" top="5.0" />
+         </HBox.margin></ImageView>
    </children>
 </HBox>

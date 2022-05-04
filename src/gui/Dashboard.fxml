@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="777.0" prefWidth="1166.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DashboardController">
+   <children>
+      <VBox prefHeight="850.0" prefWidth="350.0" style="-fx-background-color: #333645;" styleClass="sidebar">
+         <children>
+            <HBox prefHeight="110.0" prefWidth="300.0">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="110.0" right="110.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <FontAwesomeIcon glyphName="SEARCH" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <TextField promptText="Search" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Light" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphName="DASHBOARD" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <Label text="Dashboard" textFill="#7c8184">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="btnAfficheRec" alignment="CENTER_LEFT" layoutX="10.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#afficherReclamations" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphName="LIST" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <Label text="Liste Reclamations" textFill="#7c8184">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="188.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphName="USERS" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <Label text="Boutiques" textFill="#7c8184">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane layoutX="350.0" prefHeight="850.0" prefWidth="816.0">
+         <children>
+            <Label layoutX="55.0" layoutY="50.0" prefHeight="53.0" prefWidth="200.0" text="Dashboard" textFill="#4089ee">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="148.0" prefHeight="40.0" prefWidth="167.0" text="Statistics">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+               </font>
+            </Label>
+            <PieChart fx:id="PieChart" layoutX="173.0" layoutY="269.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

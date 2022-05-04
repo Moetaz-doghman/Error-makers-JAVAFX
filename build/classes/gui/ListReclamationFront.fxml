@@ -201,9 +201,9 @@
       </HBox>
       <HBox layoutX="378.0" layoutY="284.0" prefHeight="522.0" prefWidth="826.0">
          <children>
-            <ScrollPane prefHeight="561.0" prefWidth="824.0" style="-fx-background-color: transparent;" styleClass="free-delivery-card" stylesheets="@Stylesheets.css">
+            <ScrollPane prefHeight="411.0" prefWidth="849.0" style="-fx-background-color: transparent;">
                <content>
-                  <VBox fx:id="reclamationLayout" prefHeight="563.0" prefWidth="808.0" styleClass="free-delivery-card" stylesheets="@Stylesheets.css">
+                  <VBox fx:id="reclamationLayout" prefHeight="520.0" prefWidth="800.0" stylesheets="@Stylesheets.css">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="light-gray-ground" stylesheets="@Stylesheets.css">
                            <children>
@@ -239,7 +239,7 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
-                              <Label alignment="CENTER" prefWidth="300.0" text="Message">
+                              <Label alignment="CENTER" prefHeight="22.0" prefWidth="223.0" text="Message">
                                  <font>
                                     <Font name="Corbel Bold" size="18.0" />
                                  </font>
@@ -247,9 +247,14 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
+                              <Label prefHeight="21.0" prefWidth="90.0" text="QRCode">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="808.0">
+                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="800.0">
                            <children>
                               <Label alignment="CENTER" prefWidth="100.0" text="Mariem">
                                  <font>
@@ -259,7 +264,7 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
-                              <Label alignment="CENTER" prefWidth="200.0" text="PC not fixed ">
+                              <Label alignment="CENTER" prefWidth="148.0" text="PC not fixed ">
                                  <font>
                                     <Font name="Corbel" size="17.0" />
                                  </font>
@@ -275,7 +280,7 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
-                              <Label alignment="CENTER" prefWidth="200.0" text="meddeb.mariem@gmail.com">
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="165.0" text="meddeb.mariem@gmail.com">
                                  <font>
                                     <Font name="Corbel" size="17.0" />
                                  </font>
@@ -283,7 +288,7 @@
                                     <Insets left="20.0" />
                                  </padding>
                               </Label>
-                              <Label alignment="CENTER" prefWidth="300.0" text="please check my reclamation !! ">
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="222.0" text="please check my reclamation !! ">
                                  <font>
                                     <Font name="Corbel" size="17.0" />
                                  </font>
@@ -291,6 +296,11 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
+                              <ImageView fitHeight="75.0" fitWidth="75.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
                            </children>
                         </HBox>
                      </children>
@@ -299,7 +309,7 @@
             </ScrollPane>
          </children>
       </HBox>
-      <Label layoutX="528.0" layoutY="203.0" prefHeight="54.0" prefWidth="520.0" style="-fx-background-color: #ffffff;" text="La liste de vos reclamations">
+      <Label layoutX="531.0" layoutY="175.0" prefHeight="54.0" prefWidth="520.0" style="-fx-background-color: #ffffff;" text="La liste de vos reclamations">
          <font>
             <Font name="Corbel Bold" size="41.0" />
          </font>
@@ -319,9 +329,9 @@
             <FontAwesomeIcon glyphName="GEAR" size="2.5em" />
          </children>
       </HBox>
-      <HBox layoutX="378.0" layoutY="104.0" prefHeight="38.0" prefWidth="220.0" styleClass="add-btn" stylesheets="@Stylesheets.css">
+      <HBox layoutX="482.0" layoutY="97.0" prefHeight="38.0" prefWidth="569.0" styleClass="add-btn" stylesheets="@Stylesheets.css">
          <children>
-            <TextField fx:id="getSearch" onAction="#search" prefHeight="42.0" prefWidth="180.0" promptText="Search" style="-fx-background-color: GREY;" styleClass="search-box" stylesheets="@Stylesheets.css">
+            <TextField fx:id="getSearch" onAction="#search" prefHeight="38.0" prefWidth="508.0" promptText="Search" style="-fx-background-color: #F3F3F3;" styleClass="search-box" stylesheets="@Stylesheets.css">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>

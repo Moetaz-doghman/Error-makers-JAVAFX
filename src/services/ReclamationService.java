@@ -6,6 +6,7 @@
 package services;
 
 import entities.Reclamation;
+import entities.Reponse;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -141,4 +142,30 @@ public class ReclamationService implements IService<Reclamation>{
         }
         return list ; 
     }
+    
+    
+    public String recupererNom(int id) {
+       
+        
+        Reponse p = new Reponse();
+        String nom = new String() ; 
+        try {
+           
+            String req = "select name from `protech`.`reclamation` where `reclamation`.`id` = '"+id+"';  ";
+            PreparedStatement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            
+     
+                while(rs.next()){
+                nom = rs.getString("name"); //index selon base de donne 
+               
+                }  
+        
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return nom ;
+    }
+
 }
