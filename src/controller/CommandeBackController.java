@@ -355,7 +355,7 @@ public class CommandeBackController implements Initializable {
             try {
                 desktop.open(file); //opens the specified file   
             } catch (IOException ex) {
-                Logger.getLogger(CommandeController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
