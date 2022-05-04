@@ -36,7 +36,7 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            root = FXMLLoader.load(getClass().getResource("LigneBack.fxml"));
+            root = FXMLLoader.load(getClass().getResource("CommandeBack.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Protech");
             primaryStage.setScene(scene);

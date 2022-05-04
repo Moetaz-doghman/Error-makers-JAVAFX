@@ -175,7 +175,7 @@ public class CommandeFrontController implements Initializable {
         
         String message ="Votre commande votre commande est bien prise en compte "; 
              //SMSController smsc= new SMSController();
-             sms("moetaz00", "Narjes1234+", "216"+phone, message);
+             sms("doghman2", "Dogh1234", "216"+phone, message);
              System.out.println("216"+phone);
               Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Paiement.fxml"));
              navHome.getScene().setRoot(root);
@@ -201,8 +201,8 @@ public class CommandeFrontController implements Initializable {
 
     // change these values to match your own account
     // new compte pour envoyer sms ***********************************************************
-    String myUsername = "moetaz00";
-    String myPassword = "Narjes1234+";
+    String myUsername = "doghman2";
+    String myPassword = "Dogh1234";
 
     // the details of the message we want to send
     String myData = "{to: \""+to+"\", encoding: \"UNICODE\", body: \""+message+"\"}";

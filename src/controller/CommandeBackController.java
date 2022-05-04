@@ -110,14 +110,6 @@ public class CommandeBackController implements Initializable {
     @FXML
     private Pane ContainerUsersAdmin;
     @FXML
-    private HBox Userinformations;
-    @FXML
-    private Group parentImage;
-    @FXML
-    private Pane imageProfileContainer;
-    @FXML
-    private MaterialDesignIconView icon;
-    @FXML
     private TabPane PaneTableau;
     @FXML
     private TableView<Commande> TableViewCommande;
