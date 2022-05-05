@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="apCreerEvenement" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterEvenementController">
+   <children>
+      <Text layoutX="450.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer Evenement" wrappingWidth="99.240234375" />
+      <VBox layoutX="285.0" layoutY="52.0" prefHeight="227.0" prefWidth="724.0">
+         <children>
+            <Label text="Nom">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Adresse">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Date Début">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Date Fin">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Description">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Long Description">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Affiche">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="456.0" layoutY="55.0" prefHeight="339.0" prefWidth="286.0">
+         <children>
+            <TextField fx:id="nomtf" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="adressetf" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <DatePicker fx:id="datedebut" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </DatePicker>
+            <DatePicker fx:id="datefin" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </DatePicker>
+            <TextField fx:id="descriptiontf" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextArea fx:id="longdesctf" prefHeight="38.0" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+      </VBox>
+      <Separator layoutX="312.0" layoutY="517.0" prefHeight="0.0" prefWidth="538.0" />
+      <Button fx:id="annulerbtn" layoutX="426.0" layoutY="529.0" mnemonicParsing="false" onAction="#annuler" text="Annuler" />
+      <Button fx:id="enregistrerbtn" layoutX="560.0" layoutY="529.0" mnemonicParsing="false" onAction="#enregistrer" text="Enregistrer" />
+      <VBox alignment="TOP_CENTER" prefHeight="603.0" prefWidth="255.0" style="-fx-background-color: #05071F;">
+         <children>
+            <ImageView fitHeight="98.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="List Evenement" textFill="#1b1b1b">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/icone.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="Retour" textFill="#1b1b1b">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/icone.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
+         </children>
+      </VBox>
+      <TextField fx:id="affichetf" layoutX="463.0" layoutY="484.0" prefWidth="250.0" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="286.0" layoutX="456.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="browseimgbtn" layoutX="762.0" layoutY="444.0" mnemonicParsing="false" onAction="#browseimg" text="Browse" />
+   </children>
+</AnchorPane>
