@@ -153,6 +153,14 @@ public class LigneBackController implements Initializable {
     
     private ObservableList<Lignecommande> Lignecommande;
     private JFXDialogTool dialogDeleteLigne;
+    @FXML
+    private Button Boutique;
+    @FXML
+    private Button addboutique;
+    @FXML
+    private Button produit;
+    @FXML
+    private Button addproduit;
     
     /**
      * Initializes the controller class.
@@ -164,7 +172,7 @@ public class LigneBackController implements Initializable {
         FiltreLigne = FXCollections.observableArrayList();
        // CombofiltreSearch.getItems().addAll("Action", "Adventure", "Strategy", "Sports", "Simulation", "ViewAll");
         LoadStat();
-        Animations.Wobble(rootCommande);
+        Animations.fadeInUp(rootCommande);
     }    
 
     @FXML
@@ -380,6 +388,31 @@ public class LigneBackController implements Initializable {
 
         });
 
+    }
+
+    @FXML
+    private void gererboutique(ActionEvent event) throws IOException {
+        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddboutique(ActionEvent event) throws IOException {
+        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererproduit(ActionEvent event) throws IOException {
+        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+
+    @FXML
+    private void gereraddproduit(ActionEvent event) throws IOException {
+        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
+        btnjo.getScene().setRoot(root);
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package controller;
 
+import animations.Animations;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
@@ -27,6 +28,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import entity.Boutique;
+import entity.userSession;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -42,6 +44,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -126,12 +129,21 @@ public class ListBoutiqueController implements Initializable {
     private JFXComboBox<?> comboEtat;
     @FXML
     private ImageView iconRole;
+    @FXML
+    private Button Boutique;
+    @FXML
+    private Button addboutique;
+    @FXML
+    private Button produit;
+    @FXML
+    private Button addproduit;
 
     /**
      * Initializes the controller class.
      */
       @Override
     public void initialize(URL url, ResourceBundle rb) {
+         Animations.fadeInUp(rootCommande);
             view.setEditable(true);
         cl_nom.setCellFactory(TextFieldTableCell.forTableColumn());
         cl_desc.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -210,21 +222,58 @@ public class ListBoutiqueController implements Initializable {
     }
     
 
-    @FXML
-    private void ListUser(ActionEvent event) {
+  @FXML
+    private void ListUser(ActionEvent event) throws IOException {
+      //  Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/usersList.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UsersList.fxml"));
+        btnjo.getScene().setRoot(root);
     }
 
     @FXML
-    private void ListDemande(ActionEvent event) {
+    private void ListDemande(ActionEvent event) throws IOException {
+//        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/DemandesList.fxml"));
+//        ListDemandeButton.getScene().setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/DemandesList.fxml"));
+        btnjo.getScene().setRoot(root);
+        
+    }
+        @FXML
+    private void gererligne(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/LigneBack.fxml"));
+        btnjo.getScene().setRoot(root);
     }
 
     @FXML
-    private void gerercommande(ActionEvent event) {
+    private void gerercommande(ActionEvent event)  throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/CommandeBack.fxml"));
+        btnjo.getScene().setRoot(root);
     }
 
     @FXML
-    private void gererligne(ActionEvent event) {
+    private void Logout(ActionEvent event) {
+            Stage primaryStage = new Stage();
+
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        userSession.id=0;
+        userSession.nom=null;
+        userSession.prenom=null;
+        userSession.email=null;
+        userSession.telephone=null;
+        userSession.password=null;
+        userSession.isLoggedIn=false;
     }
+    
+
 
     @FXML
     private void gererevent(ActionEvent event) {
@@ -234,9 +283,7 @@ public class ListBoutiqueController implements Initializable {
     private void gererreclamation(ActionEvent event) {
     }
 
-    @FXML
-    private void Logout(ActionEvent event) {
-    }
+
 
    @FXML
     private void updateNom(CellEditEvent edditedCell) throws SQLException {
@@ -352,6 +399,31 @@ String desc = personSelected.getDescBoutique();
 
     @FXML
     private void closeDialogAddCommande(MouseEvent event) {
+    }
+
+    @FXML
+    private void gererboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+
+    @FXML
+    private void gereraddproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
+        btnjo.getScene().setRoot(root);
     }
     
 }

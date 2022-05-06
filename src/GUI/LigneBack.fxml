@@ -139,6 +139,78 @@
                   <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
+            <Button fx:id="Boutique" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererboutique" prefHeight="42.0" prefWidth="259.0" text="Liste boutique">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/boutique.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="addboutique" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gereraddboutique" prefHeight="42.0" prefWidth="259.0" text="Ajouter boutique">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="produit" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererproduit" prefHeight="42.0" prefWidth="259.0" text="Liste Produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/box.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="addproduit" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gereraddproduit" prefHeight="42.0" prefWidth="259.0" text="Ajouter Produits">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
             <Button fx:id="logoutButton" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="42.0" prefWidth="259.0" text="Logout">
                <padding>
                   <Insets left="50.0" />

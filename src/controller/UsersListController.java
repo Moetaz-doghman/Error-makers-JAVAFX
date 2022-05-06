@@ -5,6 +5,7 @@
  */
 package controller;
 
+import animations.Animations;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import entity.User;
@@ -130,12 +131,22 @@ public class UsersListController implements Initializable {
     private JFXComboBox<?> comboEtat;
     @FXML
     private ImageView iconRole;
+    @FXML
+    private Button Boutique;
+    @FXML
+    private Button addboutique;
+    @FXML
+    private Button produit;
+    @FXML
+    private Button addproduit;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+                Animations.fadeInUp(rootCommande);
+
 try {
             afficher();
             addButtonToTable();
@@ -346,6 +357,31 @@ public void afficher(){
 
     @FXML
     private void closeDialogAddCommande(MouseEvent event) {
+    }
+
+    @FXML
+    private void gererboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+
+    @FXML
+    private void gereraddproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
+        btnjo.getScene().setRoot(root);
     }
     
 }
