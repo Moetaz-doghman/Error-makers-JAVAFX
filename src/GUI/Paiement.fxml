@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaiementController">
+      <children>
+      <Pane layoutY="-1.0" prefHeight="809.0" prefWidth="1293.0" style="-fx-background-color: linear-gradient(to right top, #518bf8, #568aea, #5c89dd, #6188cf, #6686c1, #788ec1, #8897c2, #96a0c2, #b2b6d1, #cdcee0, #e6e6ef, #ffffff);">
+         <children>
+            <Label layoutX="252.0" layoutY="173.0" prefHeight="35.0" prefWidth="267.0" text="N° de Carte Banquaire">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="carte" layoutX="519.0" layoutY="178.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #D1DADC;" />
+            <Label layoutX="431.0" layoutY="214.0" prefHeight="27.0" prefWidth="73.0" text="exp_year">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="year" layoutX="519.0" layoutY="216.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
+            <Label disable="true" layoutX="458.0" layoutY="286.0" prefHeight="27.0" prefWidth="34.0" text="prix" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="prix" layoutX="519.0" layoutY="287.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" visible="false" />
+            <Label layoutX="435.0" layoutY="249.0" prefHeight="27.0" prefWidth="80.0" text="exp_month">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="month" layoutX="519.0" layoutY="250.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
+            <Label layoutX="378.0" layoutY="292.0" prefHeight="27.0" prefWidth="137.0" text="Pictogramme (CVC)">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cvc" layoutX="519.0" layoutY="290.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #D1DADC;" />
+            <Button fx:id="valider" layoutX="531.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #D1DADC;" text="Valider">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+                  <Button fx:id="Annuler" layoutX="373.0" layoutY="404.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #D1DADC;" text="Annuler">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="368.0" layoutY="71.0" text="Paiement En Ligne">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="109.0" fitWidth="108.0" layoutX="161.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressource/card/m.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="134.0" fitWidth="305.0" layoutX="689.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressource/card/v.png" />
+               </image>
+            </ImageView>        
+         </children>
+      </Pane>
+     
+   </children>
+    
+</AnchorPane>
