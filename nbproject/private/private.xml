@@ -3,39 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/LigneBack1Controller.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/utils/Constants.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/animations/Animations.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/utils/JFXDialogTool.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListProduitController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ChartController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AddBoutiqueController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/homeController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AddProduitController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/DemandesListController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AppController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeBackController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/AppController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/NewFXMain.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/CommandeBackController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/Notifcation/AlertsBuilder.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/Notifcation/NotificationType.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/CommandeController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/animations/Animations.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/JoueurController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/service/LigneCrud.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/homeController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/utils/Myconnexion.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/Notifcation/AlertType.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/FXMLLoader.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/EController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/LigneController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/FrontJoueurController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/PaiementController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/CommandeFrontController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/Notifcation/NotificationsBuilder.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/controller/LigneBack1Controller.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/GUI/NewFXMain1.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/utils/Constants.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Pidev---Tech-masters-main/gestionEve_Spon/src/utils/JFXDialogTool.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ProfileController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/ProduitCrud.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/AddBoutique.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/LigneBackController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/UsersListController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/AddProduit.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListBoutiqueController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/LigneBack.fxml</file>
         </group>
     </open-files>
 </project-private>

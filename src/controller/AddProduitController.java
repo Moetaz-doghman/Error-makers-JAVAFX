@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import entity.Produit;
 import entity.userSession;
-//import Config.SMSApi;
+import Config.SMSApi;
 //import java.awt.Button;
 //import java.awt.TextArea;
 //import java.awt.event.ActionEvent;
@@ -64,10 +64,10 @@ import javafx.util.Duration;
 import javax.swing.JOptionPane;
 import org.apache.commons.net.ftp.FTPClient;
 import service.ProduitService;
-//import org.apache.commons.net.ftp.FTPClient;
-//import tray.animations.AnimationType;
-//import tray.notification.NotificationType;
-//import tray.notification.TrayNotification;
+import org.apache.commons.net.ftp.FTPClient;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 /**
@@ -308,15 +308,15 @@ public class AddProduitController implements Initializable {
                      //Notification
         String tilte;
         String message;
-//        TrayNotification tray = new TrayNotification();
-//        AnimationType type = AnimationType.POPUP;
-//        tray.setAnimationType(type);
-//        tilte = "Added Successful";
-//        message ="produit ajouter avec success";
-//        tray.setTitle(tilte);
-//        tray.setMessage(message);
-//        tray.setNotificationType(NotificationType.SUCCESS);
-//        tray.showAndDismiss(Duration.millis(2000));
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tilte = "Added Successful";
+        message ="produit ajouter avec success";
+        tray.setTitle(tilte);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.millis(2000));
         
          
         Node node = (Node) event.getSource();
@@ -327,8 +327,8 @@ public class AddProduitController implements Initializable {
         stage.setScene(scene);
         stage.show();
     
-                //    SMSApi sms = new SMSApi();    
-//sms.sendSMS("+21655841954", "Admin.");
+                    SMSApi sms = new SMSApi();    
+sms.sendSMS("+21655841954", "Admin.");
 
     /*    prixProduit.clear();
         quantiteProduit.clear();

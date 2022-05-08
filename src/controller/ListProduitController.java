@@ -27,7 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-//import Config.JfreeChartApi;
+import Config.JfreeChartApi;
 import entity.Produit;
 import entity.userSession;
 import java.io.IOException;
@@ -424,6 +424,10 @@ public void afficher() throws SQLException {
 
     @FXML
     private void showchart(MouseEvent event) {
+         ProduitService rvs = new ProduitService();
+        HashMap<String, Double> data = rvs.StatistiqueParQT();
+        JfreeChartApi chart = new JfreeChartApi(data);
+        chart.afficherStatistique();
     }
 
     @FXML
