@@ -12,43 +12,67 @@
 
 <AnchorPane id="AnchorPane" fx:id="apCreerEvenement" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterEvenementController">
    <children>
-      <Text layoutX="450.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer Evenement" wrappingWidth="99.240234375" />
+      <Text layoutX="426.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer Evenement" wrappingWidth="208.240234375">
+         <font>
+            <Font name="Book Antiqua Bold" size="24.0" />
+         </font></Text>
       <VBox layoutX="285.0" layoutY="52.0" prefHeight="227.0" prefWidth="724.0">
          <children>
             <Label text="Nom">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Adresse">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Date Début">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Date Fin">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Description">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Long Description">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
             <Label text="Affiche">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Candara" size="16.0" />
+               </font>
             </Label>
          </children>
       </VBox>
@@ -71,19 +95,14 @@
             </DatePicker>
             <DatePicker fx:id="datefin" prefWidth="250.0">
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
             </DatePicker>
             <TextField fx:id="descriptiontf" prefWidth="250.0">
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets top="25.0" />
                </VBox.margin>
             </TextField>
-            <TextArea fx:id="longdesctf" prefHeight="38.0" prefWidth="250.0">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </TextArea>
          </children>
       </VBox>
       <Separator layoutX="312.0" layoutY="517.0" prefHeight="0.0" prefWidth="538.0" />
@@ -145,5 +164,6 @@
       <TextField fx:id="affichetf" layoutX="463.0" layoutY="484.0" prefWidth="250.0" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="286.0" layoutX="456.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="browseimgbtn" layoutX="762.0" layoutY="444.0" mnemonicParsing="false" onAction="#browseimg" text="Browse" />
+      <TextArea fx:id="longdesctf" layoutX="456.0" layoutY="300.0" prefHeight="39.0" prefWidth="286.0" />
    </children>
 </AnchorPane>

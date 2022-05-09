@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane prefHeight="704.0" prefWidth="907.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EvenementFrontController">
+    
+    <children>
+      <VBox fx:id="box" layoutX="-30.0" layoutY="14.0" prefHeight="677.0" prefWidth="907.0" style="-fx-background-color: ;">
+         <children>
+            <AnchorPane prefHeight="533.0" prefWidth="944.0">
+               <children>
+                  <Button fx:id="BackBtn" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" onAction="#BackBtn" prefHeight="101.0" prefWidth="76.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="171.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-back-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="nextBtn" layoutX="858.0" layoutY="280.0" mnemonicParsing="false" onAction="#nextBtn" prefHeight="101.0" prefWidth="86.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-forward-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <SplitPane layoutX="123.0" layoutY="9.0" orientation="VERTICAL" prefHeight="668.0" prefWidth="736.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="734.0">
+                           <children>
+                              <TextField fx:id="idEvent" layoutX="205.0" layoutY="167.0" prefHeight="25.0" prefWidth="5.0" style="-fx-background-color: transparent;" />
+                              <ImageView fx:id="imgEvent" fitHeight="259.0" fitWidth="332.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <TextField fx:id="nomEvent" disable="true" layoutX="375.0" layoutY="14.0" prefHeight="61.0" prefWidth="326.0" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="System Bold" size="32.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="adresseEvent" disable="true" layoutX="437.0" layoutY="93.0" prefHeight="25.0" prefWidth="274.0" style="-fx-background-color: transparent;" />
+                              <Label layoutX="377.0" layoutY="95.0" text="Adresse">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="dateDebEvent" disable="true" editable="false" layoutX="461.0" layoutY="126.0" style="-fx-background-color: transparent;" />
+                              <TextField fx:id="DateFinEvent" disable="true" layoutX="461.0" layoutY="155.0" style="-fx-background-color: transparent;" />
+                              <TextField fx:id="descEvent" disable="true" layoutX="377.0" layoutY="208.0" prefHeight="60.0" prefWidth="326.0" style="-fx-background-color: transparent;" />
+                              <TextField fx:id="LongDescEvent" disable="true" layoutX="28.0" layoutY="298.0" prefHeight="93.0" prefWidth="691.0" style="-fx-background-color: transparent;" />
+                              <Separator layoutX="14.0" layoutY="388.0" prefHeight="25.0" prefWidth="698.0" />
+                              <Separator layoutX="422.0" layoutY="401.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="39.0" />
+                              <Button fx:id="sendCommentBtn" contentDisplay="RIGHT" layoutX="497.0" layoutY="604.0" mnemonicParsing="false" onAction="#sendComment" prefHeight="55.0" prefWidth="214.0" style="-fx-background-color: transparent;" text="SEND" textFill="#0598ff">
+                                 <graphic>
+                                    <ImageView fitHeight="47.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-email-send-48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="pseudo" layoutX="448.0" layoutY="437.0" />
+                              <Label layoutX="451.0" layoutY="474.0" />
+                              <TextArea fx:id="contenuComment" layoutX="451.0" layoutY="491.0" prefHeight="113.0" prefWidth="265.0" />
+                              <ScrollPane layoutX="22.0" layoutY="443.0" prefHeight="209.0" prefWidth="404.0" style="-fx-background-color: #539dff;">
+                                 <content>
+                                    <VBox fx:id="CommentaireLayout" prefHeight="251.0" prefWidth="376.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <AnchorPane id="AnchorPane" prefHeight="59.0" prefWidth="362.0">
+                                                   <children>
+                                                      <ImageView fitHeight="88.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../images/icons8-user-80.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <TextField fx:id="pseudo1" layoutX="91.0" layoutY="2.0" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: transparent;">
+                                                         <font>
+                                                            <Font name="Cambria Bold" size="15.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <TextArea fx:id="contenu" disable="true" layoutX="93.0" layoutY="39.0" prefHeight="43.0" prefWidth="263.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                              <Label layoutX="31.0" layoutY="405.0" prefHeight="17.0" prefWidth="125.0" text="List Comments">
+                                 <font>
+                                    <Font name="System Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="376.0" layoutY="130.0" text="Date Debut">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="376.0" layoutY="159.0" text="Date Fin">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="376.0" layoutY="184.0" text="Description">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="276.0" text="Long Description">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="448.0" layoutY="410.0" text="Pseudo">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="450.0" layoutY="468.0" text="Commentaire">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+    </children>
+    <effect>
+        <DropShadow blurType="GAUSSIAN" />
+    </effect>
+</AnchorPane>

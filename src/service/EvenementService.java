@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,6 +73,21 @@ public class EvenementService implements Service<Evenement> {
             System.err.println(e.getMessage());
         }
         return l;
+    }
+    public List<Integer> getIdEvent(){
+        List<Integer> l = new ArrayList<>();
+
+        try {
+            String req = "SELECT id FROM `Evenement`";
+            System.out.println(req);
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery(req);
+            while (rs.next()) {
+                 l.add(rs.getInt("id"));
+            }
+        } catch (SQLException ex) {
+        }
+        return l;             
     }
 
     public Evenement findById(int id) {

@@ -24,6 +24,14 @@ public class Commentaire {
     public Commentaire() {
     }
 
+    public Commentaire(int annoncesId ,String contenu, String pseudo) {
+        this.contenu = contenu;
+        this.pseudo = pseudo;
+        this.annoncesId = annoncesId;
+        this.createdAt = null;
+        this.email = null;
+    }
+
     public Commentaire( int annoncesId, int parentId, String contenu, int active, String email, Date createdAt, String pseudo) {
         this.id = 0;
         this.annoncesId = annoncesId;

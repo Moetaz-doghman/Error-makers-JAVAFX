@@ -24,18 +24,14 @@ public class CommentaireService implements Service<Commentaire> {
     public Boolean insert(Commentaire c) {
         try {
             String req = "INSERT into `commentaires` ("
-                    + "`id`,`annonces_Id`,`parent_Id`, `contenu`, `active`, `email`, `created_At`, `pseudo`) "
+                    + "`annonces_Id`, `contenu`, `email`, `pseudo`) "
                     + "VALUES("
-                    + " ?, ?, ?, ?, ?, ?, ?, ?)";
+                    + " ?, ?, ?, ?)";
             PreparedStatement pst = connection.prepareStatement(req);
             Integer i = 0;
-            pst.setInt(++i, c.getId());
             pst.setInt(++i, c.getAnnoncesId());
-            pst.setObject(++i, null ,java.sql.Types.INTEGER);
             pst.setString(++i, c.getContenu());
-            pst.setInt(++i, c.getActive());
             pst.setString(++i, c.getEmail());
-            pst.setDate(++i, new java.sql.Date(c.getCreatedAt().getTime()));
             pst.setString(++i, c.getPseudo());
             return pst.executeUpdate() > 0;
         } catch (SQLException ee) {
@@ -45,8 +41,8 @@ public class CommentaireService implements Service<Commentaire> {
         return false;
     }
 
-    @Override
-    public List<Commentaire> find(Integer offset, Integer rowCount, String filter, String order) {
+    
+    public List<Commentaire> findd() {
         List<Commentaire> l = new ArrayList<>();
         try {
             String req = "SELECT * FROM `commentaires`"
@@ -117,6 +113,11 @@ public class CommentaireService implements Service<Commentaire> {
 
     @Override
     public Boolean modify(Commentaire instance) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Commentaire> find(Integer offset, Integer rowCount, String filter, String order) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemCommentaireController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="59.0" prefWidth="362.0">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-user-80.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="pseudo" disable="true" editable="false" layoutX="91.0" layoutY="2.0" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Cambria Bold" size="15.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="contenu" disable="true" layoutX="93.0" layoutY="39.0" prefHeight="43.0" prefWidth="253.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
