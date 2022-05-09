@@ -5,6 +5,7 @@
  */
 package controller;
 
+import animations.Animations;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
@@ -149,6 +150,7 @@ public class ListLivraisonController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Animations.fadeInUp(rootCommande);
          view.setEditable(true);
        
         cl_prix.setCellFactory(TextFieldTableCell.forTableColumn());

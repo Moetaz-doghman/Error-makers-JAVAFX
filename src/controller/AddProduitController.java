@@ -123,6 +123,16 @@ public class AddProduitController implements Initializable {
     private Button produit;
     @FXML
     private Button addproduit;
+    @FXML
+    private Button reponse;
+    @FXML
+    private Button listlivrasion;
+    @FXML
+    private Button addlivrasion;
+    @FXML
+    private Button listvehicule;
+    @FXML
+    private Button addvehicule;
 
     /**
      * Initializes the controller class.
@@ -362,6 +372,26 @@ sms.sendSMS("+21655841954", "Admin.");
     private void gereraddproduit(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
         btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreponse(ActionEvent event) {
+    }
+
+    @FXML
+    private void gererlistlivraison(ActionEvent event) {
+    }
+
+    @FXML
+    private void gereraddlivraison(ActionEvent event) {
+    }
+
+    @FXML
+    private void gererlistvehicule(ActionEvent event) {
+    }
+
+    @FXML
+    private void gereraddvehicule(ActionEvent event) {
     }
     
 }

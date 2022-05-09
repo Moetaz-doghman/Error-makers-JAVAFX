@@ -5,6 +5,7 @@
  */
 package controller;
 
+import animations.Animations;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -106,6 +107,7 @@ public class ajouterVController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Animations.fadeInUp(rootCommande);
           // TODO
        ObservableList<String> langs1 = FXCollections.observableArrayList("Rouge", "Verte", "Bleue", "Noir","Grise","blanche");
         couleur.setItems(langs1);

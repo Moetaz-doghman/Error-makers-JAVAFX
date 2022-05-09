@@ -36,7 +36,7 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            root = FXMLLoader.load(getClass().getResource("ListProduit.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ListVehicule.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Protech");
             primaryStage.setScene(scene);

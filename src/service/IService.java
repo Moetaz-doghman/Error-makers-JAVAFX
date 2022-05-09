@@ -9,12 +9,14 @@ import java.util.List;
 
 /**
  *
- * @author Skander
+ * @author mariem
  */
 public interface IService<T> {
-    void ajouter(T t);
+     void ajouter(T t);
+     void ajouterR(T t,int id);
     void modifier(T t);
     void supprimer(int id);
     List<T> recuperer();
     T recuperer(int id);
+    
 }

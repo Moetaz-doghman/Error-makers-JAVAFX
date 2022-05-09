@@ -143,6 +143,8 @@ public class DemandesListController implements Initializable {
     private Button produit;
     @FXML
     private Button addproduit;
+    @FXML
+    private Button reponse;
 
     /**
      * Initializes the controller class.
@@ -438,6 +440,10 @@ public void afficher(){
     private void gereraddproduit(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
         btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreponse(ActionEvent event) {
     }
     
 }

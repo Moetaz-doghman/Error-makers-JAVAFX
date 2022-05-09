@@ -138,6 +138,24 @@
                   <URL value="@../css/style.css" />
                </stylesheets>
             </Button>
+            <Button fx:id="reponse" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererreponse" prefHeight="42.0" prefWidth="259.0" text="Reponse">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/playlist.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <stylesheets>
+                  <URL value="@../css/style.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/fullpackstyling.css" />
+                  <URL value="@../css/style.css" />
+               </stylesheets>
+            </Button>
             <Button fx:id="Boutique" alignment="BASELINE_LEFT" blendMode="LIGHTEN" cache="true" cacheHint="QUALITY" depthTest="DISABLE" graphicTextGap="22.0" mnemonicParsing="false" onAction="#gererboutique" prefHeight="42.0" prefWidth="259.0" text="Liste boutique">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
