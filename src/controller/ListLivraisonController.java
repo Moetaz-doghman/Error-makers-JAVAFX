@@ -29,6 +29,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import entity.Livraison;
 import entity.Vehicule;
+import entity.userSession;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -47,6 +48,7 @@ import javafx.fxml.Initializable;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -144,6 +146,16 @@ public class ListLivraisonController implements Initializable {
     private ImageView print;
     @FXML
     private RadioButton tri3;
+    @FXML
+    private Button reponse;
+    @FXML
+    private Button listlivrasion;
+    @FXML
+    private Button addlivrasion;
+    @FXML
+    private Button listvehicule;
+    @FXML
+    private Button addvehicule;
 
     /**
      * Initializes the controller class.
@@ -227,6 +239,125 @@ public class ListLivraisonController implements Initializable {
         view.getColumns().add(actionCol);
 
     }
+      
+       @FXML
+    private void gererboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+
+    @FXML
+    private void gereraddproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreponse(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListReponse.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererlistlivraison(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListLivraison.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddlivraison(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajouterL.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererlistvehicule(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListVehicule.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddvehicule(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajouterV.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+    
+    @FXML
+    private void gererevent(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficherEventBack.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreclamation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListReclamation.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+     @FXML
+    private void ListUser(ActionEvent event) throws IOException {
+      //  Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/usersList.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UsersList.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void ListDemande(ActionEvent event) throws IOException {
+//        Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/DemandesList.fxml"));
+//        ListDemandeButton.getScene().setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/DemandesList.fxml"));
+        btnjo.getScene().setRoot(root);
+        
+    }
+        @FXML
+    private void gererligne(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/LigneBack.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gerercommande(ActionEvent event)  throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/CommandeBack.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
+            Stage primaryStage = new Stage();
+
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        userSession.id=0;
+        userSession.nom=null;
+        userSession.prenom=null;
+        userSession.email=null;
+        userSession.telephone=null;
+        userSession.password=null;
+        userSession.isLoggedIn=false;
+    }
 
    public void afficher() throws SQLException {
         LivraisonServices P = new LivraisonServices();
@@ -249,50 +380,7 @@ public class ListLivraisonController implements Initializable {
         
     }
 
-    @FXML
-    private void ListUser(ActionEvent event) {
-    }
-
-    @FXML
-    private void ListDemande(ActionEvent event) {
-    }
-
-    @FXML
-    private void gerercommande(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererligne(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererevent(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererreclamation(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererboutique(ActionEvent event) {
-    }
-
-    @FXML
-    private void gereraddboutique(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererproduit(ActionEvent event) {
-    }
-
-    @FXML
-    private void gereraddproduit(ActionEvent event) {
-    }
-
-    @FXML
-    private void Logout(ActionEvent event) {
-    }
-
+    
     @FXML
     private void Updateetatlivraison(TableColumn.CellEditEvent edditedCell) throws SQLException {
         LivraisonServices P = new LivraisonServices();
@@ -398,5 +486,7 @@ public class ListLivraisonController implements Initializable {
         cl_prix.setCellValueFactory(new PropertyValueFactory<>("prix_livraison"));
         cl_finlivraison.setCellValueFactory(new PropertyValueFactory<>("fin_livraison"));
     }
+
+   
     
 }

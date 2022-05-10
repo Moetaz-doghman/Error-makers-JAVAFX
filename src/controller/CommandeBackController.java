@@ -184,6 +184,14 @@ public class CommandeBackController implements Initializable {
     private Button addproduit;
     @FXML
     private Button reponse;
+    @FXML
+    private Button listlivrasion;
+    @FXML
+    private Button addlivrasion;
+    @FXML
+    private Button listvehicule;
+    @FXML
+    private Button addvehicule;
 
     /**
      * Initializes the controller class.
@@ -219,8 +227,76 @@ public class CommandeBackController implements Initializable {
         timeline.play();
 
     }
+    
+     @FXML
+    private void gererboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
 
     @FXML
+    private void gereraddboutique(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+
+    @FXML
+    private void gereraddproduit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreponse(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListReponse.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererlistlivraison(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListLivraison.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddlivraison(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajouterL.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererlistvehicule(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListVehicule.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gereraddvehicule(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajouterV.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+    
+    @FXML
+    private void gererevent(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficherEventBack.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void gererreclamation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListReclamation.fxml"));
+        btnjo.getScene().setRoot(root);
+    }
+    
+     @FXML
     private void ListUser(ActionEvent event) throws IOException {
       //  Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/usersList.fxml"));
        Parent root = FXMLLoader.load(getClass().getResource("../GUI/UsersList.fxml"));
@@ -271,7 +347,7 @@ public class CommandeBackController implements Initializable {
         userSession.isLoggedIn=false;
     }
 
-
+   
 
     @FXML
     private void iconAddCommandeClicked(MouseEvent event) {
@@ -750,43 +826,6 @@ public class CommandeBackController implements Initializable {
             
         } catch (IOException ex) {
         }
-    }
-
-    @FXML
-    private void gererevent(ActionEvent event) {
-    }
-
-    @FXML
-    private void gererreclamation(ActionEvent event) {
-    }
-
-     @FXML
-    private void gererboutique(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListBoutique.fxml"));
-        btnjo.getScene().setRoot(root);
-    }
-
-    @FXML
-    private void gereraddboutique(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddBoutique.fxml"));
-        btnjo.getScene().setRoot(root);
-    }
-
-    @FXML
-    private void gererproduit(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListProduit.fxml"));
-        btnjo.getScene().setRoot(root);
-    }
-    
-
-    @FXML
-    private void gereraddproduit(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddProduit.fxml"));
-        btnjo.getScene().setRoot(root);
-    }
-
-    @FXML
-    private void gererreponse(ActionEvent event) {
     }
 
       

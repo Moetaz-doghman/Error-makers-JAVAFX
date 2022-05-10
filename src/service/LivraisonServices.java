@@ -138,12 +138,15 @@ public class LivraisonServices {
         ArrayList arr = new ArrayList();
         ste = cnx.createStatement();
 
-        ResultSet rs = ste.executeQuery("select id,boutique_id,nom,prenom,email,telephone,password,role,question_securite1,question_securite2,etat,image from utilisateurs  ");
+        //ResultSet rs = ste.executeQuery("select * from  utilisateurs where role = [\"ROLE_LIV\",\"ROLE_USER\"]  ");
+    //    ResultSet rs = ste.executeQuery("select * from  utilisateurs where role
+        ResultSet rs = ste.executeQuery("SELECT * FROM utilisateurs  WHERE role ='"+"[\"ROLE_LIV\",\"ROLE_USER\"]"+ "' ");
+
         while (rs.next()) {
 
             int id = rs.getInt("id");
             int boutique_id = rs.getInt("boutique_id");
-            int telephone = rs.getInt("telephone");
+            String telephone = rs.getString("telephone");
             String nom = rs.getString("nom");
             String prenom = rs.getString("prenom");
             String email = rs.getString("email");
@@ -155,8 +158,9 @@ public class LivraisonServices {
             String role = rs.getString("role");
 
 
-          //  User f = new User(id, boutique_id, telephone, nom,prenom,email,password,role,question_securite1,question_securite2,etat,image);
-           // arr.add(f);
+           // User f = new User(id, , telephone, nom,prenom,email,password,role,question_securite1,question_securite2,etat,image);
+           User f = new User(id, nom, prenom ,role, email,telephone,password);
+            arr.add(f);
         }
         return arr;
 
