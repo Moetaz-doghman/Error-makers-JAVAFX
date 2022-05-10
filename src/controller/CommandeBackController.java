@@ -440,6 +440,8 @@ public class CommandeBackController implements Initializable {
 
 
             //     table.addCell("Image : ");
+            
+            System.out.println(crudCommande.AfficherCommande(commande));
 
             crudCommande.AfficherCommande(commande).forEach(e
                     -> {

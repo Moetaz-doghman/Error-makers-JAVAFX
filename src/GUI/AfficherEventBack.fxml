@@ -405,6 +405,14 @@
                                     <Insets left="10.0" top="30.0" />
                                  </HBox.margin>
                               </Button>
+                              <ImageView fitHeight="104.0" fitWidth="75.0" onMouseClicked="#GeneratePDF" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressource/fichierPDF.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
                            </children>
                         </HBox>
                         <TabPane fx:id="PaneTableau1" layoutX="-26.0" layoutY="526.0" prefHeight="274.0" prefWidth="1478.0" tabClosingPolicy="UNAVAILABLE">

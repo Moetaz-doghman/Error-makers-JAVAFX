@@ -5,6 +5,11 @@
  */
 package controller;
 
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import animations.Animations;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -27,10 +32,17 @@ import javafx.scene.text.Text;
 import entity.Commentaire;
 import entity.Evenement;
 import entity.userSession;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -393,6 +405,75 @@ public class AfficherEventBackController implements Initializable {
         pseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         contenu.setCellValueFactory(new PropertyValueFactory<>("contenu"));
+    }
+
+    @FXML
+    private void GeneratePDF(MouseEvent event) {
+        long millis = System.currentTimeMillis();
+        java.sql.Date DateRapport = new java.sql.Date(millis);
+
+        String DateLyoum = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(DateRapport);//yyyyMMddHHmmss
+        System.out.println("DateLyoummmmmmmmmmmmmmmmmmmmm   " + DateLyoum);
+
+        com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+
+        try {
+
+            PdfWriter.getInstance(document, new FileOutputStream(String.valueOf(DateLyoum + ".pdf")));//yyyy-MM-dd
+            document.open();
+            Paragraph ph1 = new Paragraph("Rapport Pour :" + DateRapport);
+            Paragraph ph2 = new Paragraph(".");
+            PdfPTable table = new PdfPTable(5);
+
+            //On créer l'objet cellule.
+            PdfPCell cell;
+
+            //contenu du tableau.
+            table.addCell("Id");
+            table.addCell("Adresse");
+            table.addCell("Description");
+            table.addCell("Long description");
+            table.addCell("Nom");
+
+
+            //     table.addCell("Image : ");
+            
+              EvenementService es = new EvenementService();
+              System.out.println(es.findAll());
+            // List<Evenement> events = es.findAll();
+
+            es.findAll().forEach(e
+                    -> {
+                table.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(String.valueOf(e.getId()));
+                table.addCell(e.getAdresse());
+                table.addCell(e.getDescription());
+                table.addCell(e.getLongdesc());
+                table.addCell(e.getNom());
+            }
+            );
+            document.add(ph1);
+            document.add(ph2);
+            document.add(table);
+            //  document.addAuthor("Bike");
+            // AlertDialog.showNotification("Creation PDF ", "Votre fichier PDF a ete cree avec success", AlertDialog.image_checked);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        document.close();
+
+        ///Open FilePdf
+        File file = new File(DateLyoum + ".pdf");
+        if (file.exists()) //checks file exists or not  
+        {
+            Desktop desktop = Desktop.getDesktop();      
+            try {
+                desktop.open(file); //opens the specified file   
+            } catch (IOException ex) {
+                Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
     
 }
