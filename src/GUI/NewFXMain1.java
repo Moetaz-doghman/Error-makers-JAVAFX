@@ -39,7 +39,7 @@ public class NewFXMain1 extends Application {
     public void start(Stage stage) {
         
           try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
 //       Scene scene = new Scene(root, 600, 600);
 //        primaryStage.setTitle("Hello World!");
 //        primaryStage.setScene(scene);

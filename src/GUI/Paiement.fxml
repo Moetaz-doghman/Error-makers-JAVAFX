@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaiementController">
+<AnchorPane id="AnchorPane" prefHeight="871.0" prefWidth="1332.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaiementController">
       <children>
-      <Pane layoutY="-1.0" prefHeight="809.0" prefWidth="1293.0" style="-fx-background-color: linear-gradient(to right top, #518bf8, #568aea, #5c89dd, #6188cf, #6686c1, #788ec1, #8897c2, #96a0c2, #b2b6d1, #cdcee0, #e6e6ef, #ffffff);">
+      <Pane layoutY="-1.0" prefHeight="871.0" prefWidth="1332.0" style="-fx-background-color: linear-gradient(to right top, #518bf8, #568aea, #5c89dd, #6188cf, #6686c1, #788ec1, #8897c2, #96a0c2, #b2b6d1, #cdcee0, #e6e6ef, #ffffff);">
          <children>
             <Label layoutX="252.0" layoutY="173.0" prefHeight="35.0" prefWidth="267.0" text="N° de Carte Banquaire">
                <font>
