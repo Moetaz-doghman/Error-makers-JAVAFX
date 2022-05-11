@@ -18,6 +18,9 @@ public class Badwords {
         badwords.add("shit");
         badwords.add("fuck");
         badwords.add("nigger");
+        badwords.add("Fuck");
+        badwords.add("nigga");
+        
     }
 
     public static String filter(String input) {

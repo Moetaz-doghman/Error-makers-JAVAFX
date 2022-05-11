@@ -35,6 +35,9 @@ public class ItemCommentaireController implements Initializable {
     public void setData(Commentaire comm) {
         pseudo.setText(comm.getPseudo());
         contenu.setText(comm.getContenu());
+        pseudo.setEditable(false);
+        contenu.setEditable(false);
+
         int id = comm.getAnnoncesId();
     }
        

@@ -39,8 +39,6 @@ public class EvenementFrontController implements Initializable {
    int idE;
 
     @FXML
-    private VBox box;
-    @FXML
     private Button BackBtn;
     @FXML
     private Button nextBtn;
@@ -68,6 +66,22 @@ public class EvenementFrontController implements Initializable {
     private TextField idEvent;
     @FXML
     private VBox CommentaireLayout;
+    @FXML
+    private TextField pseudo1;
+    @FXML
+    private TextArea contenu;
+    @FXML
+    private Button home;
+    @FXML
+    private Button boutique;
+    @FXML
+    private Button event;
+    @FXML
+    private Button reclamation;
+    @FXML
+    private Button profil;
+    @FXML
+    private Button cart;
 
     /**
      * Initializes the controller class.
@@ -130,6 +144,17 @@ public class EvenementFrontController implements Initializable {
         DateFinEvent.setText(event.getDatefin().toString());
         descEvent.setText(event.getDescription());
         LongDescEvent.setText(event.getLongdesc());
+        
+        idEvent.setEditable(false);
+        nomEvent.setEditable(false);
+        dateDebEvent.setEditable(false);
+        LongDescEvent.setEditable(false);
+        DateFinEvent.setEditable(false);
+        descEvent.setEditable(false);
+
+        adresseEvent.setEditable(false);
+
+        
         if(event.getAffiche()!=null){
                 Image image =new Image(event.getAffiche());
                 imgEvent.setImage(image);
@@ -143,6 +168,18 @@ public class EvenementFrontController implements Initializable {
 
     @FXML
     private void BackBtn(ActionEvent event) {
+         EvenementService es = new EvenementService();
+        List<Integer> ListEvent= es.getIdEvent();
+        System.out.println(ListEvent);
+        
+        int i=2;
+        if(i<ListEvent.size()){
+             afficherEvenement(ListEvent.get(i));
+             i--;
+             idE=ListEvent.get(i);
+        }
+        load(idE);
+        System.out.println(i);
     }
 
     @FXML
@@ -156,6 +193,7 @@ public class EvenementFrontController implements Initializable {
              afficherEvenement(ListEvent.get(i));
              idE=ListEvent.get(i);
              i++;
+             
         }
         load(idE);
         System.out.println(i);
@@ -171,6 +209,26 @@ public class EvenementFrontController implements Initializable {
         contenuComment.clear();
         load(idE);
         
+    }
+
+    @FXML
+    private void home(ActionEvent event) {
+    }
+
+    @FXML
+    private void boutique(ActionEvent event) {
+    }
+
+    @FXML
+    private void event(ActionEvent event) {
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+    }
+
+    @FXML
+    private void addToCart(ActionEvent event) {
     }
     
 }
