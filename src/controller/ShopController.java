@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -193,7 +194,9 @@ public class ShopController implements Initializable {
     }
 
     @FXML
-    private void reclamation(ActionEvent event) {
+    private void reclamation(ActionEvent event) throws IOException {
+         Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/ListVehicule.fxml"));
+        reclamation.getScene().setRoot(root);
     }
 
 

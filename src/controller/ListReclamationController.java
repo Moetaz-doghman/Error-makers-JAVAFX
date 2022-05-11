@@ -140,6 +140,8 @@ public class ListReclamationController implements Initializable {
     private Button listvehicule;
     @FXML
     private Button addvehicule;
+    @FXML
+    private AnchorPane stat;
 
     /**
      * Initializes the controller class.
@@ -284,21 +286,6 @@ public class ListReclamationController implements Initializable {
     }
 
    
-    @FXML
-    private void iconAddCommandeClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void hideDialogDeleteCommande(MouseEvent event) {
-    }
-
-    @FXML
-    private void deleteCommandeClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void hideDialogDeleteCategorie(MouseEvent event) {
-    }
 
     @FXML
     private void btnUpdate(ActionEvent event) {
@@ -404,20 +391,23 @@ public class ListReclamationController implements Initializable {
     }
 
     @FXML
-    private void AjouterCommande(MouseEvent event) {
+    private void afficherStatistique(MouseEvent event) {
+         try {
+        Stage stage = (Stage) stat.getScene().getWindow();
+        stage.close();
+        
+        FXMLLoader fxmlloader = new FXMLLoader (getClass().getResource("Dashboard.fxml"));
+        Parent root;
+        
+            root = (Parent) fxmlloader.load();
+            
+        Stage stage1 = new Stage();
+        stage1.setScene(new Scene(root));
+        stage1.show();
+        } catch (IOException ex) {
+        }
     }
 
-    @FXML
-    private void closeDialogAjouterCommande(MouseEvent event) {
-    }
-
-    @FXML
-    private void ModifierCommande(MouseEvent event) {
-    }
-
-    @FXML
-    private void closeDialogAddCommande(MouseEvent event) {
-    }
 
        
 }
