@@ -59,6 +59,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import service.ProduitService;
 
@@ -104,6 +105,8 @@ public class MarketController implements Initializable {
     private Button cart;
     @FXML
     private Button addcart;
+    @FXML
+    private Button cartt;
 
     
     
@@ -301,6 +304,24 @@ public class MarketController implements Initializable {
 //    //ShopC.addProduct(prodname) ;  
 //        
 //    }
+
+    
+
+    @FXML
+    private void addtocart(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) cartt.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/cart.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
   
       

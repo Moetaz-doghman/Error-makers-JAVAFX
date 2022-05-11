@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -166,46 +165,8 @@
                            </stylesheets>
                         </HBox>
                         <Pane prefHeight="84.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="336.0" styleClass="shopping-online-card">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="203.0">
-                                 <children>
-                                    <Label prefHeight="29.0" prefWidth="190.0" text="Shopping online" textFill="#878787">
-                                       <font>
-                                          <Font name="Cambria Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="20.0" prefWidth="207.0" text="get your shopping in same day" textFill="#878787">
-                                       <font>
-                                          <Font name="Cambria" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/ic_stopwatch.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <stylesheets>
-                              <URL value="@../values/style.css" />
-                              <URL value="@../style.css" />
-                              <URL value="@../style.css" />
-                           </stylesheets>
-                        </HBox>
-                        <Button fx:id="cart" mnemonicParsing="false" prefHeight="96.0" prefWidth="67.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="64.0" fitWidth="51.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" styleClass="..\values\style.css">
-                                 <image>
-                                    <Image url="@../image/kisspng-e-commerce-better-business-bureau-company-marketin-red-simple-shopping-cart-icon-5ab162a1234670.4265132215215745611445.png" />
-                                 </image>
-                                 <effect>
-                                    <InnerShadow />
-                                 </effect>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <Button fx:id="cart" mnemonicParsing="false" prefHeight="96.0" prefWidth="67.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="cartt" mnemonicParsing="false" onAction="#addtocart" prefHeight="31.0" prefWidth="97.0" text="add" />
                      </children>
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="10.0" />

@@ -4,16 +4,27 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ItemController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/BoutiquaController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/MarketController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/utils/MyListener.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeFrontController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/market.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Cart.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/LoginController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/homeController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain1.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AddProduitController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/DemandesListController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ajouterVController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AppController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeBackController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/cart.fxml</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Produit.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/BoutiquaController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Product.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ShopController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/MarketController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AfficherEventBackController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/cartController.java</file>
         </group>
     </open-files>
 </project-private>

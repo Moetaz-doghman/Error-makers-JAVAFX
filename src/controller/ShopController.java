@@ -196,9 +196,6 @@ public class ShopController implements Initializable {
     private void reclamation(ActionEvent event) {
     }
 
-    @FXML
-    private void cart(MouseEvent event) {
-    }
 
     @FXML
     private void addToCart(ActionEvent event) {
