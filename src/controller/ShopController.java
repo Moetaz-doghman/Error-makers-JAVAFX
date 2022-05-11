@@ -195,7 +195,7 @@ public class ShopController implements Initializable {
 
     @FXML
     private void reclamation(ActionEvent event) throws IOException {
-         Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/ListVehicule.fxml"));
+         Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/ListReclamationFront.fxml"));
         reclamation.getScene().setRoot(root);
     }
 

@@ -1,0 +1,59 @@
+.parent{
+    -fx-background-color: #fff;
+}
+.sidebar{
+    -fx-background-color: #333645;
+}
+.btns{
+    -fx-background-color: transparent;    
+}
+.btns:hover{
+    -fx-background-color: #202332;
+}
+.round-lbl{
+    -fx-background-color: #FE7A79;
+    -fx-background-radius: 100%;
+}
+.card-01{
+    -fx-background-color: rgba(0, 162, 211,0.3);
+}
+.text-field {
+	-fx-border-color: transparent;
+	-fx-background-color: transparent;
+        
+}
+.add-btn{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.free-delivery-card{
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 30;
+}
+
+.shopping-online-card{
+    -fx-background-color: #BAEAC3;
+    -fx-background-radius: 30;
+}
+    .light-gray-ground{
+        -fx-background-color: #F3F3F3;
+    }
+input, select, textarea{
+    color: #000000;
+}
+textfield input:placeholder{
+  color: #f00;
+}
+textarea:focus, input:focus {
+    color: #000000;
+}
+
+.right-bar{
+    -fx-background-color: #D3D3D3;
+}
+
+.search-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
