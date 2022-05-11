@@ -5,15 +5,6 @@
  */
 package controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import animations.Animations;
 import entity.Cart;
 import entity.Commande;
@@ -57,31 +48,34 @@ import java.io.*;
 import java.util.regex.Pattern;
 import javafx.scene.Parent;
 
+
 /**
  * FXML Controller class
  *
  * @author doghm
  */
-public class CommandeFrontController implements Initializable {
+public class CommandeFrontController1 implements Initializable {
 
     @FXML
-    private VBox chosenFruitCard;
+    private AnchorPane root;
     @FXML
-    private ImageView img;
+    private BorderPane body;
     @FXML
-    private TextField message;
+    private VBox sideArea;
     @FXML
-    private Button home;
+    private HBox sideControls;
     @FXML
-    private Button boutique;
+    private Label closeButton;
     @FXML
-    private Button event;
+    private VBox sideNav;
     @FXML
-    private Button reclamation;
+    private Region navHome;
     @FXML
-    private Button profil;
+    private Region navCart;
     @FXML
-    private Button cart;
+    private ScrollPane scrollPane;
+    @FXML
+    private Pane handPaneMac;
     @FXML
     private TextField nomfld;
     @FXML
@@ -100,23 +94,15 @@ public class CommandeFrontController implements Initializable {
     }    
 
     @FXML
-    private void home(ActionEvent event) {
+    private void closeApp(MouseEvent event) {
     }
 
     @FXML
-    private void boutique(ActionEvent event) {
+    private void showHomeView(MouseEvent event) {
     }
 
     @FXML
-    private void event(ActionEvent event) {
-    }
-
-    @FXML
-    private void reclamation(ActionEvent event) {
-    }
-
-    @FXML
-    private void addToCart(ActionEvent event) {
+    private void showCartView(MouseEvent event) {
     }
 
     @FXML
@@ -192,7 +178,7 @@ public class CommandeFrontController implements Initializable {
              sms("doghman2", "Dogh1234", "216"+phone, message);
              System.out.println("216"+phone);
               Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("../GUI/Paiement.fxml"));
-             cart.getScene().setRoot(root);
+             navHome.getScene().setRoot(root);
              
            
              

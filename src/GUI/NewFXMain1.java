@@ -39,11 +39,7 @@ public class NewFXMain1 extends Application {
     public void start(Stage stage) {
         
           try {
-            Parent root = FXMLLoader.load(getClass().getResource("AcceuilRec.fxml"));
-//       Scene scene = new Scene(root, 600, 600);
-//        primaryStage.setTitle("Hello World!");
 //        primaryStage.setScene(scene);
-//        primaryStage.show();
            stage.setTitle("Shopping Cart"); 
            //stage.initStyle(StageStyle.TRANSPARENT);
            stage.setScene(new Scene(root,Color.TRANSPARENT));
