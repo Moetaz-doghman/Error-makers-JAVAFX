@@ -29,6 +29,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.UserService;
@@ -65,6 +66,20 @@ public class ProfileController implements Initializable {
     private Button addimgButton;
     @FXML
     private TextField message;
+    @FXML
+    private Button home;
+    @FXML
+    private Button boutique;
+    @FXML
+    private Button event;
+    @FXML
+    private Button reclamation;
+    @FXML
+    private Button profil;
+    @FXML
+    private Button cart;
+    @FXML
+    private VBox chosenFruitCard;
 
     /**
      * Initializes the controller class.
@@ -135,8 +150,11 @@ public class ProfileController implements Initializable {
                 Base64.Encoder encoder = Base64.getEncoder();
                 String pass = encoder.encodeToString(password.getText().getBytes());
                 
-                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),pass);
-                u.setImg(path);
+                User u = new User(nom.getText(),prenom.getText(),"["+"ROLE_USER"+"]",email.getText(),telephone.getText(),pass,userSession.img);
+              if(path!=null){
+                  u.setImg(path);
+              }
+                      
                 UserService us = new UserService();
                 us.modifier(u);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -200,6 +218,86 @@ public class ProfileController implements Initializable {
 //                }
         }
         fc.exists();
+    }
+
+    @FXML
+    private void home(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/market.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void boutique(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/BoutiqueFront.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void event(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void addToCart(ActionEvent event) {
+         Stage primaryStage = new Stage();
+        
+        try {
+            ((Stage) logoutButton.getScene().getWindow()).close();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/cart.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("PROTECH");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
     

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,7 +25,7 @@
          <children>
             <BorderPane layoutX="-10.0" layoutY="-10.0" prefHeight="881.0" prefWidth="1342.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-10.0">
                <left>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="879.0" prefWidth="435.0" styleClass="right-bar" BorderPane.alignment="CENTER">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="887.0" prefWidth="445.0" styleClass="right-bar" BorderPane.alignment="CENTER">
                      <children>
                         <HBox alignment="CENTER" prefHeight="84.0" prefWidth="435.0">
                            <children>
@@ -102,7 +103,7 @@
                               <Insets left="50.0" right="50.0" />
                            </VBox.margin>
                         </VBox>
-                        <Pane prefHeight="56.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+                        <Pane prefHeight="108.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
                      </children>
                      <stylesheets>
                         <URL value="@../values/style.css" />
@@ -115,14 +116,14 @@
                      <children>
                         <HBox prefHeight="66.0" prefWidth="840.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="66.0" prefWidth="876.0" style="-fx-background-color: #0598ff;" styleClass="shopping-online-card">
+                              <HBox alignment="CENTER" prefHeight="66.0" prefWidth="908.0" style="-fx-background-color: #0598ff;" styleClass="shopping-online-card">
                                  <children>
-                                    <Button fx:id="home" mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="Home">
+                                    <Button fx:id="home" mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="Home" underline="true">
                                        <font>
                                           <Font name="Cambria Bold Italic" size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="boutique" mnemonicParsing="false" onAction="#boutique" prefHeight="65.0" prefWidth="136.0" style="-fx-background-color: transparent;" text="Boutiques">
+                                    <Button fx:id="boutique" mnemonicParsing="false" onAction="#boutique" prefHeight="65.0" prefWidth="136.0" style="-fx-background-color: transparent;" text="Boutiques" underline="true">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
@@ -130,31 +131,48 @@
                                           <Font name="Cambria Bold Italic" size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="event" mnemonicParsing="false" onAction="#event" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="Evenements">
+                                    <Button fx:id="event" mnemonicParsing="false" onAction="#event" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="Evenements" underline="true">
                                        <font>
                                           <Font name="Cambria Bold Italic" size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="reclamation" mnemonicParsing="false" onAction="#reclamation" prefHeight="65.0" prefWidth="162.0" style="-fx-background-color: transparent;" text="Reclamations">
+                                    <Button fx:id="reclamation" mnemonicParsing="false" onAction="#reclamation" prefHeight="65.0" prefWidth="162.0" style="-fx-background-color: transparent;" text="Reclamations" underline="true">
                                        <font>
                                           <Font name="Cambria Bold Italic" size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="profil" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" style="-fx-background-color: transparent;" text="Profile">
+                                    <Button fx:id="profil" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" style="-fx-background-color: transparent;" text="Profile" underline="true">
                                        <font>
                                           <Font name="Cambria Bold Italic" size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="cart" mnemonicParsing="false" onAction="#addToCart" prefHeight="51.0" prefWidth="60.0" style="-fx-background-color: #0598ff;">
+                                    <Button fx:id="cart" mnemonicParsing="false" onAction="#addToCart" prefHeight="51.0" prefWidth="80.0" style="-fx-background-color: #0598ff;">
                                        <graphic>
                                           
                                        </graphic>
                                        <padding>
                                           <Insets left="50.0" />
                                        </padding>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <graphic>
+                                          <ImageView fitHeight="49.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/PngItem_2523643.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
                                     </Button>
                                  </children>
                               </HBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="907.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <Separator prefWidth="200.0" />
+                              <Separator prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" VBox.vgrow="ALWAYS">
