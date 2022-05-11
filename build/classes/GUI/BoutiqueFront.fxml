@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoutiqueFrontController">
+   <children>
+      <AnchorPane fx:id="rootPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0">
+         <children>
+            <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="103.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="21.0" layoutY="-18.0" prefHeight="48.0" prefWidth="371.0" stylesheets="@../values/style.css">
+                                 <children>
+                                    <TextField prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../values/style.css">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Cambria" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card" stylesheets="@../values/style.css" text="Search" textFill="WHITE" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="search-box" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="517.0" prefWidth="235.0" stylesheets="@../values/style.css">
+                           <children>
+                              <Label fx:id="fruitNameLable" prefHeight="44.0" prefWidth="99.0" text="Nom" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Cambria" size="36.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="60.0" prefWidth="335.0">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/—Pngtree—location%20icon%20in%20flat%20style_5994580.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="fruitPriceLabel" prefHeight="36.0" prefWidth="99.0" text="Adresse" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="28.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="100.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <ImageView fx:id="fruitImg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="85.0" prefWidth="335.0">
+                                       <children>
+                                          <Label fx:id="description" layoutX="33.0" layoutY="47.0" prefHeight="391.0" prefWidth="290.0" text="Description" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children></HBox>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="boutiqua" mnemonicParsing="false" onAction="#boutiqua" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../values/style.css" text="VIEW SHOP" textFill="#828282">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <styleClass>
+                              <String fx:value="chosen-fruit-card" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+                     </children>
+                     <stylesheets>
+                        <URL value="@../values/style.css" />
+                        <URL value="@../style.css" />
+                     </stylesheets>
+                  </VBox>
+               </left>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <HBox prefHeight="66.0" prefWidth="840.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="65.0" prefWidth="780.0" styleClass="shopping-online-card">
+                                       <stylesheets>
+                                          <URL value="@../values/style.css" />
+                                          <URL value="@../style.css" />
+                                          <URL value="@../style.css" />
+                                       </stylesheets>
+                                       <children>
+                                          <Button fx:id="home" mnemonicParsing="false" onAction="#home" prefHeight="65.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="Home">
+                                             <font>
+                                                <Font name="Cambria Bold Italic" size="20.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="boutique" mnemonicParsing="false" onAction="#boutique" prefHeight="65.0" prefWidth="136.0" style="-fx-background-color: transparent;" text="Boutiques">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Cambria Bold Italic" size="20.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="event" mnemonicParsing="false" onAction="#event" prefHeight="65.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="Evenements">
+                                             <font>
+                                                <Font name="Cambria Bold Italic" size="20.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="reclamation" mnemonicParsing="false" onAction="#reclamation" prefHeight="65.0" prefWidth="162.0" style="-fx-background-color: transparent;" text="Reclamations">
+                                             <font>
+                                                <Font name="Cambria Bold Italic" size="20.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="profil" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" style="-fx-background-color: transparent;" text="Profile">
+                                             <font>
+                                                <Font name="Cambria Bold Italic" size="20.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="cart" mnemonicParsing="false" onAction="#addToCart" prefHeight="96.0" prefWidth="67.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="727.0" prefWidth="865.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ScrollPane fx:id="scroll" prefHeight="570.0" prefWidth="785.0" styleClass="transparent" stylesheets="@../values/style.css">
+                                 <content>
+                                    <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </ScrollPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+            <AnchorPane layoutX="6.0" layoutY="4.0" prefHeight="792.0" prefWidth="1298.0" visible="false">
+               <children>
+                  <TextField fx:id="Total" />
+                  <TableView fx:id="CartTab" prefHeight="556.0" prefWidth="973.0" visible="false">
+                     <columns>
+                        <TableColumn fx:id="nomp" prefWidth="75.0" text="Nom Produit " />
+                        <TableColumn fx:id="typep" prefWidth="150.0" text="Typre Produit " />
+                        <TableColumn fx:id="prix" prefWidth="75.0" text="Prix" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

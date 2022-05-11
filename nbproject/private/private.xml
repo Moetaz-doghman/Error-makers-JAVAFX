@@ -3,49 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/ReponseService.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListProduitController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/User.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/ajouterV.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListVehiculeController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/NewPasswordController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ChartController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AddBoutiqueController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/ListReponse.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ajouterVController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/ListReclamation.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeBackController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ProfileController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/UsersListController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ModifierController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/VehiculeServices.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListBoutiqueController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/ListLivraison.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListLivraisonController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/IService.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/Mailling.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/AjoutReponse.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AjoutReponseController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/LivraisonServices.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Reclamation.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Vehicule.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListReponseController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ItemController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/BoutiquaController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/MarketController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/utils/MyListener.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeFrontController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/homeController.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/NewFXMain1.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AddProduitController.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/DemandesListController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/ReclamationService.java</file>
             <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/AppController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/service/ProduitCrud.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/AddBoutique.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Livraison.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/LigneBackController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/ListReclamationController.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/entity/Reponse.java</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/LigneBack.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/ListVehicule.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/GUI/Modifier.fxml</file>
-            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/Config/JfreeChartApi.java</file>
+            <file>file:/C:/Users/doghm/Desktop/Error-makers-JAVAFX/src/controller/CommandeBackController.java</file>
         </group>
     </open-files>
 </project-private>

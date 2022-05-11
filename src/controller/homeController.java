@@ -146,39 +146,40 @@ public class homeController implements Initializable {
     }
     
      private void handleButtonAction (ActionEvent event)
-    {int taille=liste.size();
-         for (int i = 0; i <taille; i++) {
-            // Button a = supprimerb[i];
-            
-             if (event.getSource() == btn[i])
-             {
-                 System.out.println(liste.get(i).getId());
-                    int test = 0;
-                for(Product pi : Cart.getInstance().getC()){
-                    if(pi.getProduct_name().equals(liste.get(i).getProduct_name())){
-                        test = 1;
-                        int quantity = pi.getQuantity() + 1 ;
-                        pi.setQuantity(quantity);
-                        
-                    }
-                    
-                }
-                
-                if(test == 0){
-                    Product pp = new Product(liste.get(i).getId(),liste.get(i).getProduct_name(),liste.get(i).getImg(),liste.get(i).getStock(),liste.get(i).getPrice(),liste.get(i).getQuantity());
-                   System.out.println(pp);
-                    Cart.instance.AddProduct(pp);
-                    
-                }
-             //   Dialog.show("Success", "Item added to cart !", new Command("OK"));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Item Added");
-            alert.showAndWait();                    
-             }
-            
-                 
-         } 
+   {
+             //int taille=liste.size();
+//         for (int i = 0; i <taille; i++) {
+//            // Button a = supprimerb[i];
+//            
+//             if (event.getSource() == btn[i])
+//             {
+//                 System.out.println(liste.get(i).getId());
+//                    int test = 0;
+//                for(Product pi : Cart.getInstance().getC()){
+//                    if(pi.getProduct_name().equals(liste.get(i).getProduct_name())){
+//                        test = 1;
+//                        int quantity = pi.getQuantity() + 1 ;
+//                        pi.setQuantity(quantity);
+//                        
+//                    }
+//                    
+//                }
+//                
+//                if(test == 0){
+//                    Product pp = new Product(liste.get(i).getId(),liste.get(i).getProduct_name(),liste.get(i).getImg(),liste.get(i).getStock(),liste.get(i).getPrice(),liste.get(i).getQuantity());
+//                   System.out.println(pp);
+//                    Cart.instance.AddProduct(pp);
+//                    
+//                }
+//             //   Dialog.show("Success", "Item added to cart !", new Command("OK"));
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Item Added");
+//            alert.showAndWait();                    
+//             }
+//            
+//                 
+//         } 
     }
 
     @FXML

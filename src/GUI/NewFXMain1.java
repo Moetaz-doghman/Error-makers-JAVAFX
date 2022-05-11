@@ -30,6 +30,7 @@ import javafx.stage.StageStyle;
  * @author doghm
  */
 public class NewFXMain1 extends Application {
+     public static final String CURRENCY = "$";
 
     Parent root;
     private static Stage Window;
@@ -38,7 +39,7 @@ public class NewFXMain1 extends Application {
     public void start(Stage stage) {
         
           try {
-            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
 //       Scene scene = new Scene(root, 600, 600);
 //        primaryStage.setTitle("Hello World!");
 //        primaryStage.setScene(scene);

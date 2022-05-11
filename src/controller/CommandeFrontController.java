@@ -9,7 +9,7 @@ import animations.Animations;
 import entity.Cart;
 import entity.Commande;
 import entity.Lignecommande;
-import entity.Product;
+import entity.Produit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -164,8 +164,8 @@ public class CommandeFrontController implements Initializable {
             int lastid = sp.LASTINSERTID();
             System.out.println(lastid);
             
-        for (Product p : Cart.getInstance().getC()){
-                    Lignecommande lg = new Lignecommande(lastid,p.getId(),p.getQuantity());
+        for (Produit p : Cart.getInstance().getC()){
+                    Lignecommande lg = new Lignecommande(lastid,p.getId(),Integer.parseInt(p.getQuantite_produit()));
                     System.out.println(p.getId());
                     CommandeCrud order_ligne = new CommandeCrud();
                    LigneCrud dd = new LigneCrud();

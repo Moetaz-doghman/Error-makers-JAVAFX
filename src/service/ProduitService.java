@@ -166,5 +166,23 @@ public class ProduitService {
         }
         return data;
 }
+    
+      public ArrayList<Produit> findbyboutique(int id)throws SQLException {
+        ArrayList<Produit> list = new ArrayList<>();
+
+       
+            String requete = "SELECT * FROM Produit where boutique_id="+id;
+            PreparedStatement pst = con.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                list.add(new Produit(rs.getInt("id"),rs.getString("prix_produit"),rs.getString("quantite_produit"),rs.getString("desc_produit"),rs.getString("image"),rs.getString("nom_produit")) );
+                
+            }
+
+        
+
+        return list;
+    }
 }
 

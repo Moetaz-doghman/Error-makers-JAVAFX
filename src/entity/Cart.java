@@ -15,10 +15,10 @@ public final class Cart {
 
     public static Cart instance;
 
-    private final ArrayList<Product> c;
+    private final ArrayList<Produit> c;
 
     public Cart() {
-        c = new ArrayList<Product>();
+        c = new ArrayList<Produit>();
 
     }
      public static Cart getInstance() {
@@ -28,23 +28,23 @@ public final class Cart {
         return instance;
     }
 
-    public ArrayList<Product> getCartList() {
+    public ArrayList<Produit> getCartList() {
         return c;
     }
     
   
 
 
-    public void AddProduct(Product e) {
+    public void AddProduct(Produit e) {
         this.c.add(e);
     }
 
-    public void RemoveProduct(Product e) {
+    public void RemoveProduct(Produit e) {
         
        int productid = e.getId();
         for(int i=0 ; i<this.c.size();i++){
-            Product product = this.c.get(i);
-            if(product.getProduct_name().equals(e.getProduct_name())){
+            Produit product = this.c.get(i);
+            if(product.getNom_produit().equals(e.getNom_produit())){
                 this.c.remove(i);
             }
         }
@@ -53,7 +53,7 @@ public final class Cart {
     this.c.clear();
     }
 
-    public ArrayList<Product> getC() {
+    public ArrayList<Produit> getC() {
         return c;
     }
 
@@ -71,8 +71,8 @@ public final class Cart {
     }
     public double total(){
         double total=0;
-     for(Product product : this.c){
-                    total = total + (product.getPrice()*product.getQuantity());
+     for(Produit product : this.c){
+                    total = total + (Double.parseDouble(product.getPrix_produit())*Integer.parseInt(product.getQuantite_produit()));
                 }
     return total;
     }
